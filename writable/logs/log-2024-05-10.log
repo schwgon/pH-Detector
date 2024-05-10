@@ -1,0 +1,84 @@
+ERROR - 2024-05-10 02:42:49 --> mysqli_sql_exception: Unknown column 'email' in 'where clause' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1713): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\system\Model.php(667): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(17): CodeIgniter\Model->countAllResults()
+#6 C:\xampp\htdocs\pH-Detector\app\Controllers\Auth.php(72): App\Models\UserModel->isEmailTaken('gaspar@gamil.co...')
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\Auth->do_register()
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-05-10 02:42:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'email' in 'where clause'
+[Method: POST, Route: register1]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1713): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = :email:', [...], false)
+ 2 SYSTEMPATH\Model.php(667): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH\Models\UserModel.php(17): CodeIgniter\Model->countAllResults()
+ 4 APPPATH\Controllers\Auth.php(72): App\Models\UserModel->isEmailTaken('gaspar@gamil.com')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->do_register()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-10 02:42:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'email' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = \'gaspar@gamil.com\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = \'gaspar@gamil.com\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1713): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = :email:', [...], false)
+ 4 SYSTEMPATH\Model.php(667): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 5 APPPATH\Models\UserModel.php(17): CodeIgniter\Model->countAllResults()
+ 6 APPPATH\Controllers\Auth.php(72): App\Models\UserModel->isEmailTaken('gaspar@gamil.com')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->do_register()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-10 02:42:49 --> [Caused by] mysqli_sql_exception: Unknown column 'email' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = \'gaspar@gamil.com\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = \'gaspar@gamil.com\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = \'gaspar@gamil.com\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1713): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `usuario`
+WHERE `email` = :email:', [...], false)
+ 5 SYSTEMPATH\Model.php(667): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 6 APPPATH\Models\UserModel.php(17): CodeIgniter\Model->countAllResults()
+ 7 APPPATH\Controllers\Auth.php(72): App\Models\UserModel->isEmailTaken('gaspar@gamil.com')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->do_register()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-05-10 02:46:26 --> BadMethodCallException: Call to undefined method App\Models\UserModel::isEmailTaken
+[Method: POST, Route: register1]
+in SYSTEMPATH\Model.php on line 921.
+ 1 APPPATH\Controllers\Auth.php(72): CodeIgniter\Model->__call('isEmailTaken', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->do_register()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
