@@ -14,7 +14,7 @@
 
         		<div class="login__field">
         			<i class="login__icon fas fa-user"></i>
-    				<input type="text" class="login__input" name="mail" placeholder="Email">
+    				<input type="text" class="login__input" name="email" placeholder="Email">
     			</div>
 
         		<div class="login__field">

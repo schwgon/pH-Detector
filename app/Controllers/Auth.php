@@ -12,7 +12,7 @@ class Auth extends BaseController
 
     public function indexLogin()  // Método para cargar la vista del formulario de inicio de sesión.
     {
-        // $data['session'] = \Config\Services::session();
+        $data['session'] = \Config\Services::session();
         echo view('login');
     }
 
@@ -32,11 +32,11 @@ class Auth extends BaseController
                 $this->session->set("user_name", $result->name);
                 // Verificar si el usuario es administrador
                 if ($result->permisos == 1) {
-                    // El usuario es administrador
+                     //El usuario es administrador
                     $this->session->set("is_admin", true);
                     return redirect()->to(base_url('admin'));
                 } else {
-                    // El usuario no es administrador
+                     //El usuario no es administrador
                     $this->session->set("is_admin", false);
                     return redirect()->to(base_url(''));
                 }
@@ -48,7 +48,10 @@ class Auth extends BaseController
         else{   
             echo 'Invalid email or password';
         }
-    }
+    
+        
+}
+    
 
     public function logout() {
         $this->session->destroy();
@@ -57,7 +60,7 @@ class Auth extends BaseController
 
     public function indexRegister()
     {
-        // $data['session'] = \Config\Services::session();
+        $data['session'] = \Config\Services::session();
         echo view('register');
     }
     
@@ -65,7 +68,7 @@ class Auth extends BaseController
         $userModel = new UserModel();
 
         $name = $this->request->getPost('name');
-        $email = $this->request->getPost('mail');
+        $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $device = $this->request->getPost('device');
 
@@ -74,16 +77,19 @@ class Auth extends BaseController
             return redirect()->to('register');;
         }
 
+        
         $password = password_hash("$password", PASSWORD_BCRYPT);
         $data = [
-            'nombre'=>$name,
-            'mail'=>$email,
+            'name'=>$name,
+            'email'=>$email,
             'password'=>$password,
             'id_dispositivo' => $device
         ];
+        
         $r = $userModel->add($data);
 
         if ( $r ) {
+            
             return redirect()->to('login');
             echo "user Registered sucesfully!!";
         }
