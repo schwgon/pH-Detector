@@ -24,14 +24,16 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
 
         $result = $userModel->where('email',$email)->first();
-
+        
         if($result){
             if (password_verify($password, $result->password)){
                 // Inicio de sesión exitoso
                 $this->session->set("user_id", $result->id_usuario);
                 $this->session->set("user_name", $result->name);
+                
                 // Verificar si el usuario es administrador
-                if ($result->permisos == 1) {
+                if ($result->id_permiso == 1) { //Gaspar, acá había un error y era que estaba permiso, y en la base de datos tenemos id_permiso y lo tuve que corregir porque me decia variable indefinida
+
                      //El usuario es administrador
                     $this->session->set("is_admin", true);
                     return redirect()->to(base_url('admin'));
@@ -45,11 +47,10 @@ class Auth extends BaseController
                 echo 'Invalid email or password.';
             }
         } 
-        else{   
-            echo 'Invalid email or password';
+        //Y en esta parte te envia a admin.php que sería ya de por si la vista que vamos a tener los administradores
+        else{
+            return view('admin.php');
         }
-    
-        
 }
     
 
