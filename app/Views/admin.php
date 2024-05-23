@@ -5,24 +5,24 @@
     <title>Admin Panel - ABM</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<body>
+<body class="bg-dark text-white">
     <div class="container">
         <h1 class="mt-5">Admin Panel - ABM</h1>
 
         <!-- Formulario para agregar nuevo registro -->
         <div class="card mt-5">
-            <div class="card-header">
+            <div class="card-header text-dark">
                 <h2>Agregar Nuevo Registro</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-dark">
                 <form>
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+                        <input type="text" name="name" id="name" class="form-control text-dark" placeholder="Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" required>
+                        <input type="email" name="email" id="email" class="form-control"placeholder="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="permisos">Permisos</label>
@@ -38,11 +38,11 @@
 
         <!-- Tabla para mostrar registros -->
         <div class="card mt-5">
-            <div class="card-header">
+            <div class="card-header text-dark">
                 <h2>Lista de Registros</h2>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="bg-dark table table-bordered text-white">
                     <thead>
                         <tr>
                             <th>ID</th>
