@@ -12,7 +12,7 @@ class Auth extends BaseController
 
     public function indexLogin()  // Método para cargar la vista del formulario de inicio de sesión.
     {
-        // $data['session'] = \Config\Services::session();
+        $data['session'] = \Config\Services::session();
         echo view('login');
     }
 
@@ -24,19 +24,20 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
 
         $result = $userModel->where('email',$email)->first();
-
+        
         if($result){
             if (password_verify($password, $result->password)){
                 // Inicio de sesión exitoso
                 $this->session->set("user_id", $result->id_usuario);
                 $this->session->set("user_name", $result->name);
+                
                 // Verificar si el usuario es administrador
                 if ($result->id_permiso == 1) {
                     // El usuario es administrador
                     $this->session->set("is_admin", true);
                     return redirect()->to(base_url('admin'));
                 } else {
-                    // El usuario no es administrador
+                     //El usuario no es administrador
                     $this->session->set("is_admin", false);
                     return redirect()->to(base_url(''));
                 }
@@ -45,10 +46,12 @@ class Auth extends BaseController
                 echo 'Invalid email or password.';
             }
         } 
-        else{   
-            echo 'Invalid email or password';
+        //Y en esta parte te envia a admin.php que sería ya de por si la vista que vamos a tener los administradores
+        else{
+            return view('admin.php');
         }
-    }
+}
+    
 
     public function logout() {
         $this->session->destroy();
@@ -57,7 +60,7 @@ class Auth extends BaseController
 
     public function indexRegister()
     {
-        // $data['session'] = \Config\Services::session();
+        $data['session'] = \Config\Services::session();
         echo view('register');
     }
     
@@ -73,15 +76,18 @@ class Auth extends BaseController
             return redirect()->to('register');;
         }
 
+        
         $password = password_hash("$password", PASSWORD_BCRYPT);
         $data = [
             'name'=>$name,
             'email'=>$email,
             'password'=>$password
         ];
+        
         $r = $userModel->add($data);
 
         if ( $r ) {
+            
             return redirect()->to('login');
             echo "user Registered sucesfully!!";
         }

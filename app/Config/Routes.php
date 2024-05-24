@@ -13,3 +13,4 @@ $routes->get('register', 'Auth::indexRegister');
 $routes->post('loginForm', "Auth::do_login");
 $routes->post('register1', "Auth::do_register");
 $routes->get('logout', 'Auth::logout');
+$routes->get('admin', "Auth::do_login");
