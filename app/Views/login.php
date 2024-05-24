@@ -14,7 +14,7 @@
 
         		<div class="login__field">
         			<i class="login__icon fas fa-user"></i>
-    				<input type="text" class="login__input" name="mail" placeholder="Email">
+    				<input type="text" class="login__input" name="email" placeholder="Email">
     			</div>
 
         		<div class="login__field">
@@ -22,10 +22,7 @@
         			<input type="password" class="login__input" name="password" placeholder="Password">
         		</div>
 
-        		<button class="button login__submit">
-        			<span class="button__text">Iniciar Sesion</span>
-    				<i class="button__icon fas fa-chevron-right"></i>
-    			</button>
+        		<button class="button login__submit">Iniciar Sesion</button>
                 			
         	</div>
         </div>

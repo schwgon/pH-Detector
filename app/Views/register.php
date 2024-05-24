@@ -13,16 +13,12 @@
             <input name="name" required type="text" class="form-control" id="name" placeholder="Tu Nombre">
         </div>
         <div class="mb-3">
-            <label for="mail" class="form-label">Correo Electrónico</label>
-            <input name="mail" required type="mail" class="form-control" id="mail" placeholder="correodeejemplo@gmail.com">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input name="email" required type="mail" class="form-control" id="email" placeholder="correodeejemplo@gmail.com">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
             <input name="password" required type="password" class="form-control" id="password" placeholder="1234">
-        </div>
-        <div class="mb-3">
-            <label for="device" class="form-label">ID del dispositivo</label>
-            <input name="device" required type="text" class="form-control" id="device" placeholder="1234">
         </div>
         
         <button class="mb-3"><input type="submit" value="Register" class="btn btn-primary" /></button>

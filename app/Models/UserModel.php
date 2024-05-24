@@ -10,14 +10,14 @@ class UserModel extends Model{
 
     protected $returnType       = 'object';
 
-    protected $allowedFields = ['nombre', 'mail', 'password', 'permisos', 'id_dispositivo'];
+    protected $allowedFields = ['name', 'email', 'password', 'id_permiso'];
 
     protected $validationRules   = [];
     protected $validationMessages= [];
     protected $skipVaidation     = false;
 
     public function isEmailTaken($email) {
-        return $this->where('mail', $email)->countAllResults() > 0;
+        return $this->where('email', $email)->countAllResults() > 0;
     }
 
     // public function Test($mail, $color, $pelicula, $videojuego) {

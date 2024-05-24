@@ -18,7 +18,7 @@ class Auth extends BaseController
 
     public function do_login() 
     {
-        $userModel = new userModel();
+        $userModel = new UserModel();
         
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -31,7 +31,7 @@ class Auth extends BaseController
                 $this->session->set("user_id", $result->id_usuario);
                 $this->session->set("user_name", $result->name);
                 // Verificar si el usuario es administrador
-                if ($result->permisos == 1) {
+                if ($result->id_permiso == 1) {
                     // El usuario es administrador
                     $this->session->set("is_admin", true);
                     return redirect()->to(base_url('admin'));
@@ -65,21 +65,19 @@ class Auth extends BaseController
         $userModel = new UserModel();
 
         $name = $this->request->getPost('name');
-        $email = $this->request->getPost('mail');
+        $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $device = $this->request->getPost('device');
 
-        if ($userModel->isEmailTaken($email)) {                // Verificar si el correo electrónico ya está registrado
+        if ($userModel->isEmailTaken($email)) {                               // Verificar si el correo electrónico ya está registrado
             echo "El correo electrónico ya está registrado.";
             return redirect()->to('register');;
         }
 
         $password = password_hash("$password", PASSWORD_BCRYPT);
         $data = [
-            'nombre'=>$name,
-            'mail'=>$email,
-            'password'=>$password,
-            'id_dispositivo' => $device
+            'name'=>$name,
+            'email'=>$email,
+            'password'=>$password
         ];
         $r = $userModel->add($data);
 
@@ -91,13 +89,5 @@ class Auth extends BaseController
             echo "Error en el registro del usuario";
         }
         return redirect()->to('register');
-    }
-
-    public function VerificacionForm()
-    {
-        $data['session'] = \Config\Services::session();
-        echo view('common/header', $data);
-        echo view('verifuser');
-        echo view('common/footer');
     }
 }
