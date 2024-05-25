@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro de Usuario</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
     <body class="bg-dark text-white">
         <div class="container">
@@ -30,10 +28,6 @@
                                 <div class="mb-3">
                                     <label for="password" class="form-label text-white">Password</label>
                                     <input name="password" required type="password" class="form-control" id="password" placeholder="1234">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="device" class="form-label text-white">Device id</label>
-                                    <input name="device" required type="text" class="form-control" id="device" placeholder="Your device id">
                                 </div>
                                 <button type="submit" class="btn btn-primary mb-4">Register</button>                              
                                 <p class="mb-3 text-white">Do you already have an account? <a href="<?= site_url("login"); ?>">Log-In</a></p>

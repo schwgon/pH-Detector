@@ -75,7 +75,6 @@ class Auth extends BaseController
             echo "El correo electrónico ya está registrado.";
             return redirect()->to('register');;
         }
-
         
         $password = password_hash("$password", PASSWORD_BCRYPT);
         $data = [
@@ -83,7 +82,6 @@ class Auth extends BaseController
             'email'=>$email,
             'password'=>$password
         ];
-        
         $r = $userModel->add($data);
 
         if ( $r ) {
