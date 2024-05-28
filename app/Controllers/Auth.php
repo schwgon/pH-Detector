@@ -46,11 +46,10 @@ class Auth extends BaseController
                 echo 'Invalid email or password.';
             }
         } 
-        //Y en esta parte te envia a admin.php que sería ya de por si la vista que vamos a tener los administradores
         else{
-            return view('admin.php');
+            return view('admin.php'); // Te envia a admin.php que es la vista de los administradores
         }
-}
+    }
     
 
     public function logout() {
@@ -85,7 +84,6 @@ class Auth extends BaseController
         $r = $userModel->add($data);
 
         if ( $r ) {
-            
             return redirect()->to('login');
             echo "user Registered sucesfully!!";
         }
