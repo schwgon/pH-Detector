@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url("catalogo"); ?>">Inicio</a>
+                        <a class="nav-link" href="<?= site_url(""); ?>">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,6 +30,9 @@
                             <?php else: ?>
                                 <li><a class="dropdown-item" href="<?= site_url("register"); ?>">Register</a></li> <!-- Enlace a la pagina de registro -->
                                 <li><a class="dropdown-item" href="<?= site_url("login"); ?>">Login</a></li> <!-- Enlace a la página de inicio de sesion -->
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Home</a></li><!-- Enlace a la página de inicial -->
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">About Us</a></li><!-- Enlace a la página de inicial -->
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Contact</a></li><!-- Enlace a la página de inicial -->
                             <?php endif; ?>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<?= site_url("acercade"); ?>">Acerca De</a></li>
