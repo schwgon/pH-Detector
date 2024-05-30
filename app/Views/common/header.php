@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="<?php echo base_url('images/agua.png'); ?>" type="image/png">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
