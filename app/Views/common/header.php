@@ -23,17 +23,18 @@
                         Ingreso
                         </a>
                         <ul class="dropdown-menu">
-                            <?php if ($session->has('user_id')): ?> <!-- Verifica si el usuario ha iniciado sesion -->
-                                <li><a class="dropdown-item" href="<?= site_url("logout"); ?>">Cerrar Sesión</a></li> <!-- Enlace para cerrar sesion -->
-                                <?php if ($session->get('is_admin') == true): ?> <!-- Verificar si el usuario es administrador -->
+                            <?php if ($session->has('user_id')): ?>
+                                <li><a class="dropdown-item" href="<?= site_url("logout"); ?>">Cerrar Sesión</a></li>
+                                <?php if ($session->get('is_admin') == true): ?>
                                     <li><a class="dropdown-item" href="<?= site_url("admin"); ?>">Administrador</a></li>
                                 <?php endif; ?>
                             <?php else: ?>
-                                <li><a class="dropdown-item" href="<?= site_url("register"); ?>">Register</a></li> <!-- Enlace a la pagina de registro -->
-                                <li><a class="dropdown-item" href="<?= site_url("login"); ?>">Login</a></li> <!-- Enlace a la página de inicio de sesion -->
-                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Home</a></li><!-- Enlace a la página de inicial -->
-                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">About Us</a></li><!-- Enlace a la página de inicial -->
-                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Contact</a></li><!-- Enlace a la página de inicial -->
+                                <li><a class="dropdown-item" href="<?= site_url("register"); ?>">Register</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url("login"); ?>">Login</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Home</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">About Us</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Contact</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url("logout"); ?>">logout</a></li>
                             <?php endif; ?>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<?= site_url("acercade"); ?>">Acerca De</a></li>
@@ -46,8 +47,8 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
-                <?php if ($session->has('user_name')): ?> <!-- Verifica si hay un nombre de usuario en la sesión. -->
-                    <p class="text-white">Bienvenido, <?= $session->get('user_name'); ?></p> <!-- Muestra un mensaje de bienvenida con el nombre del usuario. -->
+                <?php if ($session->has('user_name')): ?>
+                    <p class="text-white">Bienvenido, <?= $session->get('user_name'); ?></p>
                 <?php endif; ?>
 
             </div>

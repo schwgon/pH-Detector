@@ -21,19 +21,24 @@ class UserModel extends Model{
         return $this->where('email', $email)->countAllResults() > 0; // Cuenta los resultados con el correo dado y devuelve verdadero si es mayor a 0
     }
 
-    // public function Test($mail, $color, $pelicula, $videojuego) {
-    //     // return $this->where('email', $email)->countAllResults() > 0;
-    //     return $this ->where('email', $mail)
-    //         ->where('pregunta1', $color)
-    //         ->where('pregunta2', $pelicula)
-    //         ->where('pregunta3', $videojuego)
-    //         ->countAllResults() > 0;
-    // }
-
-    // public function actualizarContrasena($email, $hashedPassword) {
-    //     $data = ['password' => $hashedPassword];
-    //     $this->where('email', $email)->set($data)->update();
-    // }
+    public function Usuarios(){
+        $query = $this->db->table('usuario')
+            ->select('usuario.name, usuario.id_usuario, usuario.email, usuario.password, permiso.permiso')
+            ->join('permiso', 'usuario.id_permiso = permiso.id_permiso') //esteeeeeeeeeeeeeeeeee
+            ->join('usuario', 'permiso.id_usuario = usuario.id_usuario') //esteeeeeeeeeeeeeeeeee
+            // ->join('calle', 'lugar.id_calle = calle.id_calle')
+            // ->join('barrio', 'calle.id_barrio = barrio.id_barrio')
+            // ->join('ciudad', 'barrio.id_ciudad = ciudad.id_ciudad')
+            // ->join('provincia', 'ciudad.id_provincia = provincia.id_provincia')
+            // ->join('pais', 'provincia.id_pais = pais.id_pais')
+            // ->join('imagen', 'lugar.id_lugar = imagen.id_lugar', 'left')
+            // ->join('precio', 'lugar.id_precio = precio.id_precio', 'left') // Agrega esta línea para unir la tabla de precios
+            // ->join('etiqueta', 'lugar.id_lugar = etiqueta.id_lugar', 'left')
+            // ->join('usuario', 'lugar.id_usuario = usuario.id_usuario', 'left')
+            ->groupBy('name.id_usuario')
+            ->get();
+        return $query->getResultArray();
+    }
 
     public function add($data) // Metodo para añadir un nuevo usuario
     {
