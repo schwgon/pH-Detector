@@ -1,55 +1,82 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+<?php
+$session = \Config\Services::session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pH-Detector</title>
     <link rel="shortcut icon" href="<?php echo base_url('images/agua.png'); ?>" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url(""); ?>">Inicio</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ingreso
+<body class="bg-gray-800">
+    <nav class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="<?= site_url(""); ?>">
+                            <img class="h-8 w-8" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
                         </a>
-                        <ul class="dropdown-menu">
-                            <?php if ($session->has('user_id')): ?> <!-- Verifica si el usuario ha iniciado sesion -->
-                                <li><a class="dropdown-item" href="<?= site_url("logout"); ?>">Cerrar Sesión</a></li> <!-- Enlace para cerrar sesion -->
-                                <?php if ($session->get('is_admin') == true): ?> <!-- Verificar si el usuario es administrador -->
-                                    <li><a class="dropdown-item" href="<?= site_url("admin"); ?>">Administrador</a></li>
-                                <?php endif; ?>
-                            <?php else: ?>
-                                <li><a class="dropdown-item" href="<?= site_url("register"); ?>">Register</a></li> <!-- Enlace a la pagina de registro -->
-                                <li><a class="dropdown-item" href="<?= site_url("login"); ?>">Login</a></li> <!-- Enlace a la página de inicio de sesion -->
-                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Home</a></li><!-- Enlace a la página de inicial -->
-                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">About Us</a></li><!-- Enlace a la página de inicial -->
-                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Contact</a></li><!-- Enlace a la página de inicial -->
-                            <?php endif; ?>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?= site_url("acercade"); ?>">Acerca De</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
-                <?php if ($session->has('user_name')): ?> <!-- Verifica si hay un nombre de usuario en la sesión. -->
-                    <p class="text-white">Bienvenido, <?= $session->get('user_name'); ?></p> <!-- Muestra un mensaje de bienvenida con el nombre del usuario. -->
-                <?php endif; ?>
-
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="<?= site_url(""); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <div class="relative">
+                            <a href="<?= site_url(""); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+                                <a href="<?= site_url("register"); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
+                                <a href="<?= site_url("login"); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log In</a>
+                               
+                                <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <div class="relative">
+                            <input type="text" class="bg-gray-700 text-white rounded-md py-2 pl-3 pr-10 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white sm:text-sm" placeholder="Search">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <?php if ($session->has('user_name')): ?>
+                            <p class="text-white ml-4">Bienvenido, <?= $session->get('user_name'); ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed. -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open. -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="<?= site_url(""); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                <div class="relative">
+                    <button class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left" aria-haspopup="true">
+                        Ingreso
+                    </button>
+                    <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                      
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
