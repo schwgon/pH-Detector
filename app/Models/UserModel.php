@@ -16,8 +16,9 @@ class UserModel extends Model{
     protected $validationMessages= [];
     protected $skipVaidation     = false;
 
-    public function isEmailTaken($email) {
-        return $this->where('email', $email)->countAllResults() > 0;
+    public function isEmailTaken($email) // Metodo para verificar si un correo electronico ya esta registrado
+    {
+        return $this->where('email', $email)->countAllResults() > 0; // Cuenta los resultados con el correo dado y devuelve verdadero si es mayor a 0
     }
 
     // public function Test($mail, $color, $pelicula, $videojuego) {
@@ -30,13 +31,13 @@ class UserModel extends Model{
     // }
 
     // public function actualizarContrasena($email, $hashedPassword) {
-    //     // Aquí debes implementar la lógica para actualizar la contraseña en la base de datos
     //     $data = ['password' => $hashedPassword];
     //     $this->where('email', $email)->set($data)->update();
     // }
 
-    public function add($data){
-        return $this->insert($data);
+    public function add($data) // Metodo para añadir un nuevo usuario
+    {
+        return $this->insert($data); // Inserta los datos del usuario en la base de datos y devuelve el resultado
     }
 
     // public function Usuarios(){

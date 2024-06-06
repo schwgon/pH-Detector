@@ -41,7 +41,7 @@
             <div class="card-header text-dark">
                 <h2>Lista de Registros</h2>
             </div>
-            <div class="card-body">
+            <div class="bg-dark card-body">
                 <table class="bg-dark table table-bordered text-white">
                     <thead>
                         <tr>

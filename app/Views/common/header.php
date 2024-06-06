@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="<?php echo base_url('images/agua.png'); ?>" type="image/png">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
@@ -15,23 +16,24 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url("catalogo"); ?>">Inicio</a>
+                        <a class="nav-link" href="<?= site_url(""); ?>">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Ingreso
                         </a>
                         <ul class="dropdown-menu">
-                            <?php if ($session->has('user_id')): ?>
-                                <li><a class="dropdown-item" href="<?= site_url("logout"); ?>">Cerrar Sesión</a></li>
-                                <li><a class="dropdown-item" href="<?= base_url('agregar') ?>">Agregar Lugar</a></li>
-                                <li><a class="dropdown-item" href="<?= site_url("historial/like"); ?>">Historial de Likes</a></li>
+                            <?php if ($session->has('user_id')): ?> <!-- Verifica si el usuario ha iniciado sesion -->
+                                <li><a class="dropdown-item" href="<?= site_url("logout"); ?>">Cerrar Sesión</a></li> <!-- Enlace para cerrar sesion -->
                                 <?php if ($session->get('is_admin') == true): ?> <!-- Verificar si el usuario es administrador -->
                                     <li><a class="dropdown-item" href="<?= site_url("admin"); ?>">Administrador</a></li>
                                 <?php endif; ?>
                             <?php else: ?>
-                                <li><a class="dropdown-item" href="<?= site_url("register"); ?>">Register</a></li>
-                                <li><a class="dropdown-item" href="<?= site_url("login"); ?>">Login</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url("register"); ?>">Register</a></li> <!-- Enlace a la pagina de registro -->
+                                <li><a class="dropdown-item" href="<?= site_url("login"); ?>">Login</a></li> <!-- Enlace a la página de inicio de sesion -->
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Home</a></li><!-- Enlace a la página de inicial -->
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">About Us</a></li><!-- Enlace a la página de inicial -->
+                                <li><a class="dropdown-item" href="<?= site_url(""); ?>">Contact</a></li><!-- Enlace a la página de inicial -->
                             <?php endif; ?>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<?= site_url("acercade"); ?>">Acerca De</a></li>
@@ -44,8 +46,8 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
-                <?php if ($session->has('user_name')): ?>
-                    <p class="text-white">Bienvenido, <?= $session->get('user_name'); ?></p>
+                <?php if ($session->has('user_name')): ?> <!-- Verifica si hay un nombre de usuario en la sesión. -->
+                    <p class="text-white">Bienvenido, <?= $session->get('user_name'); ?></p> <!-- Muestra un mensaje de bienvenida con el nombre del usuario. -->
                 <?php endif; ?>
 
             </div>

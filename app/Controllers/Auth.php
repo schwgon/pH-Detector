@@ -1,95 +1,102 @@
 <?php
 
 namespace App\Controllers;
+
 use \App\Models\UserModel;
 
-class Auth extends BaseController
+class Auth extends BaseController // Declara la clase Auth que extiende BaseController para heredar sus metodos y propiedades
 {
-    public function __construct() // Constructor: Inicializa el controlador y carga la biblioteca de sesión.
+    public function __construct() // Constructor: se ejecuta automaticamente al crear una instancia de la clase. Carga la biblioteca de sesion
     {
-        $this->session = \Config\Services::session();
+        $this->session = \Config\Services::session(); // Inicializa la sesion utilizando el servicio de configuracion
     }
 
-    public function indexLogin()  // Método para cargar la vista del formulario de inicio de sesión.
+    public function indexLogin()  // Metodo para cargar la vista del formulario de inicio de sesion
+    {
+        $data['session'] = \Config\Services::session(); // Guarda la sesion actual en el arreglo $data
+        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        return view('login');
+        
+    }
+
+    public function do_login() // Metodo para procesar el inicio de sesion
     {
         $data['session'] = \Config\Services::session();
-        echo view('login');
-    }
+        $userModel = new UserModel(); // Crea una instancia del modelo de usuario para interactuar con la base de datos
 
-    public function do_login() 
-    {
-        $userModel = new UserModel();
-        
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+        $email = $this->request->getPost('email'); // Obtiene el valor del campo 'email' enviado por el formulario a traves del metodo POST
+        $password = $this->request->getPost('password'); // Obtiene el valor del campo 'password' enviado por el formulario a traves del metodo POST
 
-        $result = $userModel->where('email',$email)->first();
-        
-        if($result){
-            if (password_verify($password, $result->password)){
-                // Inicio de sesión exitoso
-                $this->session->set("user_id", $result->id_usuario);
-                $this->session->set("user_name", $result->name);
-                
-                // Verificar si el usuario es administrador
-                if ($result->id_permiso == 1) {
-                    // El usuario es administrador
+        $result = $userModel->where('email', $email)->first(); // Busca un usuario en la base de datos con el correo electronico proporcionado
+
+        if ($result) { // Si se encuentra un usuario con el correo electronico dado
+            if (password_verify($password, $result->password)) { // Verifica si la contraseña ingresada coincide con la almacenada en la base de datos
+                // Inicio de sesion exitoso
+                $this->session->set("user_id", $result->id_usuario); // Guarda el ID del usuario en la sesion
+                $this->session->set("user_name", $result->name); // Guarda el nombre del usuario en la sesion
+
+                if ($result->id_permiso == 1) { // Verifica si el usuario tiene permisos de administrador
                     $this->session->set("is_admin", true);
-                    return redirect()->to(base_url('admin'));
+                    echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+                    return view('admin'); // Redirige al usuario a la pagina de administracion
                 } else {
-                     //El usuario no es administrador
-                    $this->session->set("is_admin", false);
-                    return redirect()->to(base_url(''));
+                    $this->session->set("is_admin", false); // Establece el indicador de no administrador en la sesion
+                    return redirect()->to(base_url('')); // Redirige al usuario a la pagina principal
                 }
-            } 
-            else{
-                echo 'Invalid email or password.';
+            } else {
+                echo 'Invalid password.'; // Muestra un mensaje de error si la contraseña es incorrecta
+                return view('login'); // Carga la vista login
             }
-        } 
-        else{
-            return view('admin.php'); // Te envia a admin.php que es la vista de los administradores
+        } else {
+            echo 'Invalid email.'; // Muestra un mensaje de error si no se encuentra el usuario
+            return view('login'); // Carga la vista login
         }
     }
-    
 
-    public function logout() {
-        $this->session->destroy();
-        return redirect()->to(base_url('login'));
+
+    public function logout() // Metodo para cerrar sesion
+    {
+        $this->session->destroy(); // Destruye la sesion del usuario
+        return redirect()->to(base_url('login')); // Redirige a la pagina de inicio de sesion
     }
 
-    public function indexRegister()
+    public function indexRegister() // Metodo para cargar la vista del formulario de registro
     {
         $data['session'] = \Config\Services::session();
-        echo view('register');
+        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        return view('register');
+       
     }
-    
-    public function do_register() {
-        $userModel = new UserModel();
 
-        $name = $this->request->getPost('name');
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+    public function do_register() // Metodo para procesar el registro de un nuevo usuario
+    {
+        $data['session'] = \Config\Services::session();
+        $userModel = new UserModel(); // Crea una instancia del modelo de usuario para interactuar con la base de datos
 
-        if ($userModel->isEmailTaken($email)) {                               // Verificar si el correo electrónico ya está registrado
-            echo "El correo electrónico ya está registrado.";
-            return redirect()->to('register');;
+        $name = $this->request->getPost('name'); // Obtiene el valor del campo 'name' enviado por el formulario a traves del metodo POST
+        $email = $this->request->getPost('email'); // Obtiene el valor del campo 'email' enviado por el formulario a traves del metodo POST
+        $password = $this->request->getPost('password'); // Obtiene el valor del campo 'password' enviado por el formulario a traves del metodo POST
+
+        if ($userModel->isEmailTaken($email)) { // Verifica si el correo electronico ya esta registrado en la base de datos
+            echo "El correo electrónico ya está registrado."; // Muestra un mensaje de error si el correo ya esta en uso
+            return view('register'); // Redirige a la pagina de registro
         }
-        
-        $password = password_hash("$password", PASSWORD_BCRYPT);
-        $data = [
-            'name'=>$name,
-            'email'=>$email,
-            'password'=>$password
+
+        $password = password_hash($password, PASSWORD_BCRYPT); // Encripta la contraseña utilizando el algoritmo BCRYPT
+        $data = [ // Crea un arreglo con los datos del usuario
+            'name' => $name,
+            'email' => $email,
+            'password' => $password
         ];
-        $r = $userModel->add($data);
+        $r = $userModel->add($data); // Añade el nuevo usuario a la base de datos
 
-        if ( $r ) {
-            return redirect()->to('login');
-            echo "user Registered sucesfully!!";
+        if ($r) { // Si el registro es exitoso
+            echo "user Registered successfully!!"; // Muestra un mensaje de exito
+            $this->session->set("welcome_message", "¡Bienvenido, " . $result->name . "!");
+            return view('login'); // Redirige a la pagina de inicio de sesion
+        } else {
+            echo "Error en el registro del usuario"; // Muestra un mensaje de error si el registro falla
+            return view('register'); // Redirige a la pagina de registro
         }
-        else {
-            echo "Error en el registro del usuario";
-        }
-        return redirect()->to('register');
     }
 }
