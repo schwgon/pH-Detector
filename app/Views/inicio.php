@@ -22,12 +22,14 @@
     </section>
 </main>
 
-    <footer class="bg-gray-800 text-white py-4 text-center">
-        <h2 class="text-xl mb-2">Contact</h2>
-        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Mauris ac lacinia mauris, a tincidunt urna. Fusce consectetur elit eu risus pharetra, vitae vestibulum velit suscipit. Proin scelerisque velit at ligula fermentum, ut tempor nunc pretium. Aenean vitae arcu et lacus ullamcorper tempor in sit amet neque. Maecenas vestibulum consequat risus, et vehicula leo auctor vel.</p>
-        <hr class="my-4">
-        &copy; Todos los derechos reservados
-    </footer>
+<footer class="bg-gray-800 text-white py-4 flex flex-col items-center justify-center">
+  <h2 class="text-xl font-bold mb-4">Contact</h2>
+  <p class="text-gray-300 text-base mb-4">
+    
+  </p>
+  <hr class="border-gray-700 w-full my-4">
+  <p class="text-gray-400 text-sm mt-4">&copy; Todos los derechos reservados</p>
+</footer>
 </body>
 
 </html>

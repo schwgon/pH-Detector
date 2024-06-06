@@ -34,6 +34,8 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
                 // Inicio de sesion exitoso
                 $this->session->set("user_id", $result->id_usuario); // Guarda el ID del usuario en la sesion
                 $this->session->set("user_name", $result->name); // Guarda el nombre del usuario en la sesion
+                $this->session->set("user_email", $result->email); // Guarda el nombre del email en la sesion
+
 
                 if ($result->id_permiso == 1) { // Verifica si el usuario tiene permisos de administrador
                     $this->session->set("is_admin", true);
@@ -91,12 +93,21 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
         $r = $userModel->add($data); // Añade el nuevo usuario a la base de datos
 
         if ($r) { // Si el registro es exitoso
-            echo "user Registered successfully!!"; // Muestra un mensaje de exito
-            $this->session->set("welcome_message", "¡Bienvenido, " . $result->name . "!");
+            $data['success_message'] = "User Registered successfully!!"; // Muestra un mensaje de exito
             return view('login'); // Redirige a la pagina de inicio de sesion
         } else {
             echo "Error en el registro del usuario"; // Muestra un mensaje de error si el registro falla
             return view('register'); // Redirige a la pagina de registro
         }
+    }
+    public function perfil(){
+        $data['session'] = \Config\Services::session();
+        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        return view('perfil');
+    }
+    public function editarPerfil(){
+        $data['session'] = \Config\Services::session();
+        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        return view('editarPerfil');
     }
 }
