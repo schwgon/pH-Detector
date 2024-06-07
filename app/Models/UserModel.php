@@ -22,20 +22,10 @@ class UserModel extends Model{
     }
 
     public function Usuarios(){
-        $query = $this->db->table('usuario')
-            ->select('usuario.name, usuario.id_usuario, usuario.email, usuario.password, permiso.permiso')
-            ->join('permiso', 'usuario.id_permiso = permiso.id_permiso') //esteeeeeeeeeeeeeeeeee
-            ->join('usuario', 'permiso.id_usuario = usuario.id_usuario') //esteeeeeeeeeeeeeeeeee
-            // ->join('calle', 'lugar.id_calle = calle.id_calle')
-            // ->join('barrio', 'calle.id_barrio = barrio.id_barrio')
-            // ->join('ciudad', 'barrio.id_ciudad = ciudad.id_ciudad')
-            // ->join('provincia', 'ciudad.id_provincia = provincia.id_provincia')
-            // ->join('pais', 'provincia.id_pais = pais.id_pais')
-            // ->join('imagen', 'lugar.id_lugar = imagen.id_lugar', 'left')
-            // ->join('precio', 'lugar.id_precio = precio.id_precio', 'left') // Agrega esta línea para unir la tabla de precios
-            // ->join('etiqueta', 'lugar.id_lugar = etiqueta.id_lugar', 'left')
-            // ->join('usuario', 'lugar.id_usuario = usuario.id_usuario', 'left')
-            ->groupBy('name.id_usuario')
+        $query = $this->db->table('usuario u')
+            ->select('u.name, u.id_usuario, u.email, u.password, p.permiso')
+            ->join('permiso p', 'u.id_permiso = p.id_permiso', 'left')
+            ->groupBy('u.id_usuario')
             ->get();
         return $query->getResultArray();
     }

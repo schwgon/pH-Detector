@@ -26,12 +26,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($usuarios as $users): ?>
+                        <?php foreach ($usuarios as $user): ?>
                             <tr>
-                                <td>1<?= $users['id_usuario']; ?></td>
-                                <td>Juan Pérez<?= $users['name']; ?></td>
-                                <td>juan@example.com<?= $users['email']; ?></td>
-                                <td>Administrador<?= $users['permiso']; ?></td>
+                                <td><?= $user['id_usuario']; ?></td>
+                                <td><?= $user['name']; ?></td>
+                                <td><?= $user['email']; ?></td>
+                                <td><?= $user['permiso']; ?></td>
                                 <td>
                                     <button class="btn btn-warning btn-sm">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
