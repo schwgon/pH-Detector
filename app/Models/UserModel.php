@@ -21,19 +21,14 @@ class UserModel extends Model{
         return $this->where('email', $email)->countAllResults() > 0; // Cuenta los resultados con el correo dado y devuelve verdadero si es mayor a 0
     }
 
-    // public function Test($mail, $color, $pelicula, $videojuego) {
-    //     // return $this->where('email', $email)->countAllResults() > 0;
-    //     return $this ->where('email', $mail)
-    //         ->where('pregunta1', $color)
-    //         ->where('pregunta2', $pelicula)
-    //         ->where('pregunta3', $videojuego)
-    //         ->countAllResults() > 0;
-    // }
-
-    // public function actualizarContrasena($email, $hashedPassword) {
-    //     $data = ['password' => $hashedPassword];
-    //     $this->where('email', $email)->set($data)->update();
-    // }
+    public function Usuarios(){
+        $query = $this->db->table('usuario u')
+            ->select('u.name, u.id_usuario, u.email, u.password, p.permiso')
+            ->join('permiso p', 'u.id_permiso = p.id_permiso', 'left')
+            ->groupBy('u.id_usuario')
+            ->get();
+        return $query->getResultArray();
+    }
 
     public function add($data) // Metodo para añadir un nuevo usuario
     {
