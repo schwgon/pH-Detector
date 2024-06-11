@@ -11,20 +11,25 @@
 
 <body class="bg-gray-900 flex justify-center items-center min-h-screen">
 
-    <div class="mt-24 bg-gray-800 p-8 rounded-xl shadow-md max-w-md w-full mx-auto">
+    <div class="mt-4 bg-gray-800 p-8 rounded-xl shadow-md max-w-md w-full mx-auto">
         <h1 class="text-white text-2xl font-bold mb-6 text-center">Register</h1>
+        <?php if (session()->getFlashdata('correo_message')): ?>
+                <div class="alert alert-correo text-center mb-4 text-red-600	color: rgb(220 38 38);">
+                    <?= session()->getFlashdata('correo_message') ?>
+                </div>
+            <?php endif; ?>
         <form method="post" action="<?= base_url("register1"); ?>">
             <div class="mb-4">
-                <label for="name" class="block text-white mb-2">Name</label>
-                <input name="name" required type="text" class="form-input w-full bg-gray-700 text-white rounded-sm" id="name" placeholder="Your Name">
+                <label for="email" class="block text-white mb-2"><i class="fas fa-user"></i> Email</label>
+                <input name="name" required type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="name" placeholder="Your Name">
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-white mb-2">Email</label>
-                <input name="email" required type="email" class="form-input w-full bg-gray-700 text-white rounded-sm" id="email" placeholder="examplemail@email.com">
+                <label for="email" class="block text-white mb-2"><i class="fas fa-envelope"></i> Email</label>
+                <input name="email" required type="email" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="email" placeholder="examplemail@email.com">
             </div>
             <div class="mb-6">
-                <label for="password" class="block text-white mb-2">Password</label>
-                <input name="password" required type="password" class="form-input w-full bg-gray-700 text-white rounded-sm" id="password" placeholder="1234">
+                <label for="password" class="block text-white mb-2"><i class="fas fa-lock"></i> Password</label>
+                <input name="password" required type="password" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="password" placeholder="1234">
             </div>
             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-full mb-4">Register</button>
             <p class="text-white text-center">Do you already have an account? <a href="<?= site_url("login"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Log-In</a></p>

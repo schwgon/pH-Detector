@@ -18,7 +18,7 @@ $session = \Config\Services::session();
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <a href="<?= site_url(""); ?>">
-                            <img class="h-8 w-8" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
+                            <img class="h-8 w-8" style="color: white;" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
                         </a>
                     </div>
                     <div class="hidden md:block">

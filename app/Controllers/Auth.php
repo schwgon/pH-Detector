@@ -15,6 +15,7 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
     {
         $data['session'] = \Config\Services::session(); // Guarda la sesion actual en el arreglo $data
         echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer', $data);
         return view('login');
         
     }
@@ -46,11 +47,15 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
                     return redirect()->to(base_url('')); // Redirige al usuario a la pagina principal
                 }
             } else {
-                echo 'Invalid password.'; // Muestra un mensaje de error si la contraseña es incorrecta
+                session()->setFlashdata('password_message', 'Password is incorrect'); // Muestra un mensaje de error si la contraseña es incorrecta
+                echo view('common/header', $data);
+                echo view('common/footer', $data);
                 return view('login'); // Carga la vista login
             }
         } else {
-            echo 'Invalid email.'; // Muestra un mensaje de error si no se encuentra el usuario
+            session()->setFlashdata('user_message', 'User not found'); // Muestra un mensaje de error si no se encuentra el usuario
+            echo view('common/header', $data);
+            echo view('common/footer', $data);
             return view('login'); // Carga la vista login
         }
     }
@@ -66,6 +71,7 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
     {
         $data['session'] = \Config\Services::session();
         echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer', $data);
         return view('register');
        
     }
@@ -80,7 +86,9 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
         $password = $this->request->getPost('password'); // Obtiene el valor del campo 'password' enviado por el formulario a traves del metodo POST
 
         if ($userModel->isEmailTaken($email)) { // Verifica si el correo electronico ya esta registrado en la base de datos
-            echo "El correo electrónico ya está registrado."; // Muestra un mensaje de error si el correo ya esta en uso
+            session()->setFlashdata('correo_message', 'Email already registered'); // Muestra un mensaje de error si el correo ya esta en uso
+            echo view('common/header', $data);
+            echo view('common/footer', $data);
             return view('register'); // Redirige a la pagina de registro
         }
 
@@ -93,21 +101,22 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
         $r = $userModel->add($data); // Añade el nuevo usuario a la base de datos
 
         if ($r) { // Si el registro es exitoso
-            $data['success_message'] = "User Registered successfully!!"; // Muestra un mensaje de exito
+            session()->setFlashdata('success_message', 'You have successfully registered'); // Muestra un mensaje de exito
+            echo view('common/header', $data);
+            echo view('common/footer', $data);
             return view('login'); // Redirige a la pagina de inicio de sesion
-        } else {
-            echo "Error en el registro del usuario"; // Muestra un mensaje de error si el registro falla
-            return view('register'); // Redirige a la pagina de registro
         }
     }
     public function perfil(){
         $data['session'] = \Config\Services::session();
         echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer', $data);
         return view('perfil');
     }
     public function editarPerfil(){
         $data['session'] = \Config\Services::session();
         echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer', $data);
         return view('editarPerfil');
     }
 }
