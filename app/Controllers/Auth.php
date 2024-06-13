@@ -9,6 +9,7 @@ class Auth extends BaseController
     public function indexLogin()
     {
         echo view('common/header', ['session' => $this->session]);
+        echo view('common/footer', ['session' => $this->session]);
         return view('login');
     }
 
@@ -25,8 +26,10 @@ class Auth extends BaseController
         if ($result) { // Si se encuentra un usuario con el correo electronico dado
             if (password_verify($password, $result->password)) { // Verifica si la contraseña ingresada coincide con la almacenada en la base de datos
                 // Inicio de sesion exitoso
-                $this->session->set("user_id", $result->id_usuario); // Guarda el ID del usuario en la sesion
+                $this->session->set("user_id", $result->id_usuario);
                 $this->session->set("user_name", $result->name);
+                $this->session->set("user_email", $result->email);
+
 
                 if ($result->id_permiso == 1) { // Verifica si el usuario tiene permisos de administrador
                     $this->session->set("is_admin", true);
@@ -37,7 +40,7 @@ class Auth extends BaseController
                 }
             } else {
                 echo 'Invalid password.';
-                return view('login');
+                return view('login'); // en 43 y 47 "base_usrl()" y no "return" para que en otro controlador pueda traer en esa vista el header y el footer
             }
         } else {
             echo 'Invalid email.';
@@ -54,7 +57,8 @@ class Auth extends BaseController
 
     public function indexRegister() // Metodo para cargar la vista del formulario de registro
     {
-        echo view('common/header', ['session' => $this->session]); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/header', ['session' => $this->session]); // url en vez de return para llamar header y footer en otro contolador
+        echo view('common/footer', ['session' => $this->session]);
         return view('register');
     }
 
@@ -87,5 +91,17 @@ class Auth extends BaseController
             echo "Error en el registro del usuario";
             return view('register');
         }
+    }
+    public function perfil(){
+        $data['session'] = \Config\Services::session();
+        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer', $data);
+        return view('perfil');
+    }
+    public function editarPerfil(){
+        $data['session'] = \Config\Services::session();
+        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer', $data);
+        return view('editarPerfil');
     }
 }
