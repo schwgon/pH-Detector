@@ -31,7 +31,7 @@
                                 <td><?= $user['id_usuario']; ?></td>
                                 <td><?= $user['name']; ?></td>
                                 <td><?= $user['email']; ?></td>
-                                <td><?= $user['permiso']; ?></td>
+                                <td><?= $user['tipo_permiso']; ?></td>
                                 <td>
                                     <button class="btn btn-warning btn-sm">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>

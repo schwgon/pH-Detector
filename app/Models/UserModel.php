@@ -23,7 +23,7 @@ class UserModel extends Model{
 
     public function Usuarios(){
         $query = $this->db->table('usuario u')
-            ->select('u.name, u.id_usuario, u.email, u.password, p.permiso')
+            ->select('u.name, u.id_usuario, u.email, u.password, p.tipo_permiso')
             ->join('permiso p', 'u.id_permiso = p.id_permiso', 'left')
             ->groupBy('u.id_usuario')
             ->get();

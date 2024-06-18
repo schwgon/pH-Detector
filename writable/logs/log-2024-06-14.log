@@ -1,0 +1,864 @@
+INFO - 2024-06-14 13:18:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:18:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Home::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:19:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:19:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\Auth::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:19:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Auth::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:19:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:19:07 --> mysqli_sql_exception: Unknown column 'p.permiso' in 'field list' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:19:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.permiso' in 'field list'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:19:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.permiso' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:19:07 --> [Caused by] mysqli_sql_exception: Unknown column 'p.permiso' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:19:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:19:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:19:48 --> ErrorException: Undefined array key "permiso"
+[Method: GET, Route: panel_admin]
+in APPPATH\Views\admin.php on line 34.
+ 1 APPPATH\Views\admin.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "permiso"', 'C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php', 34)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\ABM_Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:20:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:20:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:20:28 --> mysqli_sql_exception: Not unique table/alias: 'p' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:20:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'p'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'p'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:28 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'p'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:20:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:20:29 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:20:29 --> mysqli_sql_exception: Not unique table/alias: 'p' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:20:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'p'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'p'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:29 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'p'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM (`usuario` `u`, `permiso` `p`)
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:20:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:20:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:20:44 --> mysqli_sql_exception: Unknown column 'p.permiso' in 'field list' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:20:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.permiso' in 'field list'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.permiso' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:44 --> [Caused by] mysqli_sql_exception: Unknown column 'p.permiso' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:20:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:20:58 --> mysqli_sql_exception: Unknown column 'p.permisos' in 'field list' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:20:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.permisos' in 'field list'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.permisos' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:20:58 --> [Caused by] mysqli_sql_exception: Unknown column 'p.permisos' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`permisos`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:21:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:21:53 --> mysqli_sql_exception: Unknown column 'p.tipo_permsio' in 'field list' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:21:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.tipo_permsio' in 'field list'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:21:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.tipo_permsio' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:21:53 --> [Caused by] mysqli_sql_exception: Unknown column 'p.tipo_permsio' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permsio`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`id_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:22:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:22:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Home::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:22:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Auth::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:22:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Auth::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:22:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:22:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Auth::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:22:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Auth::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:22:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:22:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:22:35 --> ErrorException: Undefined array key "permiso"
+[Method: GET, Route: panel_admin]
+in APPPATH\Views\admin.php on line 34.
+ 1 APPPATH\Views\admin.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "permiso"', 'C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php', 34)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\ABM_Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:23:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:25:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:27:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:28:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:28:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:28:29 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:28:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:29:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:29:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:29:28 --> ErrorException: Undefined array key "id_permiso"
+[Method: GET, Route: panel_admin]
+in APPPATH\Views\admin.php on line 34.
+ 1 APPPATH\Views\admin.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_permiso"', 'C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php', 34)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\ABM_Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:29:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:29:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:29:42 --> ErrorException: Undefined array key "id_permisos"
+[Method: GET, Route: panel_admin]
+in APPPATH\Views\admin.php on line 34.
+ 1 APPPATH\Views\admin.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_permisos"', 'C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php', 34)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\ABM_Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:30:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:30:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:30:15 --> ErrorException: Undefined array key "id_permiso"
+[Method: GET, Route: panel_admin]
+in APPPATH\Views\admin.php on line 34.
+ 1 APPPATH\Views\admin.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_permiso"', 'C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php', 34)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pH-Detector\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\ABM_Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:30:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:32:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:32:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:32:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-06-14 13:32:39 --> mysqli_sql_exception: Unknown column 'u.tipo_permiso' in 'on clause' in C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\pH-Detector\system\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`nam...', 0)
+#1 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`nam...')
+#2 C:\xampp\htdocs\pH-Detector\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`nam...')
+#3 C:\xampp\htdocs\pH-Detector\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`nam...', Array, false)
+#4 C:\xampp\htdocs\pH-Detector\app\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pH-Detector\app\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+#6 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+#7 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+#8 C:\xampp\htdocs\pH-Detector\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pH-Detector\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pH-Detector\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pH-Detector\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-06-14 13:32:39 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'u.tipo_permiso' in 'on clause'
+[Method: GET, Route: panel_admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 2 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:32:39 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'u.tipo_permiso' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 4 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-06-14 13:32:39 --> [Caused by] mysqli_sql_exception: Unknown column 'u.tipo_permiso' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `u`.`name`, `u`.`id_usuario`, `u`.`email`, `u`.`password`, `p`.`tipo_permiso`
+FROM `usuario` `u`
+LEFT JOIN `permiso` `p` ON `u`.`tipo_permiso` = `p`.`id_permiso`
+GROUP BY `u`.`id_usuario`', [], false)
+ 5 APPPATH\Models\UserModel.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\ABM_Admin.php(11): App\Models\UserModel->Usuarios()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ABM_Admin->index_Admin()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ABM_Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:33:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-06-14 13:34:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-06-14 13:34:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\ABM_Admin::$session is deprecated in APPPATH\Controllers\BaseController.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
