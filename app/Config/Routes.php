@@ -14,3 +14,5 @@ $routes->get('logout', 'Auth::logout'); // Define la ruta para cerrar sesión.
 $routes->get('admin', "Auth::do_login"); // Define la ruta para el acceso de administrador.
 $routes->get('perfil', "Auth::perfil");
 $routes->get('editarPerfil', "Auth::editarPerfil");
+
+$routes->get('panel_admin', "ABM_Admin::index_Admin");
