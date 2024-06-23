@@ -30,15 +30,9 @@ class UserModel extends Model{
         return $query->getResultArray();
     }
 
-    // public function Test($mail, $color, $pelicula, $videojuego) {
-    //     // return $this->where('email', $email)->countAllResults() > 0;
-    //     return $this ->where('email', $mail)
-    //         ->where('pregunta1', $color)
-    //         ->where('pregunta2', $pelicula)
-    //         ->where('pregunta3', $videojuego)
-    //         ->countAllResults() > 0;
-    // }
-
+    public function updatee($id_usuario, $data){
+        return $this->where('id_usuario', $id_usuario)->set($data)->update(); // Actualiza los datos del usuario en la base de datos y devuelve el resultado
+    } 
     // public function actualizarContrasena($email, $hashedPassword) {
     //     $data = ['password' => $hashedPassword];
     //     $this->where('email', $email)->set($data)->update();

@@ -41,7 +41,7 @@ class Auth extends BaseController // Declara la clase Auth que extiende BaseCont
                 if ($result->id_permiso == 1) { // Verifica si el usuario tiene permisos de administrador
                     $this->session->set("is_admin", true);
                     echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
-                    return view('admin'); // Redirige al usuario a la pagina de administracion
+                   return redirect()->to(base_url('panel_admin')); // Redirige al usuario a la pagina de administracion
                 } else {
                     $this->session->set("is_admin", false); // Establece el indicador de no administrador en la sesion
                     return redirect()->to(base_url('')); // Redirige al usuario a la pagina principal

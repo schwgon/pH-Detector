@@ -51,7 +51,7 @@ $session = \Config\Services::session();
                             </div>
                         </div>
                         <?php if ($session->has('user_name')): ?>
-                            <p class="text-white ml-4">Bienvenido, <?= $session->get('user_name'); ?></p>
+                            <p class="text-white ml-4">Welcome, <?= $session->get('user_name'); ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
