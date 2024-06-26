@@ -19,3 +19,5 @@ $routes->get('panel_admin', 'ABM_Admin::index_Admin');
 $routes->get('delete/(:num)', 'ABM_Admin::delete/$1');
 $routes->get('edit/(:num)', 'ABM_Admin::edit/$1');
 $routes->post('update/(:num)', 'ABM_Admin::update/$1');
+$routes->get('editarPerfil', 'Auth::editarPerfil');
+$routes->post('editarPerfil', 'Auth::editarPerfil');

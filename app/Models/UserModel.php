@@ -5,6 +5,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
 
+    
     protected $table  = 'usuario';
     protected $primaryKey = 'id_usuario';
 
