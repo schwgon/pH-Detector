@@ -18,20 +18,20 @@
                 <table class="w-full table-auto">
                     <thead>
                         <tr>
-                            <th class="px-4 py-2 text-left text-gray-300">ID</th>
-                            <th class="px-4 py-2 text-left text-gray-300">Name</th>
-                            <th class="px-4 py-2 text-left text-gray-300">Mail</th>
-                            <th class="px-4 py-2 text-left text-gray-300">Permissions</th>
-                            <th class="px-4 py-2 text-left text-gray-300">Actions</th>
+                            <th class="px-4 py-2 text-left text-white">ID</th>
+                            <th class="px-4 py-2 text-left text-white">Name</th>
+                            <th class="px-4 py-2 text-left text-white">Mail</th>
+                            <th class="px-4 py-2 text-left text-white">Permissions</th>
+                            <th class="px-4 py-2 text-left text-white">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($usuarios as $user): ?>
                             <tr class="bg-gray-800 hover:bg-gray-700">
-                                <td class="border-t border-gray-700 px-4 py-2"><?= $user['id_usuario']; ?></td>
-                                <td class="border-t border-gray-700 px-4 py-2"><?= $user['name']; ?></td>
-                                <td class="border-t border-gray-700 px-4 py-2"><?= $user['email']; ?></td>
-                                <td class="border-t border-gray-700 px-4 py-2"><?= $user['permiso']; ?></td>
+                                <td class="border-t border-gray-700 px-4 py-2 text-white"><?= $user['id_usuario']; ?></td>
+                                <td class="border-t border-gray-700 px-4 py-2 text-white"><?= $user['name']; ?></td>
+                                <td class="border-t border-gray-700 px-4 py-2 text-white"><?= $user['email']; ?></td>
+                                <td class="border-t border-gray-700 px-4 py-2 text-white"><?= $user['permiso']; ?></td>
                                 <td class="border-t border-gray-700 px-4 py-2">
                                     <a href="<?= site_url('edit/' . $user['id_usuario']); ?>" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded text-sm">Edit</a>
                                     <a href="<?= site_url('delete/' . $user['id_usuario']); ?>" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">Delete</a>
