@@ -25,14 +25,8 @@ $session = \Config\Services::session();
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
-<<<<<<< HEAD
-                            <?php if ($session->has('user_name')): ?>
-                                <a href="<?= base_url('add_device'); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Device</a>
-                                <a href="<?= base_url('logout'); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log Out</a>
-=======
                             <?php if ($session->has('user_name')) : ?>
                                 <a href="<?= base_url('logout'); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
->>>>>>> Rama-2
                                 <a href="<?= site_url("perfil"); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Perfil</a>
                                 <a href="<?= site_url(""); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
                                 <a href="<?= site_url(""); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</a>
