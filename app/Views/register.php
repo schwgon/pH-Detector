@@ -20,7 +20,7 @@
             <?php endif; ?>
         <form method="post" action="<?= base_url("register1"); ?>">
             <div class="mb-4">
-                <label for="email" class="block text-white mb-2"><i class="fas fa-user"></i> Email</label>
+                <label for="email" class="block text-white mb-2"><i class="fas fa-user"></i> User</label>
                 <input name="name" required type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="name" placeholder="Your Name">
             </div>
             <div class="mb-4">

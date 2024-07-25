@@ -33,7 +33,8 @@ class Auth extends BaseController
 
                 if ($result->id_permiso == 1) { // Verifica si el usuario tiene permisos de administrador
                     $this->session->set("is_admin", true);
-                    return redirect()->to(base_url('panel_admin'));
+                    echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+                    return redirect()->to(base_url('panel_admin')); // Redirige al usuario a la pagina de administracion
                 } else {
                     $this->session->set("is_admin", false);
                     return redirect()->to(base_url(''));
@@ -92,16 +93,48 @@ class Auth extends BaseController
             return view('register');
         }
     }
-    public function perfil(){
+    public function perfil()
+    {
         $data['session'] = \Config\Services::session();
-        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
-        echo view('common/footer', $data);
-        return view('perfil');
+        $userModel = new UserModel();
+
+        $userId = $this->session->get('user_id'); // Obtiene el ID del usuario de la sesión
+        $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
+
+        if ($userData) {
+            // Traduce el permiso del usuario a palabras
+            if ($userData->id_permiso == 1) {
+                $userData->id_permiso = 'Administrador';
+            } else {
+                $userData->id_permiso = 'Usuario';
+            }
+
+            $data['user'] = $userData; // Guarda los datos del usuario en el arreglo $data
+            echo view('common/header', $data); // Carga y muestra la vista 'common/header'
+            echo view('common/footer', $data);
+            return view('perfil', $data); // Carga la vista 'perfil' pasando los datos del usuario
+        }
     }
-    public function editarPerfil(){
+    public function editarPerfil()
+    {
         $data['session'] = \Config\Services::session();
-        echo view('common/header', $data); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
-        echo view('common/footer', $data);
-        return view('editarPerfil');
+        $userModel = new UserModel();
+        $userId = $this->session->get('user_id'); // Obtiene el ID del usuario de la sesión
+        $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
+
+        if ($this->request->getMethod() == 'post') {
+            $name = $this->request->getPost('name'); // Obtiene el valor del campo 'name' enviado por el formulario a traves del metodo POST
+            $email = $this->request->getPost('email'); // Obtiene el valor del campo 'email' enviado por el formulario a traves del metodo POST
+            $data = [ // Crea un arreglo con los datos del usuario
+                'name' => $name,
+                'email' => $email,
+            ];
+            $r = $userModel->update($userId, $data); // Actualiza los datos del usuario en la base de datos
+
+            if ($r) { // Si el registro es exitoso
+                session()->setFlashdata('success_message', 'Your profile has been updated successfully'); // Muestra un mensaje de exito
+                return view('perfil'); // Redirige a la pagina del perfil
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
 
+    
     protected $table  = 'usuario';
     protected $primaryKey = 'id_usuario';
 
@@ -29,6 +30,14 @@ class UserModel extends Model{
             ->get();
         return $query->getResultArray();
     }
+
+    public function updatee($id_usuario, $data){
+        return $this->where('id_usuario', $id_usuario)->set($data)->update(); // Actualiza los datos del usuario en la base de datos y devuelve el resultado
+    } 
+    // public function actualizarContrasena($email, $hashedPassword) {
+    //     $data = ['password' => $hashedPassword];
+    //     $this->where('email', $email)->set($data)->update();
+    // }
 
     public function add($data) // Metodo para añadir un nuevo usuario
     {
