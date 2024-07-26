@@ -27,6 +27,7 @@ class Filters extends BaseFilters
      */
     public array $aliases = [
         'authadmin' => AuthAdminFilter::class,
+        'access' => AccessFilter::class,
         'csrf'          => CSRF::class,
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
@@ -106,5 +107,12 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        // 'authAdmin' => [
+        //     'before' => [
+        //         'panel_admin',
+        //         // Añade otras rutas que necesiten autenticación y permisos de administrador
+        //     ],
+        // ],
+    ];
 }
