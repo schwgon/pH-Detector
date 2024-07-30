@@ -37,7 +37,8 @@ class AccessFilter implements FilterInterface
         }
 
         // Si es administrador y la ruta no está permitida para administradores
-        if ($session->get('is_admin') && !in_array($currentRoute, $adminRoutes)) { // Redirige si el usuario es administrador pero intenta acceder a una ruta que no está permitida para administradores
+        // Si no es administrador y la ruta no está permitida para el usuario 
+        if (!$session->get('is_admin') && !in_array($currentRoute, $adminRoutes)) { // Redirige si el usuario no es administrador pero intenta acceder a una ruta que no está permitida para el
             return redirect()->to(base_url('/'))->with('error_message', 'No tienes permiso para acceder a esta página.');
         }
     }
