@@ -5,5 +5,6 @@ const $selectAddress = $d.getElementById("selectAddress");
 
 function provinces(){
     fetch ("https://apis.datos.gob.ar/georef/api/provincias")
-    .then()
+    .then(res => console.log(res));
+    //.then()
 }

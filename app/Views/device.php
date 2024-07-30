@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url('js/address.js'); ?>">
    
 </head>
-<script src="address.js"></script>
+<script src="<?= base_url('./js/address.js'); ?>"></script>
 <body class="bg-gray-900 flex justify-center items-center min-h-screen">
 
     <div class="mt-4 bg-gray-800 p-8 rounded-xl shadow-md max-w-5xl w-full mx-auto">
