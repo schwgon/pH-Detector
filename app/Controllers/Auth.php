@@ -40,12 +40,14 @@ class Auth extends BaseController
                     return redirect()->to(base_url(''));
                 }
             } else {
-                echo 'Invalid password.';
-                return view('login'); // en 43 y 47 "base_usrl()" y no "return" para que en otro controlador pueda traer en esa vista el header y el footer
+                echo view('common/header', ['session' => $this->session]);
+                echo view('common/footer', ['session' => $this->session]);
+                return redirect()->to(base_url('login'))->with('password_message', 'Contraseña Incorrecta.');
             }
         } else {
-            echo 'Invalid email.';
-            return view('login');
+            echo view('common/header', ['session' => $this->session]);
+            echo view('common/footer', ['session' => $this->session]);
+            return redirect()->to(base_url('login'))->with('password_message', 'Email Incorrecto.');
         }
     }
 
