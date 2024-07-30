@@ -17,7 +17,7 @@
             <div class="flex items-center mb-6">
                 <div>
                     <h2 class="text-2xl font-bold">
-                        <p class="text-2xl font-bold"><?= $session->get('user_name'); ?></p>
+                        <p class="text-2xl font-bold"><?= esc($user->name); ?></p>
                     </h2>
                 </div>
             </div>
@@ -29,12 +29,13 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <?= $session->get('user_email'); ?>
+                        <?= esc($user->email); ?>
+
+                        <label for="email" class="block text-black mb-2"><i class="fas fa-user"></i> <?= esc($user->id_permiso); ?></label>
                     </li>
                 </ul>
             </div>
             <div class="mt-6 flex justify-end">
-                <a href="<?= site_url("editarPerfil"); ?>" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Editar Perfil</a>
             </div>
         </div>
     </div>

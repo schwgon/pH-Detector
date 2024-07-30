@@ -12,6 +12,8 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\AuthAdminFilter; // No se
+use App\Filters\AccessFilter; // Add your custom filter class here
 
 class Filters extends BaseFilters
 {
@@ -25,6 +27,8 @@ class Filters extends BaseFilters
      * or [filter_name => [classname1, classname2, ...]]
      */
     public array $aliases = [
+        // 'authadmin' => AuthAdminFilter::class,    //No se
+        'access' => AccessFilter::class,
         'csrf'          => CSRF::class,
         'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
@@ -51,6 +55,7 @@ class Filters extends BaseFilters
      */
     public array $required = [
         'before' => [
+            // 'authadmin',
             'forcehttps', // Force Global Secure Requests
             'pagecache',  // Web Page Caching
         ],
@@ -103,5 +108,12 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        // 'authAdmin' => [
+        //     'before' => [
+        //         'panel_admin',
+        //         // Añade otras rutas que necesiten autenticación y permisos de administrador
+        //     ],
+        // ],
+    ];
 }

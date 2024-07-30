@@ -39,7 +39,7 @@
             </div>
             <div class="mb-6">
                 <label for="password" class="block text-white mb-2"><i class="fas fa-lock"></i> Password</label>
-                <input type="password" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="password" name="password" placeholder="Password">
+                <input type="password" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="password" name="password" minlength="8" placeholder="Password">
             </div>
             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-full mb-4">Log in <i class="fas fa-chevron-right"></i></button>
         </form>
