@@ -22,16 +22,6 @@
                     <?= session()->getFlashdata('error_message') ?>
                 </div>
             <?php endif; ?>
-            <?php if (session()->getFlashdata('password_message')): ?>
-                <div class="alert alert-password text-center mb-4 text-red-600	color: rgb(220 38 38);">
-                    <?= session()->getFlashdata('password_message') ?>
-                </div>
-            <?php endif; ?>
-            <?php if (session()->getFlashdata('user_message')): ?>
-                <div class="alert alert-user text-center mb-4 text-red-600	color: rgb(220 38 38);">
-                    <?= session()->getFlashdata('user_message') ?>
-                </div>
-            <?php endif; ?>
         <form method="post" action="<?= base_url("loginForm"); ?>">
             <div class="mb-4">
                 <label for="email" class="block text-white mb-2"><i class="fas fa-envelope"></i> Email</label>

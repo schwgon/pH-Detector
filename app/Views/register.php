@@ -13,9 +13,9 @@
 
     <div class="mt-4 bg-gray-800 p-8 rounded-xl shadow-md max-w-md w-full mx-auto">
         <h1 class="text-white text-2xl font-bold mb-6 text-center">Register</h1>
-        <?php if (session()->getFlashdata('correo_message')) : ?>
+        <?php if (session()->getFlashdata('error_message')) : ?>
             <div class="alert alert-correo text-center mb-4 text-red-600	color: rgb(220 38 38);">
-                <?= session()->getFlashdata('correo_message') ?>
+                <?= session()->getFlashdata('error_message') ?>
             </div>
         <?php endif; ?>
         <form method="post" action="<?= base_url("register1"); ?>">

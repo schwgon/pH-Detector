@@ -40,14 +40,10 @@ class Auth extends BaseController
                     return redirect()->to(base_url(''));
                 }
             } else {
-                echo view('common/header', ['session' => $this->session]);
-                echo view('common/footer', ['session' => $this->session]);
-                return redirect()->to(base_url('login'))->with('password_message', 'Contraseña Incorrecta.');
+                return redirect()->to(base_url('login'))->with('error_message', 'Contraseña Incorrecta.');
             }
         } else {
-            echo view('common/header', ['session' => $this->session]);
-            echo view('common/footer', ['session' => $this->session]);
-            return redirect()->to(base_url('login'))->with('password_message', 'Email Incorrecto.');
+            return redirect()->to(base_url('login'))->with('error_message', 'Email Incorrecto.');
         }
     }
 
@@ -74,8 +70,7 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
 
         if ($userModel->isEmailTaken($email)) { // Verifica si el correo electronico ya esta registrado en la base de datos
-            echo "El correo electrónico ya está registrado.";
-            return view('register');
+            return redirect()->to(base_url('register'))->with('error_message', 'El correo electrónico ya está registrado.');
         }
 
         $password = password_hash($password, PASSWORD_BCRYPT);
@@ -88,7 +83,7 @@ class Auth extends BaseController
 
         if ($r) { // Si el registro es exitoso
             echo "user Registered successfully!!";
-            // $this->session->set("welcome_message", "¡Bienvenido, " . $result->name . "!");
+            //  $this->session->set("error_message", "¡Bienvenido, " . $r->name . "!");
             return view('login');
         } else {
             echo "Error en el registro del usuario";
