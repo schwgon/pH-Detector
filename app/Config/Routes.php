@@ -25,3 +25,4 @@ $routes->get('editarPerfil', 'Auth::editarPerfil');
 $routes->post('editarPerfil', 'Auth::editarPerfil');
 
 $routes->get('device', "Device::indexDevice");
+$routes->get('add_device', "Device::add_Device");

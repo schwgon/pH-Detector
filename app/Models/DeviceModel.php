@@ -17,4 +17,9 @@ class DeviceModel extends Model{
     protected $validationMessages= [];
     protected $skipVaidation     = false;
 
+    public function add($data)
+    {
+        $this->save($data);
+    }
+
 }

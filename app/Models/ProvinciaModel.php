@@ -18,6 +18,16 @@ class ProvinciaModel extends Model
     // public function add($provincia){
     //     return $this->insert($provincia);
     // }
+    public function add($provincia, $id_pais)
+    {
+        $result = $this->where(['provincia' => $provincia, 'id_pais' => $id_pais])->first();
+        if ($result) {
+            return $result['id'];
+        } else {
+            $this->save(['provincia' => $provincia, 'id_pais' => $id_pais]);
+            return $this->insertID();
+        }
+    }
 
     public function add($provincia)
     {

@@ -19,6 +19,17 @@ class BarrioModel extends Model
     //     return $this->insert($barrio);
     // }
 
+    public function add($barrio, $id_ciudad)
+    {
+        $result = $this->where(['barrio' => $barrio, 'id_ciudad' => $id_ciudad])->first();
+        if ($result) {
+            return $result['id'];
+        } else {
+            $this->save(['barrio' => $barrio, 'id_ciudad' => $id_ciudad]);
+            return $this->insertID();
+        }
+    }
+
     public function add($barrio)
     {
         $existingBarrio = $this->where('barrio', $barrio)->first();

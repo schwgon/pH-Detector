@@ -21,6 +21,17 @@ class PaisModel extends Model
 
     public function add($pais)
     {
+        $result = $this->where('pais', $pais)->first();
+        if ($result) {
+            return $result['id'];
+        } else {
+            $this->save(['pais' => $pais]);
+            return $this->insertID();
+        }
+    }
+
+    public function add1($pais)
+    {
         // Verificar si el país ya existe en la tabla
         $existingPais = $this->where('pais', $pais)->first();
 
@@ -32,5 +43,15 @@ class PaisModel extends Model
             $this->insert(['pais' => $pais]);
             return $this->getInsertID();
         }
+    }
+
+    public function add2($pais){
+        return $this->insert($pais);
+    }
+    
+    public function deleteLugar($id_pais){
+        // return $this->delete($id_lugar);
+        $this->where('id_pais', $id_pais);
+        $this->delete();
     }
 }

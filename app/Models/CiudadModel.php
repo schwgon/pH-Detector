@@ -19,6 +19,17 @@ class CiudadModel extends Model
     //     return $this->insert($ciudad);
     // }
 
+    public function add($ciudad, $id_provincia)
+    {
+        $result = $this->where(['ciudad' => $ciudad, 'id_provincia' => $id_provincia])->first();
+        if ($result) {
+            return $result['id'];
+        } else {
+            $this->save(['ciudad' => $ciudad, 'id_provincia' => $id_provincia]);
+            return $this->insertID();
+        }
+    }
+
     public function add($ciudad)
     {
         $existingCiudad = $this->where('ciudad', $ciudad)->first();
