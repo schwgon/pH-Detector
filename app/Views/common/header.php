@@ -10,7 +10,6 @@ $session = \Config\Services::session();
     <title>pH-Detector</title>
     <link rel="shortcut icon" href="<?php echo base_url('images/agua.png'); ?>" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
 
 <body class="bg-gray-800">
