@@ -36,7 +36,7 @@
                     <input name="province" required type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="province" placeholder="province"></select>                    
                 </div>
                 <div class="w-full md:w-1/3 px-3">
-                    <label for="municipality" class="block text-white mb-2">Province/State</label>
+                    <label for="municipality" class="block text-white mb-2">Municipality</label>
                     <input name="municipality" required type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="municipality" placeholder="municipality"></select>                    
                 </div>
                 <div class="w-full md:w-1/3 px-3">

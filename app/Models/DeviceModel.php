@@ -11,15 +11,15 @@ class DeviceModel extends Model{
 
     protected $returnType       = 'object';
 
-    protected $allowedFields = ['id_usuario', 'nombre', 'id_barrio', 'id_calle','id_medicion_bomba'];
+    protected $allowedFields = ['id_dispositivo', 'id_usuario', 'nombre', 'id_barrio', 'id_calle', 'id_medicion_bomba'];
 
     protected $validationRules   = [];
     protected $validationMessages= [];
     protected $skipVaidation     = false;
 
-    public function add($data)
+    public function add($dispositivoData)
     {
-        $this->save($data);
+        $this->insert($dispositivoData);
     }
 
 }

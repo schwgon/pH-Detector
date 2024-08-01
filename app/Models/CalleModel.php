@@ -18,18 +18,18 @@ class CalleModel extends Model{
     //     return $this->insert($calle);
     // }
 
-    public function add($calle, $id_barrio)
+    public function add($calle)
     {
-        $result = $this->where(['calle' => $calle, 'id_barrio' => $id_barrio])->first();
+        $result = $this->where(['calle' => $calle])->first();
         if ($result) {
-            return $result['id'];
+            return $result['id_calle'];
         } else {
-            $this->save(['calle' => $calle, 'id_barrio' => $id_barrio]);
+            $this->save(['calle' => $calle]);
             return $this->insertID();
         }
     }
 
-    public function add($calle)
+    public function add1($calle)
     {
         $existingCalle = $this->where('calle', $calle)->first();
 

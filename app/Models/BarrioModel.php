@@ -23,14 +23,14 @@ class BarrioModel extends Model
     {
         $result = $this->where(['barrio' => $barrio, 'id_ciudad' => $id_ciudad])->first();
         if ($result) {
-            return $result['id'];
+            return $result['id_barrio'];
         } else {
             $this->save(['barrio' => $barrio, 'id_ciudad' => $id_ciudad]);
             return $this->insertID();
         }
     }
 
-    public function add($barrio)
+    public function add1($barrio)
     {
         $existingBarrio = $this->where('barrio', $barrio)->first();
 

@@ -23,7 +23,7 @@ class PaisModel extends Model
     {
         $result = $this->where('pais', $pais)->first();
         if ($result) {
-            return $result['id'];
+            return $result['id_pais'];
         } else {
             $this->save(['pais' => $pais]);
             return $this->insertID();

@@ -23,14 +23,14 @@ class CiudadModel extends Model
     {
         $result = $this->where(['ciudad' => $ciudad, 'id_provincia' => $id_provincia])->first();
         if ($result) {
-            return $result['id'];
+            return $result['id_ciudad'];
         } else {
             $this->save(['ciudad' => $ciudad, 'id_provincia' => $id_provincia]);
             return $this->insertID();
         }
     }
 
-    public function add($ciudad)
+    public function add1($ciudad)
     {
         $existingCiudad = $this->where('ciudad', $ciudad)->first();
 

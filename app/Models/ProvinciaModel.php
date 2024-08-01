@@ -22,14 +22,14 @@ class ProvinciaModel extends Model
     {
         $result = $this->where(['provincia' => $provincia, 'id_pais' => $id_pais])->first();
         if ($result) {
-            return $result['id'];
+            return $result['id_provincia'];
         } else {
             $this->save(['provincia' => $provincia, 'id_pais' => $id_pais]);
             return $this->insertID();
         }
     }
 
-    public function add($provincia)
+    public function add1($provincia)
     {
         $existingProvincia = $this->where('provincia', $provincia)->first();
 
