@@ -21,6 +21,6 @@ $routes->get('edit/(:num)', 'ABM_Admin::edit/$1');
 $routes->post('update/(:num)', 'ABM_Admin::update/$1');
 $routes->get('editarPerfil', 'Auth::editarPerfil');
 $routes->post('editarPerfil', 'Auth::editarPerfil');
-$routes->post('add_device', 'Device::editarPerfil');
+$routes->post('add_device', 'Device::add_device');
 
 $routes->get('device', "Device::indexDevice");

@@ -6,15 +6,26 @@ use CodeIgniter\Model;
 class ProvinciaModel extends Model{
 
     
-    protected $table  = 'ciudad';
-    protected $primaryKey = 'id_ciudad';
+    protected $table  = 'provincia';
+    protected $primaryKey = 'id_provincia';
 
-    protected $returnType       = 'object';
+    protected $returnType       = 'array';
 
-    protected $allowedFields = ['id_pais', 'ciudad'];
+    protected $allowedFields = ['provincia'];
 
     protected $validationRules   = [];
     protected $validationMessages= [];
     protected $skipVaidation     = false;
+
+    public function add($provincia)
+    {
+        $result = $this->where(['provincia' => $provincia])->first();
+        if ($result) {
+            return $result['id_provincia'];
+        } else {
+            $this->save(['provincia' => $provincia]);
+            return $this->insertID();
+        }
+    }
 
 }

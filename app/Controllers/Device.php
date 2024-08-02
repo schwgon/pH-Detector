@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Controllers;
-use \App\Models\UserModel;
 use \App\Models\DeviceModel;
+use \App\Models\ProvinciaModel;
+use \App\Models\CiudadModel;
+use \App\Models\BarrioModel;
+use \App\Models\CalleModel;
+
 class Device extends BaseController
 {
     public function __construct() // Constructor: se ejecuta automaticamente al crear una instancia de la clase. Carga la biblioteca de sesion
@@ -20,25 +24,22 @@ class Device extends BaseController
     {
         $name = $this->request->getPost('name');
         $Id_device = $this->request->getPost('Id_device');
-        $pais = $this->request->getPost('country');
         $provincia = $this->request->getPost('province');
         $barrio = $this->request->getPost('municipality');
         $ciudad = $this->request->getPost('city');
         $calle = $this->request->getPost('address');
         $id_usuario = $this->session->get('user_id');
 
-        $paisModel = new PaisModel();
+  
         $provinciaModel = new ProvinciaModel();
         $ciudadModel = new CiudadModel();
         $barrioModel = new BarrioModel();
         $calleModel = new CalleModel();
         $deviceModel = new DeviceModel();
 
-         // Verificar y obtener el ID del país
-         $id_pais = $paisModel->add($pais);
 
          // Verificar y obtener el ID de la provincia
-         $id_provincia = $provinciaModel->add($provincia, $id_pais);
+         $id_provincia = $provinciaModel->add($provincia);
  
          // Verificar y obtener el ID de la ciudad
          $id_ciudad = $ciudadModel->add($ciudad, $id_provincia);
@@ -47,13 +48,15 @@ class Device extends BaseController
          $id_barrio = $barrioModel->add($barrio, $id_ciudad);
  
          // Verificar y obtener el ID de la calle
-         $id_calle = $calleModel->add($calle, $id_barrio);
+         $id_calle = $calleModel->add($calle);
  
          // Agregar el dispositivo
          $dispositivoData = [
-             'name' => $name,
-             'Id_device' => $Id_device,
-             'id_calle' => $id_calle
+             'nombre' => $name,
+             'Id_dispositivo' => $Id_device,
+             'id_calle' => $id_calle,
+             'id_barrio' => $id_barrio,
+             'id_usuario' => $id_usuario
          ];
          
          $deviceModel->add($dispositivoData);

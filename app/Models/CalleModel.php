@@ -9,7 +9,7 @@ class CalleModel extends Model{
     protected $table  = 'calle';
     protected $primaryKey = 'id_calle';
 
-    protected $returnType       = 'object';
+    protected $returnType       = 'array';
 
     protected $allowedFields = ['calle'];
 
@@ -17,4 +17,14 @@ class CalleModel extends Model{
     protected $validationMessages= [];
     protected $skipVaidation     = false;
 
+    public function add($calle)
+    {
+        $result = $this->where(['calle' => $calle])->first();
+        if ($result) {
+            return $result['id_calle'];
+        } else {
+            $this->save(['calle' => $calle]);
+            return $this->insertID();
+        }
+    }
 }
