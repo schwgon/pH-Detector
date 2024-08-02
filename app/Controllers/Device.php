@@ -7,6 +7,7 @@ use \App\Models\CiudadModel;
 use \App\Models\BarrioModel;
 use \App\Models\CalleModel;
 use \App\Models\DeviceModel;
+use \App\Models\MedicionModel;
 
 class Device extends BaseController
 {
@@ -38,6 +39,7 @@ class Device extends BaseController
         $barrioModel = new BarrioModel();
         $calleModel = new CalleModel();
         $deviceModel = new DeviceModel();
+        $medicionModel = new MedicionModel();
 
          // Verificar y obtener el ID del país
          $id_pais = $paisModel->add($pais);
@@ -66,5 +68,20 @@ class Device extends BaseController
         $deviceModel->add($dispositivoData);
  
         return redirect()->to(base_url('/'));
+    }
+
+    public function mostrarDatos($id_dispositivo) // Metodo para procesar el registro de un nuevo dispositivo
+    {
+        // $name = $this->request->getPost('name');
+        $medicionModel = new MedicionModel();
+        $medicionModel->mostrarDatos($id_dispositivo);
+
+        // $datos = [
+        //     'name' => $this->request->getPost('name'),
+        //     'email' => $this->request->getPost('email'),
+        //     'id_permiso' => $this->request->getPost('permiso')
+        // ];
+
+        return redirect()->to(base_url('panel_admin'));
     }
 }
