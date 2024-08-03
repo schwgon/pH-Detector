@@ -14,8 +14,8 @@ class Home extends BaseController
 
         $this->session->set('dispositivos', $resultado);  // Guarda los datos en la sesión
 
-        echo view('common/header', ['session' => $this->session]); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
-        echo view('common/footer', ['session' => $this->session]);
-        return view('inicio'); // Carga y muestra la vista 'inicio'.
+        echo view('common/header');
+        echo view('common/footer');
+        return view('inicio');
     }
 }

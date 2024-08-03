@@ -15,14 +15,14 @@ class Device extends BaseController
     // {
     //     $this->session = \Config\Services::session(); // Inicializa la sesion utilizando el servicio de configuracion
     // }
-    public function indexDevice()  // Metodo para cargar la vista del formulario de inicio de sesion
+    public function indexDevice()
     {
-        echo view('common/header', ['session' => $this->session]); // url en vez de return para llamar header y footer en otro contolador
-        echo view('common/footer', ['session' => $this->session]);
+        echo view('common/header');
+        echo view('common/footer');
         return view('device');
     }
 
-    public function add_Device() // Metodo para procesar el registro de un nuevo dispositivo
+    public function add_Device()
     {
         $name = $this->request->getPost('name');
         $Id_device = $this->request->getPost('Id_device');
@@ -70,18 +70,12 @@ class Device extends BaseController
         return redirect()->to(base_url('/'));
     }
 
-    public function mostrarDatos($id_dispositivo) // Metodo para procesar el registro de un nuevo dispositivo
+    public function mostrarDatos($id_dispositivo)
     {
-        // $name = $this->request->getPost('name');
         $medicionModel = new MedicionModel();
-        $medicionModel->mostrarDatos($id_dispositivo);
+        $datos['datos'] = $medicionModel->mostrarDatos($id_dispositivo);
 
-        // $datos = [
-        //     'name' => $this->request->getPost('name'),
-        //     'email' => $this->request->getPost('email'),
-        //     'id_permiso' => $this->request->getPost('permiso')
-        // ];
-
-        return redirect()->to(base_url('panel_admin'));
+        echo view('common/header');
+        return view('datos', $datos);
     }
 }

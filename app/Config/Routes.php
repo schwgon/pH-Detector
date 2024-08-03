@@ -26,4 +26,4 @@ $routes->post('editarPerfil', 'Auth::editarPerfil');
 
 $routes->get('device', "Device::indexDevice");
 $routes->post('add_device', "Device::add_Device");
-$routes->post('mostrar_datos/(:num)', "Device::mostrarDatos");
+$routes->get('mostrar_datos/(:num)', "Device::mostrarDatos/$1");

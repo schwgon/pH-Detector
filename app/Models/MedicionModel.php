@@ -17,16 +17,11 @@ class MedicionModel extends Model{
     protected $validationMessages= [];
     protected $skipVaidation     = false;
 
-    public function mostrarDatos($id_dispositivo = null){
+    public function mostrarDatos($id_dispositivo){
         $query = $this->db->table('medicion')
-            ->select('dispositivo.nombre, dispositivo.id_dispositivo, dispositivo.id_usuario, pais.pais, provincia.provincia, provincia.provincia, provincia.provincia, provincia.provincia')
-            ->join('calle', 'dispositivo.id_calle = calle.id_calle')
-            ->join('barrio', 'dispositivo.id_barrio = barrio.id_barrio')
-            ->join('ciudad', 'barrio.id_ciudad = ciudad.id_ciudad')
-            ->join('provincia', 'ciudad.id_provincia = provincia.id_provincia')
-            ->join('pais', 'provincia.id_pais = pais.id_pais')
-            ->where('dispositivo.id_usuario', $id_usuario)
-            ->groupBy('dispositivo.id_dispositivo')
+            ->select('medicion.id_medicion, medicion.id_dispositivo, medicion.ph_value, medicion.fecha_hora')
+            ->where('medicion.id_dispositivo', $id_dispositivo)
+            ->groupBy('medicion.id_medicion')
             ->get();
         return $query->getResultArray();
     }

@@ -8,8 +8,8 @@ class Auth extends BaseController
 {
     public function indexLogin()
     {
-        echo view('common/header', ['session' => $this->session]);
-        echo view('common/footer', ['session' => $this->session]);
+        echo view('common/header');
+        echo view('common/footer');
         return view('login');
     }
 
@@ -33,7 +33,6 @@ class Auth extends BaseController
 
                 if ($result->id_permiso == 1) { // Verifica si el usuario tiene permisos de administrador
                     $this->session->set("is_admin", true);
-                    echo view('common/header', ['session' => $this->session]); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
                     return redirect()->to(base_url('panel_admin')); // Redirige al usuario a la pagina de administracion
                 } else {
                     $this->session->set("is_admin", false);
@@ -56,8 +55,8 @@ class Auth extends BaseController
 
     public function indexRegister() // Metodo para cargar la vista del formulario de registro
     {
-        echo view('common/header', ['session' => $this->session]); // url en vez de return para llamar header y footer en otro contolador
-        echo view('common/footer', ['session' => $this->session]);
+        echo view('common/header'); // url en vez de return para llamar header y footer en otro contolador
+        echo view('common/footer');
         return view('register');
     }
 
@@ -82,12 +81,10 @@ class Auth extends BaseController
         $r = $userModel->add($data);
 
         if ($r) { // Si el registro es exitoso
-            echo "user Registered successfully!!";
-            //  $this->session->set("error_message", "¡Bienvenido, " . $r->name . "!");
-            return view('login');
+            // return redirect()->to(base_url('login'))->with('error_message', 'Se ha registrado su cuenta. ¡Bienvenido, ' . $r->name . "!");
+            return redirect()->to(base_url('login'))->with('error_message', 'Se ha registrado su cuenta. ¡Bienvenido!');
         } else {
-            echo "Error en el registro del usuario";
-            return view('register');
+            return redirect()->to(base_url('register'))->with('error_message', 'Error en el registro de su cuenta. Intentelo nuevamente');
         }
     }
     public function perfil()
