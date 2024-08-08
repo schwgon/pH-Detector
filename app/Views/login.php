@@ -34,7 +34,10 @@
             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-full mb-4">Log in <i class="fas fa-chevron-right"></i></button>
         </form>
         <div class="text-white text-center">
-            <p>You do not have an account?<a href="<?= site_url("register"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Sign Up</a></p>
+            <p>No tienes una cuenta?<a href="<?= site_url("register"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Sign Up</a></p>
+        </div>
+        <div class="text-white text-center">
+            <p>Olvidaste tu contraseña?<a href="<?= site_url("recuperar1"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Recuperar Contraseña</a></p>
         </div>
     </div>
 

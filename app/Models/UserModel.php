@@ -11,7 +11,7 @@ class UserModel extends Model{
 
     protected $returnType       = 'object';
 
-    protected $allowedFields = ['name', 'email', 'password', 'id_permiso'];
+    protected $allowedFields = ['name', 'email', 'password', 'id_permiso', 'codigo'];
 
     protected $validationRules   = [];
     protected $validationMessages= [];
@@ -42,6 +42,15 @@ class UserModel extends Model{
     public function add($data) // Metodo para añadir un nuevo usuario
     {
         return $this->insert($data); // Inserta los datos del usuario en la base de datos y devuelve el resultado
+    }
+
+    public function traerCodico($email) // Metodo para añadir un nuevo usuario
+    {
+        $query = $this->db->table('usuario')
+            ->select('codigo')
+            ->where('email', $email)
+            ->get();
+        return $query->getResultArray();
     }
 
     // public function Usuarios(){

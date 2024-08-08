@@ -72,11 +72,14 @@ class Auth extends BaseController
             return redirect()->to(base_url('register'))->with('error_message', 'El correo electrónico ya está registrado.');
         }
 
+        $codigo = random_int(10000000, 99999999); // Genera un numero aleatorio de 8 digitos
+
         $password = password_hash($password, PASSWORD_BCRYPT);
         $data = [ // Crea un arreglo con los datos del usuario
             'name' => $name,
             'email' => $email,
-            'password' => $password
+            'password' => $password,
+            'codigo' => $codigo
         ];
         $r = $userModel->add($data);
 
@@ -87,6 +90,7 @@ class Auth extends BaseController
             return redirect()->to(base_url('register'))->with('error_message', 'Error en el registro de su cuenta. Intentelo nuevamente');
         }
     }
+
     public function perfil()
     {
         $data['session'] = \Config\Services::session();
@@ -109,9 +113,69 @@ class Auth extends BaseController
             return view('perfil', $data); // Carga la vista 'perfil' pasando los datos del usuario
         }
     }
-    public function editarPerfil()
+
+    // public function editarPerfil()
+    // {
+    //     $data['session'] = \Config\Services::session();
+    //     $userModel = new UserModel();
+    //     $userId = $this->session->get('user_id'); // Obtiene el ID del usuario de la sesión
+    //     $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
+
+    //     if ($this->request->getMethod() == 'post') {
+    //         $name = $this->request->getPost('name'); // Obtiene el valor del campo 'name' enviado por el formulario a traves del metodo POST
+    //         $email = $this->request->getPost('email'); // Obtiene el valor del campo 'email' enviado por el formulario a traves del metodo POST
+    //         $data = [ // Crea un arreglo con los datos del usuario
+    //             'name' => $name,
+    //             'email' => $email,
+    //         ];
+    //         $r = $userModel->update($userId, $data); // Actualiza los datos del usuario en la base de datos
+
+    //         if ($r) { // Si el registro es exitoso
+    //             session()->setFlashdata('success_message', 'Your profile has been updated successfully'); // Muestra un mensaje de exito
+    //             return view('perfil'); // Redirige a la pagina del perfil
+    //         }
+    //     }
+    // }
+
+    public function recuperarPassIndex1()
     {
-        $data['session'] = \Config\Services::session();
+        echo view('common/header'); // url en vez de return para llamar header y footer en otro contolador
+        echo view('common/footer');
+        return view('recup_pass_email');
+    }
+
+    public function recuperarPassIndex2()
+    {
+        $email = $this->session->get('email');
+        $codigo = $userModel->traerCodico($email);
+
+        // Correo electrónico al que se enviará el número
+        $emailDestino = 'destinatario@example.com'; // Cambia esto por el correo electrónico real
+
+        // Asunto del correo
+        $asunto = 'Número Aleatorio';
+
+        // Cuerpo del mensaje
+        $mensaje = "El codigo de recuperacion es: " . $codigo;
+
+        // Encabezados del correo (opcional, pero recomendable para definir el tipo de contenido)
+        $headers = "From: remitente@example.com\r\n"; // Cambia esto por la dirección de correo del remitente
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        
+        // Enviar el correo
+        if (mail($emailDestino, $asunto, $mensaje, $headers)) {
+            echo "Correo enviado exitosamente.";
+        } else {
+            echo "Error al enviar el correo.";
+}
+
+        echo view('common/header'); // url en vez de return para llamar header y footer en otro contolador
+        echo view('common/footer');
+        return view('recuperar_pass');
+    }
+
+    public function recuperarPass()
+    {
         $userModel = new UserModel();
         $userId = $this->session->get('user_id'); // Obtiene el ID del usuario de la sesión
         $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
