@@ -28,22 +28,23 @@ class Email extends BaseConfig
     /**
      * SMTP Server Hostname
      */
-    public string $SMTPHost = '';
+    public string $SMTPHost = 'smtp.gmail.com';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = '';
+    public string $SMTPUser = 'gasparschwartz@alumnos.itr3.edu.ar';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = '';
+    public string $SMTPPass = 'avoa fedo ljnw cgwj';
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 25;
+    public int $SMTPPort = 587;
+    //public int $SMTPPort = 25; // anterior
 
     /**
      * SMTP Timeout (in seconds)
@@ -82,7 +83,7 @@ class Email extends BaseConfig
     /**
      * Character set (utf-8, iso-8859-1, etc.)
      */
-    public string $charset = 'UTF-8';
+    public string $charset = 'iso-8859-1';
 
     /**
      * Whether to validate the email address
@@ -118,4 +119,14 @@ class Email extends BaseConfig
      * Enable notify message from server
      */
     public bool $DSN = false;
+
+
+    // public $SMTPHost = 'smtp.gmail.com';
+    // public $SMTPUser = 'tu_email@gmail.com';
+    // public $SMTPPass = 'tu_contraseña';
+    // public $SMTPPort = 587;
+    // public $SMTPCrypto = 'tls';  // Para TLS
+    // public $mailType = 'text';
+    // public $Charset = 'iso-8859-1';
+    // public $WordWrap = true;
 }

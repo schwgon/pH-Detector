@@ -16,7 +16,8 @@ $routes->get('admin', "Auth::do_login"); // Define la ruta para el acceso de adm
 $routes->get('perfil', "Auth::perfil", ['filter' => 'access']);
 $routes->get('recuperar1', "Auth::recuperarPassIndex1");
 $routes->get('recuperar2', "Auth::recuperarPassIndex2");
-$routes->get('recuperarPass', "Auth::recuperarPassIndex");
+$routes->get('IrCodigo', "Auth::IrCodigo");
+$routes->get('recuperarPass', "Auth::recuperarPass");
 
 
 $routes->get('panel_admin', 'ABM_Admin::index_Admin', ['filter' => 'access']);

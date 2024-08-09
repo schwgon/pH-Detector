@@ -17,8 +17,7 @@
                 <?= session()->getFlashdata('error_message') ?>
             </div>
         <?php endif; ?>
-        <p>Se le enviara un codigo al meil proporcionado anteriormente</p>
-        <form method="post" action="<?= base_url("loginForm"); ?>">
+        <form method="post" action="<?= base_url("recuperarPass"); ?>">
             <div class="mb-4">
                 <label for="codigo" class="block text-white mb-2"><i class="fas fa-envelope"></i>Ingrese el Codigo</label>
                 <input type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="codigo" name="codigo" placeholder="codigo">
