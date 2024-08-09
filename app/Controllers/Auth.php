@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\UserModel;
+use \App\Models\EmailModel;
 
 class Auth extends BaseController
 {
@@ -146,30 +147,22 @@ class Auth extends BaseController
 
     public function recuperarPassIndex2()
     {
-        $email = $this->session->get('email');
+        $email = $this->request->getPost('email');
         $codigo = $userModel->traerCodico($email);
 
-        // Correo electrónico al que se enviará el número
-        $emailDestino = 'destinatario@example.com'; // Cambia esto por el correo electrónico real
+        $userModel = new UserModel();
+        $emailModel = new EmailModel();
 
-        // Asunto del correo
-        $asunto = 'Número Aleatorio';
-
-        // Cuerpo del mensaje
-        $mensaje = "El codigo de recuperacion es: " . $codigo;
-
-        // Encabezados del correo (opcional, pero recomendable para definir el tipo de contenido)
-        $headers = "From: remitente@example.com\r\n"; // Cambia esto por la dirección de correo del remitente
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-        
-        // Enviar el correo
-        if (mail($emailDestino, $asunto, $mensaje, $headers)) {
-            echo "Correo enviado exitosamente.";
+        if ($emailModel->sendEmail($codigo, $email)) {
+            return redirect()->to('IrCodigo')->with('error_message', 'Correo enviado con éxito');
         } else {
-            echo "Error al enviar el correo.";
-}
+            return redirect()->to('recuperar1')->with('error_message', 'Error al enviar el correo');
+        }
+    }
 
-        echo view('common/header'); // url en vez de return para llamar header y footer en otro contolador
+    public function IrCodigo()
+    {
+        echo view('common/header');
         echo view('common/footer');
         return view('recuperar_pass');
     }
@@ -177,7 +170,7 @@ class Auth extends BaseController
     public function recuperarPass()
     {
         $userModel = new UserModel();
-        $userId = $this->session->get('user_id'); // Obtiene el ID del usuario de la sesión
+        $codigo = $this->request->getPost('codigo');
         $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
 
         if ($this->request->getMethod() == 'post') {
