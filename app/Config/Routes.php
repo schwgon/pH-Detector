@@ -31,3 +31,14 @@ $routes->post('update/(:num)', 'ABM_Admin::update/$1', ['filter' => 'access']);
 $routes->get('device', "Device::indexDevice");
 $routes->post('add_device', "Device::add_Device");
 $routes->get('mostrar_datos/(:num)', "Device::mostrarDatos/$1");
+
+$routes->get('/wifi', 'NetworkController::index');
+$routes->post('sendCredentials', 'NetworkController::sendCredentials');
+
+$routes->get('conectar_nodemcu', 'ConectarNodeMCU::index');
+$routes->get('conectar_nodemcu/scan', 'ConectarNodeMCU::scanNetworks');
+$routes->post('conectar_nodemcu/connect', 'ConectarNodeMCU::connect');
+
+$routes->get('/nodemcuconfig', 'NodeMCUConfigController::index');
+$routes->post('/nodemcuconfig/configure', 'NodeMCUConfigController::configure');
+
