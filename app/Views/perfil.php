@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="min-h-screen flex justify-center items-center">
+    <div class="min-h-screen flex justify-center items-center -mt-24">
         <div class="bg-white shadow-md rounded-lg p-6 max-w-md w-full">
             <div class="flex items-center mb-6">
                 <div>

@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
 <main class="flex-grow">
-    <section class="container mx-auto py-8 flex justify-start">
+    <section class="container mx-auto py-2 flex justify-start -mt-8">
         <div class="max-w-xl bg-opacity-50 bg-transparent p-6 rounded-lg">
-            <h3 class="text-white text-2xl mt-10">About us</h3>
-            <p class="text-white text-justify text-xl font-small">
+            <h3 class="text-black text-2xl mt-10">About us</h3>
+            <p class="text-black text-justify text-xl font-small">
                 Welcome to our project! We are students passionate about technology who are developing a pH detector to regulate water with automatic pumps. Our mission is to create an innovative and efficient solution to maintain pH balance in various environments. We focus on automating the process to ensure accuracy and convenience in use. Join us on this exciting journey towards a more sustainable and technologically advanced future. Thanks for being part of our community!
             </p>
         </div>

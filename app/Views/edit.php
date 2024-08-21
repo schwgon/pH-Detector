@@ -5,15 +5,15 @@
     <title>Editar Usuario</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<body class="bg-dark text-white">
+<body class="bg-gray-100 text-black">
     <div class="container">
         <h1 class="mt-5">Editar Usuario</h1>
 
         <div class="card mt-5">
-            <div class="card-header text-dark">
+            <div class="card-header text-black">
                 <h2>Formulario de Edición</h2>
             </div>
-            <div class="bg-dark card-body">
+            <div class="bg-gray-100 card-body">
                 <form action="<?= site_url('update/' . $usuario->id_usuario); ?>" method="post">
                     <input type="hidden" name="id_usuario" value="<?= $usuario->id_usuario; ?>">
 

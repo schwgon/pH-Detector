@@ -24,14 +24,6 @@ class ABM_Admin extends BaseController
         $userModel->delete($id);
         return redirect()->to(base_url('panel_admin'));
     }
-
-    public function edit($id_usuario)
-    {
-        $userModel = new UserModel();
-        $datos['usuario'] = $userModel->find($id_usuario); // Utiliza find para obtener un solo registro
-        echo view('common/header', ['session' => $this->session]);
-        return view('edit', $datos);
-    }
     public function update($id_usuario)
     {
         $userModel = new UserModel();
