@@ -13,7 +13,7 @@ $routes->post('loginForm', "Auth::do_login"); // Define la ruta para procesar el
 $routes->post('register1', "Auth::do_register"); // Define la ruta para procesar el formulario de registro.
 $routes->get('logout', 'Auth::logout'); // Define la ruta para cerrar sesión.
 $routes->get('admin', "Auth::do_login"); // Define la ruta para el acceso de administrador.
-$routes->get('perfil', "Auth::perfil", ['filter' => 'access']);
+$routes->get('perfil', "Auth::perfil");
 $routes->get('recuperar1', "Auth::recuperarPassIndex1");
 $routes->get('recuperar2', "Auth::recuperarPassIndex2");
 $routes->get('IrCodigo', "Auth::IrCodigo");
