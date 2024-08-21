@@ -3,7 +3,6 @@
 <head>
     <link rel="shortcut icon" href="<?php echo base_url('images/agua.png'); ?>" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
 <body>
 <footer class="flex flex-col items-center justify-center py-4 bg-gray-800 text-white">

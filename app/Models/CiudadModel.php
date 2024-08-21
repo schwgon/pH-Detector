@@ -5,19 +5,10 @@ use CodeIgniter\Model;
 
 class CiudadModel extends Model
 {
-    protected $table      = 'ciudad';
+    protected $table  = 'ciudad';
     protected $primaryKey = 'id_ciudad';
-    
-    protected $useAutoIncrement = true;
-    
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = false;
-    
-    protected $allowedFields = ['ciudad', 'id_provincia'];
-
-    // public function add($ciudad){
-    //     return $this->insert($ciudad);
-    // }
+    protected $returnType       = 'array';
+    protected $allowedFields = ['id_provincia', 'ciudad'];
 
     public function add($ciudad, $id_provincia)
     {
@@ -27,20 +18,6 @@ class CiudadModel extends Model
         } else {
             $this->save(['ciudad' => $ciudad, 'id_provincia' => $id_provincia]);
             return $this->insertID();
-        }
-    }
-
-    public function add1($ciudad)
-    {
-        $existingCiudad = $this->where('ciudad', $ciudad)->first();
-
-        if ($existingCiudad) {
-            // Si el país ya existe, retornar su ID
-            return $existingCiudad['id_ciudad'];
-        } else {
-            // Si el país no existe, insertarlo y retornar su nuevo ID
-            $this->insert(['ciudad' => $ciudad]);
-            return $this->getInsertID();
         }
     }
 }
