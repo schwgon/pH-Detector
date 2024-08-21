@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index'); // Define la ruta para la página principal.
+$routes->get('about_us', 'Home::index1'); // Define la ruta para la página principal.
 
 $routes->get('login', 'Auth::indexLogin'); // Define la ruta para la página de inicio de sesión.
 $routes->get('register', 'Auth::indexRegister'); // Define la ruta para la página de registro.
