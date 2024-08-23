@@ -172,20 +172,5 @@ class Auth extends BaseController
         $userModel = new UserModel();
         $codigo = $this->request->getPost('codigo');
         $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
-
-        if ($this->request->getMethod() == 'post') {
-            $name = $this->request->getPost('name'); // Obtiene el valor del campo 'name' enviado por el formulario a traves del metodo POST
-            $email = $this->request->getPost('email'); // Obtiene el valor del campo 'email' enviado por el formulario a traves del metodo POST
-            $data = [ // Crea un arreglo con los datos del usuario
-                'name' => $name,
-                'email' => $email,
-            ];
-            $r = $userModel->update($userId, $data); // Actualiza los datos del usuario en la base de datos
-
-            if ($r) { // Si el registro es exitoso
-                session()->setFlashdata('success_message', 'Your profile has been updated successfully'); // Muestra un mensaje de exito
-                return view('perfil'); // Redirige a la pagina del perfil
-            }
-        }
     }
 }
