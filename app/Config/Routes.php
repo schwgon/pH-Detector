@@ -25,8 +25,8 @@ $routes->get('delete/(:num)', 'ABM_Admin::delete/$1', ['filter' => 'access']);
 $routes->get('edit/(:num)', 'ABM_Admin::edit/$1', ['filter' => 'access']);
 $routes->post('update/(:num)', 'ABM_Admin::update/$1', ['filter' => 'access']);
 
-// $routes->get('editarPerfil', 'Auth::editarPerfil');
-// $routes->post('editarPerfil', 'Auth::editarPerfil');
+$routes->get('editarPerfil', 'Auth::editarPerfil');
+$routes->post('editarPerfil', 'Auth::editarPerfil');
 
 $routes->get('device', "Device::indexDevice");
 $routes->post('add_device', "Device::add_Device");

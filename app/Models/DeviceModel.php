@@ -18,12 +18,11 @@ class DeviceModel extends Model{
 
     public function Dispositivo($id_usuario = null){
         $query = $this->db->table('dispositivo')
-            ->select('dispositivo.nombre, dispositivo.id_dispositivo, dispositivo.id_usuario, pais.pais, provincia.provincia, ciudad.ciudad, barrio.barrio, calle.calle')
+            ->select('dispositivo.nombre, dispositivo.id_dispositivo, dispositivo.id_usuario, provincia.provincia, ciudad.ciudad, barrio.barrio, calle.calle')
             ->join('calle', 'dispositivo.id_calle = calle.id_calle')
             ->join('barrio', 'dispositivo.id_barrio = barrio.id_barrio')
             ->join('ciudad', 'barrio.id_ciudad = ciudad.id_ciudad')
             ->join('provincia', 'ciudad.id_provincia = provincia.id_provincia')
-            ->join('pais', 'provincia.id_pais = pais.id_pais')
             ->where('dispositivo.id_usuario', $id_usuario)
             ->groupBy('dispositivo.id_dispositivo')
             ->get();
