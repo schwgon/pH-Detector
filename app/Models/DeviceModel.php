@@ -16,6 +16,11 @@ class DeviceModel extends Model{
         $this->insert($dispositivoData);
     }
 
+    public function save($data): bool
+    {
+        return parent::save($data);
+    }
+
     public function Dispositivo($id_usuario = null){
         $query = $this->db->table('dispositivo')
             ->select('dispositivo.nombre, dispositivo.id_dispositivo, dispositivo.id_usuario, provincia.provincia, ciudad.ciudad, barrio.barrio, calle.calle')

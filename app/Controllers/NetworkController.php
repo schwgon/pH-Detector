@@ -16,6 +16,9 @@ class NetworkController extends Controller
         $ssid = $this->request->getPost('ssid');
         $password = $this->request->getPost('password');
 
+        // Obtener la dirección IP de la PC
+        $pc_ip = $this->getPCIPAddress();
+
         // Conectar a la red de la NodeMCU
         $this->connectToNodeMCUNetwork();
 
@@ -24,6 +27,7 @@ class NetworkController extends Controller
         $data = [
             'ssid' => $ssid,
             'password' => $password,
+            'pc_ip' => $pc_ip
         ];
 
         $options = [
@@ -39,16 +43,14 @@ class NetworkController extends Controller
 
         if ($result === FALSE) {
             return redirect()->to('login')->with('error_message', 'Error al enviar las credenciales.');
-            // echo "Error al enviar las credenciales.";
         } else {
             return redirect()->to('login')->with('error_message', 'Credenciales enviadas. Respuesta de NodeMCU: ' . $result);
-            // echo "Credenciales enviadas. Respuesta de NodeMCU: " . $result;
         }
     }
 
     private function connectToNodeMCUNetwork()
     {
-        // $cmd = 'netsh wlan connect name="NodeMCU_AP" key="12345678"';
+        // Conectar a la red de la NodeMCU
         $cmd = 'netsh wlan add profile filename="C:\perfil_wifi.xml"';
         shell_exec($cmd);
 
@@ -59,5 +61,18 @@ class NetworkController extends Controller
         shell_exec($cmd);
 
         sleep(5);
+    }
+
+    private function getPCIPAddress()
+    {
+        // Obtener la dirección IP de la PC ejecutando un comando del sistema
+        $output = shell_exec('ipconfig');
+
+        // Extraer la dirección IP usando una expresión regular
+        if (preg_match('/IPv4 Address.*?:\s*([0-9\.]+)/', $output, $matches)) {
+            return $matches[1];
+        }
+
+        return '127.0.0.1';  // Retornar localhost si no se puede encontrar la IP
     }
 }

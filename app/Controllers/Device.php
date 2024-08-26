@@ -68,4 +68,18 @@ class Device extends BaseController
         echo view('common/header');
         return view('datos', $datos);
     }
+
+    public function guardar_id()
+    {
+        $id_dispositivo = $this->request->getPost('id_dispositivo');
+
+        // Guardar el ID en la base de datos
+        $deviceModel = new DeviceModel();
+        $data = [
+            'id_dispositivo' => $id_dispositivo,
+        ];
+        $deviceModel->save($data);
+
+        return redirect()->to('login')->with('error_message', 'ID guardado exitosamente');
+    }
 }

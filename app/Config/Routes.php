@@ -32,6 +32,7 @@ $routes->post('editarPerfil', 'Auth::editarPerfil');
 $routes->get('device', "Device::indexDevice");
 $routes->post('add_device', "Device::add_Device");
 $routes->get('mostrar_datos/(:num)', "Device::mostrarDatos/$1");
+$routes->get('guardar_id', "Device::guardar_id");
 
 $routes->get('/wifi', 'NetworkController::index');
 $routes->post('sendCredentials', 'NetworkController::sendCredentials');
