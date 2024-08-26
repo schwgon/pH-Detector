@@ -31,6 +31,17 @@ $session = \Config\Services::session();
                     <button type="button" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
                         Device
                     </button>
+                    <div id="dropdown-menu" class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div class="py-1" role="none">
+                            <a href="<?= site_url('device'); ?>" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Add Device</a>
+                            <?php $dispositivos = $session->get('dispositivos') ?? [];
+                                foreach ($dispositivos as $dispo): ?>
+                                <a href="<?= site_url('mostrar_datos/' . $dispo['id_dispositivo']); ?>" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-<?//= htmlspecialchars($dispo['id_dispositivo']); ?>">
+                                    <?= htmlspecialchars($dispo['nombre']); ?>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
 
                 <?php if ($session->get('is_admin') == true) : ?>
