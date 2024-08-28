@@ -25,4 +25,8 @@ class MedicionModel extends Model{
             ->get();
         return $query->getResultArray();
     }
+
+    public function add($data){
+        $this->insert($data);
+    }
 }

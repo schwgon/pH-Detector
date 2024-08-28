@@ -94,7 +94,6 @@ class Auth extends BaseController
 
     public function perfil()
     {
-        $data['session'] = \Config\Services::session();
         $userModel = new UserModel();
 
         $userId = $this->session->get('user_id'); // Obtiene el ID del usuario de la sesión
@@ -108,10 +107,10 @@ class Auth extends BaseController
                 $userData->id_permiso = 'Usuario';
             }
 
-            $data['user'] = $userData; // Guarda los datos del usuario en el arreglo $data
-            echo view('common/header', $data); // Carga y muestra la vista 'common/header'
-            echo view('common/footer', $data);
-            return view('perfil', $data); // Carga la vista 'perfil' pasando los datos del usuario
+            $data['user'] = $userData;
+            echo view('common/header');
+            echo view('common/footer');
+            return view('perfil', $data);
         }
     }
 

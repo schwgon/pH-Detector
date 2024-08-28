@@ -9,15 +9,13 @@ class DeviceModel extends Model{
     protected $table  = 'dispositivo';
     protected $primaryKey = 'id_dispositivo';
     protected $returnType       = 'array';
-    protected $allowedFields = ['id_dispositivo', 'id_usuario', 'nombre', 'id_barrio', 'id_calle', 'id_medicion_bomba'];
+    protected $allowedFields = ['id_dispositivo', 'id_usuario', 'nombre', 'ip', 'id_barrio', 'id_calle', 'id_medicion_bomba'];
 
-    public function add($dispositivoData)
-    {
+    public function add($dispositivoData){
         $this->insert($dispositivoData);
     }
 
-    public function save($data): bool
-    {
+    public function save($data): bool{
         return parent::save($data);
     }
 
@@ -33,4 +31,16 @@ class DeviceModel extends Model{
             ->get();
         return $query->getResultArray();
     }
+
+    public function verificarID($dispositivo_id){
+        return $this->where('id_dispositivo', $dispositivo_id)->countAllResults() > 0;
+    }
+    
+    public function verificarIP($ip_address){
+        return $this->where('ip', $ip_address)->countAllResults() > 0;
+    }
+
+    public function actualizarIP($dispositivo_id, $datos){
+        return $this->where('id_dispositivo', $dispositivo_id)->set($datos)->update();
+    } 
 }

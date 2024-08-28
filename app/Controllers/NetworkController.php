@@ -16,8 +16,8 @@ class NetworkController extends Controller
         $ssid = $this->request->getPost('ssid');
         $password = $this->request->getPost('password');
 
-        // Obtener la dirección IP de la PC
-        $pc_ip = $this->getPCIPAddress();
+        // // Obtener la dirección IP de la PC
+        // $pc_ip = $this->getPCIPAddress();
 
         // Conectar a la red de la NodeMCU
         $this->connectToNodeMCUNetwork();
@@ -27,7 +27,7 @@ class NetworkController extends Controller
         $data = [
             'ssid' => $ssid,
             'password' => $password,
-            'pc_ip' => $pc_ip
+            // 'pc_ip' => $pc_ip
         ];
 
         $options = [
@@ -35,6 +35,7 @@ class NetworkController extends Controller
                 'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
                 'method'  => 'POST',
                 'content' => http_build_query($data),
+                'timeout' => 40,  // Tiempo de espera de 40 segundos
             ],
         ];
 
