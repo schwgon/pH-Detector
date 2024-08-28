@@ -3,7 +3,6 @@ $session = \Config\Services::session();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,13 +21,15 @@ $session = \Config\Services::session();
         </div>
         <nav class="flex space-x-4">
             <?php if ($session->has('user_name')) : ?>
-                <a href="<?= base_url('logout'); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium" onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
-                <a href="<?= site_url("perfil"); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
-                <a href="<?= site_url(""); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">Home</a>
-                <a href="<?= site_url(""); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-                
+                <a href="<?= base_url('logout'); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium"6 onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
+                <a href="<?= site_url("perfil"); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
+                <a href="<?= site_url(""); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Home</a>
+                <a href="<?= site_url("about_us"); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+                <button id="lang-toggle" class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">
+                <img class="h-12 w-auto" src="<?php echo base_url('images/español.png'); ?>" alt="Logo">
+            </button>
                 <div class="relative inline-block text-left">
-                    <button type="button" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                    <button type="button" class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
                         Device
                     </button>
                     <div id="dropdown-menu" class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
@@ -45,14 +46,17 @@ $session = \Config\Services::session();
                 </div>
 
                 <?php if ($session->get('is_admin') == true) : ?>
-                    <a href="<?= site_url("panel_admin"); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                    <a href="<?= site_url("panel_admin"); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
                 <?php endif; ?>
                 <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p> <!-- Texto de bienvenida -->
             <?php else : ?>
-                <a href="<?= site_url(""); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">Home</a>
-                <a href="<?= site_url(""); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-                <a href="<?= site_url("register"); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
-                <a href="<?= site_url("login"); ?>" class="text-black hover:bg-gray-800 hover:text-white px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
+                <a href="<?= site_url(""); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Home</a>
+                <a href="<?= site_url("about_us"); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+                <a href="<?= site_url("register"); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
+                <a href="<?= site_url("login"); ?>" class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
+                <button id="lang-toggle" class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">
+                Translate
+            </button>
             <?php endif; ?>
         </nav>
     </header>
@@ -66,6 +70,28 @@ $session = \Config\Services::session();
                 dropdownMenu.classList.toggle('hidden');
             } else {
                 dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('lang-toggle');
+            let currentLang = 'en'; // Default language
+
+            toggleButton.addEventListener('click', () => {
+                currentLang = currentLang === 'en' ? 'es' : 'en';
+                updateLanguage(currentLang);
+                toggleButton.textContent = currentLang === 'en' ? 'Translate' : 'Traducir';
+            });
+
+            function updateLanguage(lang) {
+                document.querySelectorAll('[data-en], [data-es]').forEach(element => {
+                    if (lang === 'es') {
+                        element.textContent = element.getAttribute('data-es') || element.textContent;
+                    } else {
+                        element.textContent = element.getAttribute('data-en') || element.textContent;
+                    }
+                });
             }
         });
     </script>

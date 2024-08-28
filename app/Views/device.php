@@ -22,22 +22,19 @@
                     <input name="name" required type="text" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\s]+"
                         class="form-input w-full bg-gray-100 text-black pl-2" id="name" placeholder="Name Device">
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
-                    <label for="pais" class="block text-black mb-2">Pais</label>
-                    <input name="pais" required type="text" class="form-input w-full bg-gray-100 text-black  pl-2"
-                        placeholder="Pais">
-                </div>
             </div>
             <div class="flex flex-wrap -mx-3">
                 <div class="w-full md:w-1/3 px-3">
                     <label for="province" class="block text-black mb-2">Province/State</label>
-                    <select name="province" class="form-input w-full bg-gray-100 text-black pl-2" id="province" required>
+                    <select name="province" class="form-input w-full bg-gray-100 text-black pl-2" id="province"
+                        required>
                         <option value="Elije una provincia">Elije una provincia</option>
                     </select>
                 </div>
                 <div class="w-full md:w-1/3 px-3">
                     <label for="municipality" class="block text-black mb-2">Municipality</label>
-                    <select name="municipality" class="form-input w-full bg-gray-100 text-black pl-2" id="municipality" required>
+                    <select name="municipality" class="form-input w-full bg-gray-100 text-black pl-2" id="municipality"
+                        required>
                         <option value="Elije un municipio">Elije un municipio</option>
                     </select>
                 </div>

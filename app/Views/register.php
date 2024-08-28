@@ -11,7 +11,7 @@
 
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
 
-    <div class="mt-2 bg-gray-100 p-8 shadow-md max-w-md w-full mx-auto">
+    <div class="-mt-1 bg-gray-100 p-8 shadow-md max-w-md w-full mx-auto">
         <h1 class="text-black text-2xl font-sans mb-6 text-center">Register</h1>
         <?php if (session()->getFlashdata('error_message')) : ?>
             <div class="alert alert-correo text-center mb-4 text-red-600	color: rgb(220 38 38);">
