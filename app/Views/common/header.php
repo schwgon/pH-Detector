@@ -12,7 +12,7 @@ $session = \Config\Services::session();
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
 
-<body class="bg-white"> <!-- Color de fondo blanco -->
+<body class="bg-white"> <!-- Color de fondo blanco -->  
     <header class="flex justify-between items-center p-5">
         <div class="flex-shrink-0">
             <a href="<?= site_url(""); ?>">
