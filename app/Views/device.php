@@ -22,11 +22,6 @@
                     <input name="name" required type="text" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\s]+"
                         class="form-input w-full bg-gray-100 text-black pl-2" id="name" placeholder="Name Device">
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
-                    <label for="pais" class="block text-black mb-2">Pais</label>
-                    <input name="pais" required type="text" class="form-input w-full bg-gray-100 text-black  pl-2"
-                        placeholder="Pais">
-                </div>
             </div>
             <div class="flex flex-wrap -mx-3">
                 <div class="w-full md:w-1/3 px-3">

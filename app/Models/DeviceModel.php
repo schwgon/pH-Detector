@@ -43,4 +43,8 @@ class DeviceModel extends Model{
     public function actualizarIP($dispositivo_id, $datos){
         return $this->where('id_dispositivo', $dispositivo_id)->set($datos)->update();
     } 
+
+    public function agregarID($dispositivo){
+        $this->insert($dispositivo);
+    } 
 }
