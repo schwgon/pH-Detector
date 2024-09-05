@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-white flex justify-center items-center min-h-screen">
-    <div class=" mt-8 bg-gray-100 p-8 shadow-sm max-w-md w-full mx-auto my-auto">
+    <div class=" mt-8 bg-gray-100 p-8 shadow-sm max-w-md w-full mx-auto my-auto border-2 border-black">
         <h1 class="text-black text-2xl font-sans mb-6 text-center">Log in</h1>
             <?php if (session()->getFlashdata('error_message')): ?>
                 <div class="alert alert-error text-center mb-4 text-gray-300">
@@ -30,6 +30,9 @@
         </form>
         <div class="text-black text-center">
             <p>You do not have an account?<a href="<?= site_url("register"); ?>" class="text-black hover:text-gray-700 ml-2">Sign Up</a></p>
+        </div>
+        <div class="text-black text-center">
+        <p><a href="<?= site_url("restore_password"); ?>" class="text-black hover:text-gray-700 ml-2">¿Olvido su contraseña?</a></p>
         </div>
     </div>
 

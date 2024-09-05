@@ -115,6 +115,12 @@ class Auth extends BaseController
         }
     }
 
+    public function restore_password(){
+        return view('restore_password');
+    }
+        
+    
+
     // public function editarPerfil()
     // {
     //     $data['session'] = \Config\Services::session();

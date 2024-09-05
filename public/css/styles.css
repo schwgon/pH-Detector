@@ -1,48 +1,53 @@
+/* Modo claro (por defecto) */
 body {
+    background-color: white;
+    color: black;
+}
 
-    background-image: url('../images/fondito2.jpg');
- 
-    background-size: cover;
-    margin: 0; /* Eliminar el margen predeterminado */
-    padding: 0; /* Eliminar el padding predeterminado */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Formulario en modo claro */
+.form-container {
+    background-color: #f0f0f0; /* bg-gray-100 */
+  
+}
+
+input, button {
+    background-color: #e5e5e5; /* bg-gray-200 */
+    color: black;
+}
+
+/* Formulario en modo oscuro */
+body.dark-mode .form-container {
+    background-color: #333; /* bg-gray-800 */
     
 }
 
-header {
-    position: relative; /* Cambiar la posición a relativa */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+body.dark-mode input, 
+body.dark-mode button {
+    background-color: #555; /* bg-gray-800 */
+    color: white;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
+/* Estilos del header y footer */
+header, footer {
+    background-color: transparent; /* Fondo oscuro por defecto */
+}
+
+body.dark-mode header, 
+body.dark-mode footer {
+    background-color: transparent;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
+    color: black;
 }
 
-h1 {
-    margin: 0; /* Eliminar el margen predeterminado */
-    flex: 1; /* Que el h1 ocupe todo el espacio restante */
-    font-family:Georgia, 'Times New Roman', Times, serif; /* Cambiar la familia de fuente */
-    font-size: 36px; /* Ajustar el tamaño de la fuente */
-
-}
-
-.logo {
-    width: 80px; /* ajusta el ancho según lo necesites */
-    height: auto; /* para mantener la proporción */
-    margin-right: 20px; /* Añadir un margen a la derecha para separar el logo del título */
-}
-
-section {
-    padding: 20px; /* Agregar espacio alrededor del contenido de la sección */
-    margin-top: 20px; /* Agregar margen superior para separar las secciones */
+body.dark-mode nav a {
+    color: lightgray;
 }
 
 footer {
@@ -53,4 +58,49 @@ footer {
     bottom: 0; /* Alinear el footer en la parte inferior de la página */
     width: 100%; /* Ancho completo */
     text-align: center; /* Alinear el texto al centro */
+}
+
+body.dark-mode .form-container {
+    background-color: #333; /* bg-gray-800 */
+    border: 2px solid white;
+}
+
+/* Otros ajustes para texto y enlaces en modo oscuro */
+body.dark-mode h3, 
+body.dark-mode p {
+    color: white;
+}
+/* Modo claro (por defecto) */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Aplicar dark-mode en el body */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Tarjeta del formulario en modo claro */
+.form-container {
+    background-color: #f0f0f0; /* bg-gray-100 */
+}
+
+/* Tarjeta del formulario en modo oscuro */
+body.dark-mode .form-container {
+    background-color: #333; /* bg-gray-800 */
+    border: 2px solid white;
+}
+
+/* Otros estilos */
+input, button {
+    background-color: #e5e5e5; /* bg-gray-200 */
+    color: black;
+}
+
+body.dark-mode input, 
+body.dark-mode button {
+    background-color: #555; /* bg-gray-800 */
+    color: white;
 }
