@@ -21,12 +21,12 @@ $session = \Config\Services::session();
 
 <body class="bg-white dark-mode"> <!-- Color de fondo blanco -->
     <header class="flex justify-between items-center p-5">
-        <div class="flex-shrink-0">
-            <a href="<?= site_url(""); ?>">
-                <img class="h-12 w-auto" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
-                <!-- Ajuste del tamaño del logo -->
-            </a>
-        </div>
+    <div class="flex-shrink-0">
+    <a href="<?= site_url(""); ?>">
+        <!-- Logo claro (para el fondo oscuro) -->
+        <img id="logo" class="h-12 w-auto" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
+    </a>
+</div>
         <nav class="flex space-x-4">
             <?php if ($session->has('user_name')): ?>
                 <a href="<?= base_url('logout'); ?>"
@@ -102,7 +102,7 @@ $session = \Config\Services::session();
                 document.body.classList.add('dark-mode');
                 themeIcon.src = '<?php echo base_url('images/moon.png'); ?>';
             } else {
-                themeIcon.src = '<?php echo base_url('images/sun.png'); ?>';
+                themeIcon.src = '<?php echo base_url('images/moon.png'); ?>';
             }
 
             toggleButton.addEventListener('click', () => {
@@ -118,6 +118,27 @@ $session = \Config\Services::session();
             });
         });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const logo = document.getElementById('logo');
+
+        // Verificar el modo actual al cargar la página
+        if (localStorage.getItem('theme') === 'dark') {
+            logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo claro para modo oscuro
+        } else {
+            logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo oscuro para modo claro
+        }
+
+        // Cambiar la imagen del logo cuando el usuario alterna el tema
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.body.classList.contains('dark-mode')) {
+                logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo claro para modo oscuro
+            } else {
+                logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo oscuro para modo claro
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -1,40 +1,49 @@
 /* Modo claro (por defecto) */
 body {
-    background-color: white;
+    background-image: url('../images/fondito2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: black;
 }
 
+/* Modo oscuro */
 body.dark-mode {
-    background-color: #1a1a1a;
+    background-color: black; /* Fondo completamente negro en modo oscuro */
+    background-image: url('../images/fondo_dark.jpg');  /* Elimina la imagen de fondo en modo oscuro */
     color: white;
 }
 
-/* Formulario en modo claro */
+/* Tarjeta del formulario en modo claro */
 .form-container {
     background-color: #f0f0f0; /* bg-gray-100 */
-  
+    padding: 20px;
+    border-radius: 8px;
 }
 
+/* Tarjeta del formulario en modo oscuro */
+body.dark-mode .form-container {
+    background-color: #333; /* Fondo oscuro para la tarjeta */
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Estilos para los inputs y botones */
 input, button {
     background-color: #e5e5e5; /* bg-gray-200 */
     color: black;
 }
 
-/* Formulario en modo oscuro */
-body.dark-mode .form-container {
-    background-color: #333; /* bg-gray-800 */
-    
-}
-
 body.dark-mode input, 
 body.dark-mode button {
-    background-color: #555; /* bg-gray-800 */
+    background-color: #555; /* Fondo oscuro para inputs y botones en modo oscuro */
     color: white;
 }
 
 /* Estilos del header y footer */
 header, footer {
-    background-color: transparent; /* Fondo oscuro por defecto */
+    background-color: transparent;
 }
 
 body.dark-mode header, 
@@ -50,19 +59,15 @@ body.dark-mode nav a {
     color: lightgray;
 }
 
+/* Estilos del footer */
 footer {
-    background-color: #333; /* Color de fondo del footer */
-    color: white; /* Color del texto del footer */
+    background-color: #333;
+    color: white;
     padding: 20px;
-    position: absolute; /* Cambiar la posición a absoluta */
-    bottom: 0; /* Alinear el footer en la parte inferior de la página */
-    width: 100%; /* Ancho completo */
-    text-align: center; /* Alinear el texto al centro */
-}
-
-body.dark-mode .form-container {
-    background-color: #333; /* bg-gray-800 */
-    border: 2px solid white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 /* Otros ajustes para texto y enlaces en modo oscuro */
@@ -70,37 +75,7 @@ body.dark-mode h3,
 body.dark-mode p {
     color: white;
 }
-/* Modo claro (por defecto) */
-body {
-    background-color: white;
-    color: black;
-}
 
-/* Aplicar dark-mode en el body */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: white;
-}
-
-/* Tarjeta del formulario en modo claro */
-.form-container {
-    background-color: #f0f0f0; /* bg-gray-100 */
-}
-
-/* Tarjeta del formulario en modo oscuro */
-body.dark-mode .form-container {
-    background-color: #333; /* bg-gray-800 */
-    border: 2px solid white;
-}
-
-/* Otros estilos */
-input, button {
-    background-color: #e5e5e5; /* bg-gray-200 */
-    color: black;
-}
-
-body.dark-mode input, 
-body.dark-mode button {
-    background-color: #555; /* bg-gray-800 */
-    color: white;
+.h-12 w-auto{
+    filter: invert(100%);
 }
