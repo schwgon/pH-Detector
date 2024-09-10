@@ -45,7 +45,7 @@
                 Register <i class="fas fa-chevron-right"></i>
             </button>
             <p class="font-light text-center">
-                Do you already have an account? 
+                Do you already have an account?
                 <a href="<?= site_url("login"); ?>" class="text-emerald-400 hover:text-emerald-500 ml-2">
                     Log-In
                 </a>

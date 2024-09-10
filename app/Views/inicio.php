@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
 
-<body class="bg-white text-black h-full flex flex-col">
+<body class="bg-gray-100 dark:bg-gray-800 flex justify-center items-center min-h-screen">
     <?php if (session()->getFlashdata('success_message')): ?>
         <div id="successMessage" class="alert alert-error text-center mb-4 text-emerald-400">
             <?= session()->getFlashdata('success_message') ?>
@@ -31,9 +31,9 @@
             }
         });
     </script>
-    <main class="flex-grow flex items-center justify-center py-8 -mt-11">
+    <main class="flex-grow flex items-center justify-center py-8 mt-11">
         <section class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div class="dark:text-black p-8 shadow-md mx-auto border-2 border-emerald-400 -mt-5">
                 <h3 class="text-3xl font-sans mb-4" data-en="Welcome to pH-Detector" data-es="Bienvenido a pH-Detector">
                     Welcome to pH-Detector</h3>
                 <p class="text-lg leading-relaxed font-sans"
