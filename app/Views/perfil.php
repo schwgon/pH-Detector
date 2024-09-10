@@ -21,7 +21,7 @@
                     </h2>
                 </div>
             </div>
-            <hr>
+            <hr class=" border-emerald-400">
             <div>
                 <h3 class="text-lg font-semibold mb-2">Información de contacto</h3>
                 <ul>

@@ -12,13 +12,6 @@ $session = \Config\Services::session();
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
-<script>
-    // Verificamos si el modo oscuro está activado en el localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-    }
-</script>
-
 <body class="bg-white dark-mode"> <!-- Color de fondo blanco -->
     <header class="flex justify-between items-center p-5">
     <div class="flex-shrink-0">

@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
 </head>
 <body>
-<footer class="flex flex-col items-center justify-center py-4 bg-transparent text-black">
-    <div class="flex flex-wrap justify-between w-full px-11 mb-2">
+<footer class="flex flex-col items-center justify-center py-4 bg-transparent dark:text-white">
+    <div class="flex bg-transparent flex-wrap justify-between w-full px-11 mb-2">
         <div class="flex items-center justify-center space-x-2">
             <h2 class="text-xl font-sans text-black">Contact</h2>
             <a href="https://www.instagram.com">

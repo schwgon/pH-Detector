@@ -1,9 +1,13 @@
 /* Modo claro (por defecto) */
 body {
-    background-image: url('../images/fondito2.jpg');
+    background-image: url('../images/fondo_light.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Para que el fondo se quede fijo al hacer scroll */
+    min-height: 100vh; /* Asegura que el fondo cubra al menos la altura total de la ventana */
+    margin: 0;
+    padding: 0;
     color: black;
 }
 
