@@ -33,24 +33,47 @@ class UserModel extends Model{
 
     public function updatee($id_usuario, $data){
         return $this->where('id_usuario', $id_usuario)->set($data)->update(); // Actualiza los datos del usuario en la base de datos y devuelve el resultado
-    } 
-    // public function actualizarContrasena($email, $hashedPassword) {
-    //     $data = ['password' => $hashedPassword];
-    //     $this->where('email', $email)->set($data)->update();
-    // }
-
+    }
+    
     public function add($data) // Metodo para añadir un nuevo usuario
     {
         return $this->insert($data); // Inserta los datos del usuario en la base de datos y devuelve el resultado
     }
-
-    public function traerCodico($email) // Metodo para añadir un nuevo usuario
+    
+    public function traerCodico($email)
     {
+        return $this->where('email', $email)->select('codigo')->get()->getFirstRow();
+        // $query = $this->db->table('usuario')
+        // ->select('codigo')
+        // ->where('email', $email)
+        // ->get();
+        // return $query->getFirstRow(); // para obtener el primer registro como objeto.
+    }
+    
+    public function verificarCodigo($codigo,$email)
+    {
+        // return $this->where('codigo', $codigo)->where('email', $session->get('user_email'))->countAllResults() > 0; // Cuenta los resultados con el correo dado y devuelve verdadero si es mayor a 0
         $query = $this->db->table('usuario')
             ->select('codigo')
             ->where('email', $email)
+            ->where('codigo', $codigo)
             ->get();
         return $query->getResultArray();
+    }
+    
+    public function ActualizarContra($data, $email) {
+        // $this->where('email', $email)->set($data)->update();
+        
+        // $this->where('email', $email)
+        //     ->set('password', $data['password']) // Actualiza solo el campo 'password'
+        //     ->update();
+
+        // Intenta actualizar la contraseña
+        $result = $this->where('email', $email)
+            ->set('password', $data['password']) // Actualiza solo el campo 'password'
+            ->update();
+        // Devuelve true si se actualizaron filas, false si no
+        return $result !== false && $this->db->affectedRows() > 0;
     }
 
     // public function Usuarios(){

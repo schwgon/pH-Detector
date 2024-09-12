@@ -17,12 +17,12 @@
                 <?= session()->getFlashdata('error_message') ?>
             </div>
         <?php endif; ?>
-        <form method="post" action="<?= base_url("recuperarPass"); ?>">
+        <form method="post" action="<?= base_url("ObtenerCodigo"); ?>">
             <div class="mb-4">
-                <label for="codigo" class="block text-white mb-2"><i class="fas fa-envelope"></i>Ingrese el Codigo</label>
-                <input type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="codigo" name="codigo" placeholder="codigo">
+                <label for="email" class="block text-white mb-2"><i class="fas fa-envelope"></i>Ingrese su Email</label>
+                <input type="text" class="form-input w-full bg-gray-700 text-white rounded-sm pl-2" id="email" name="email" placeholder="email">
             </div>
-            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-full mb-4">Recuperar Contraseña <i class="fas fa-chevron-right"></i></button>
+            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded w-full mb-4">Siguiente<i class="fas fa-chevron-right"></i></button>
         </form>
     </div>
 

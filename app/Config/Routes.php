@@ -15,11 +15,13 @@ $routes->post('register1', "Auth::do_register"); // Define la ruta para procesar
 $routes->get('logout', 'Auth::logout'); // Define la ruta para cerrar sesión.
 $routes->get('admin', "Auth::do_login"); // Define la ruta para el acceso de administrador.
 $routes->get('perfil', "Auth::perfil");
-$routes->get('recuperar1', "Auth::recuperarPassIndex1");
-$routes->get('recuperar2', "Auth::recuperarPassIndex2");
-$routes->get('IrCodigo', "Auth::IrCodigo");
-$routes->get('recuperarPass', "Auth::recuperarPass");
 
+$routes->get('agregar_email', "Auth::agregar_email");
+$routes->post('ObtenerCodigo', "Auth::ObtenerCodigo");
+$routes->get('ingresarCodigo', "Auth::ingresarCodigo");
+$routes->post('verificarCodigo', "Auth::verificarCodigo");
+$routes->get('actualizarContra', "Auth::actualizarContra");
+$routes->post('editarContra', "Auth::editarContra");
 
 $routes->get('panel_admin', 'ABM_Admin::index_Admin', ['filter' => 'access']);
 $routes->get('delete/(:num)', 'ABM_Admin::delete/$1', ['filter' => 'access']);

@@ -32,7 +32,7 @@
             <p>No tienes una cuenta?<a href="<?= site_url("register"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Sign Up</a></p>
         </div>
         <div class="text-white text-center">
-            <p>Olvidaste tu contraseña?<a href="<?= site_url("recuperar1"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Recuperar Contraseña</a></p>
+            <p>Olvidaste tu contraseña?<a href="<?= site_url("agregar_email"); ?>" class="text-indigo-400 hover:text-indigo-500 ml-2">Recuperar Contraseña</a></p>
         </div>
     </div>
 

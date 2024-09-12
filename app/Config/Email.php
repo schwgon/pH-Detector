@@ -18,7 +18,7 @@ class Email extends BaseConfig
     /**
      * The mail sending protocol: mail, sendmail, smtp
      */
-    public string $protocol = 'mail';
+    public string $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -38,7 +38,7 @@ class Email extends BaseConfig
     /**
      * SMTP Password
      */
-    public string $SMTPPass = 'avoa fedo ljnw cgwj';
+    public string $SMTPPass = 'njkv gspa eunb huwp';
 
     /**
      * SMTP Port
@@ -129,4 +129,16 @@ class Email extends BaseConfig
     // public $mailType = 'text';
     // public $Charset = 'iso-8859-1';
     // public $WordWrap = true;
+
+    // public $fromEmail  = 'gasparschwartz@alumnos.itr3.edu.ar';
+    // public $fromName   = 'pH-Detector';
+    // public $SMTPHost   = 'smtp.example.com'; // Cambia por tu servidor SMTP
+    // public $SMTPUser   = 'tu_usuario@example.com'; // Cambia por tu usuario de correo
+    // public $SMTPPass   = 'tu_contraseña'; // Cambia por tu contraseña de correo
+    // public $SMTPPort   = 587; // Cambia por el puerto SMTP correcto, 587 o 465 para SSL
+    // public $SMTPCrypto = 'tls'; // tls o ssl dependiendo de tu servidor
+    // public $protocol   = 'smtp';
+    // public $mailType   = 'html'; // Puedes cambiarlo a 'text' si no quieres HTML
+    // public $charset    = 'utf-8';
+    // public $wordWrap   = true;
 }

@@ -137,39 +137,75 @@ class Auth extends BaseController
     //     }
     // }
 
-    public function recuperarPassIndex1()
-    {
-        echo view('common/header'); // url en vez de return para llamar header y footer en otro contolador
-        echo view('common/footer');
-        return view('recup_pass_email');
-    }
-
-    public function recuperarPassIndex2()
-    {
-        $email = $this->request->getPost('email');
-        $codigo = $userModel->traerCodico($email);
-
-        $userModel = new UserModel();
-        $emailModel = new EmailModel();
-
-        if ($emailModel->sendEmail($codigo, $email)) {
-            return redirect()->to('IrCodigo')->with('error_message', 'Correo enviado con éxito');
-        } else {
-            return redirect()->to('recuperar1')->with('error_message', 'Error al enviar el correo');
-        }
-    }
-
-    public function IrCodigo()
+    public function agregar_email()
     {
         echo view('common/header');
         echo view('common/footer');
-        return view('recuperar_pass');
+        return view('RecuperarContraseña/agregar_email');
     }
 
-    public function recuperarPass()
+    public function ObtenerCodigo()
+    {
+        $userModel = new UserModel();
+        $emailModel = new EmailModel();
+
+        $email = $this->request->getPost('email');
+        $this->session->set("user_email", $email);
+        $codigoObj = $userModel->traerCodico($email);
+        // Verifica que el array tenga el formato esperado y extrae el valor del código
+        // Ejemplo: Si trae ['codigo' => '12345'], obtén solo el '12345'
+        // $codigo = isset($codigoArray[0]['codigo']) ? $codigoArray[0]['codigo'] : null;
+        $codigo = isset($codigoObj->codigo) ? $codigoObj->codigo : null;
+
+
+        if ($emailModel->sendEmail($codigo, $email)) {
+            return redirect()->to('ingresarCodigo')->with('error_message', 'Codigo enviado con éxito al Correo');
+        } else {
+            return redirect()->to('agregar_email')->with('error_message', 'Error al enviar el codigo a su correo');
+        }
+    }
+
+    public function ingresarCodigo()
+    {
+        echo view('common/header');
+        echo view('common/footer');
+        return view('RecuperarContraseña/ingresarCodigo');
+    }
+    
+    public function verificarCodigo()
     {
         $userModel = new UserModel();
         $codigo = $this->request->getPost('codigo');
-        $userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
+        $email = $this->session->get('user_email');
+        if ($userModel->verificarCodigo($codigo, $email)) { // Verifica si el correo electronico ya esta registrado en la base de datos
+            return redirect()->to(base_url('actualizarContra'))->with('error_message', 'Codigo verificado.');
+        }else{
+            return redirect()->to(base_url('ingresarCodigo'))->with('error_message', 'Codigo incorrecto.');
+        }
+        //$userData = $userModel->find($userId); // Busca los datos del usuario en la base de datos
+    }
+    
+    public function actualizarContra()
+    {
+        echo view('common/header');
+        echo view('common/footer');
+        return view('RecuperarContraseña/actualizarContra');
+    }
+
+    public function editarContra()
+    {
+        $userModel = new UserModel();
+        $password = $this->request->getPost('contraseña');
+        $email = $this->session->get('user_email');
+
+        $password = password_hash($password, PASSWORD_BCRYPT);
+        $data = ['password' => $password];
+        $r = $userModel->ActualizarContra($data, $email);
+
+        if ($r) {
+            return redirect()->to(base_url('login'))->with('error_message', 'Se ha modificado su contraseña correctamente. ¡Bienvenido!');
+        } else {
+            return redirect()->to(base_url('actualizarContra'))->with('error_message', 'Error en el cambiar la contraseña. Intentelo nuevamente');
+        }
     }
 }

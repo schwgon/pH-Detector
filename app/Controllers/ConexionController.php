@@ -23,8 +23,22 @@ class ConexionController extends Controller{
 
         // Verifica si el dispositivo ya esta registrado en la base de datos
         if (!$deviceModel->verificarID($dispositivo_id)) {
-            $dispositivo = ['id_dispositivo' => $dispositivo_id            ];
-            $deviceModel->agregarID($dispositivo); // Actualiza la ip del dispositivo
+            $dispositivo = ['id_dispositivo' => $dispositivo_id];
+            $deviceModel->agregarID($dispositivo);
+            if (!$deviceModel->verificarIP($ip_address)) {
+                $datos = ['ip' => $ip_address];
+                $deviceModel->actualizarIP($dispositivo_id, $datos); // Actualiza la ip del dispositivo
+            } else {
+                // hacer consulta para agregar valores de pH constantemente;
+                $data = [
+                    'id_dispositivo' => $dispositivo_id,
+                    'ph_value' => $ph_value,
+                    'fecha_hora' => date('Y-m-d H:i:s')
+                ];
+                $medicionModel->add($data);
+                return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
+            }
+        }else {
             if (!$deviceModel->verificarIP($ip_address)) {
                 $datos = ['ip' => $ip_address];
                 $deviceModel->actualizarIP($dispositivo_id, $datos); // Actualiza la ip del dispositivo
@@ -37,9 +51,7 @@ class ConexionController extends Controller{
                 ];
                 $medicionModel->add($data);
             }
-        } else {
-            return $this->response->setStatusCode(404)->setBody('Dispositivo no encontrado');
+            return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
         }
-        return $this->response->setStatusCode(200)->setBody('Datos recibidos correctamente');
     }
 }
