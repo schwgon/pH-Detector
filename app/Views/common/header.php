@@ -117,9 +117,9 @@ $session = \Config\Services::session();
 
         // Verificar el modo actual al cargar la página
         if (localStorage.getItem('theme') === 'dark') {
-            logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo claro para modo oscuro
+            logo.src = '<?php echo base_url(relativePath: 'images/agua.png'); ?>'; // Logo claro para modo oscuro
         } else {
-            logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo oscuro para modo claro
+            logo.src = '<?php echo base_url(relativePath: 'images/agua_light.png'); ?>'; // Logo oscuro para modo claro
         }
 
         // Cambiar la imagen del logo cuando el usuario alterna el tema

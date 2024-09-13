@@ -24,9 +24,12 @@ class Auth extends BaseController
 
         $result = $userModel->where('email', $email)->first(); // Busca un usuario en la base de datos con el correo electronico proporcionado
 
+        
         if ($result) { // Si se encuentra un usuario con el correo electronico dado
             if (password_verify($password, $result->password)) { // Verifica si la contraseña ingresada coincide con la almacenada en la base de datos
                 // Inicio de sesion exitoso
+                session()->set('Userdata', $result);
+            
                 $this->session->set("user_id", $result->id_usuario);
                 $this->session->set("user_name", $result->name);
                 $this->session->set("user_email", $result->email);

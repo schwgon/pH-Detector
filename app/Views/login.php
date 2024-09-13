@@ -20,13 +20,13 @@
         <form method="post" action="<?= base_url("loginForm"); ?>">
             <div class="mb-4">
                 <label for="email" class="block  mb-2 font-sans"><i class="fas fa-envelope"></i> Email</label>
-                <input type="text" class="form-input w-full bg-gray-200 text-black pl-2" id="email" name="email"
-                    placeholder="Email">
+                <input type="email" class="form-input w-full bg-gray-200 text-black pl-2" id="email" name="email"
+                    placeholder="Email" required>
             </div>
             <div class="mb-6">
                 <label for="password" class="block  mb-2 font-sans"><i class="fas fa-lock"></i> Password</label>
                 <input type="password" class="form-input w-full bg-gray-200 text-black pl-2" id="password"
-                    name="password" minlength="8" placeholder="Password">
+                    name="password" minlength="8" placeholder="Password" required>
             </div>
             <button type="submit"
                 class="bg-emerald-400 hover:bg-emerald-500 text-white font-sans py-2 w-full px-4 mb-4">
