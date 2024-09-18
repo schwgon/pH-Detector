@@ -91,7 +91,7 @@ $session = \Config\Services::session();
             const themeIcon = document.getElementById('theme-icon');
 
             // Verificar si el modo oscuro ya está guardado en el almacenamiento local
-            if (localStorage.getItem('theme') === 'dark') {
+            if (localStorage.getItem('theme') === 'light') {
                 document.body.classList.add('dark-mode');
                 themeIcon.src = '<?php echo base_url('images/moon.png'); ?>';
             } else {
@@ -102,11 +102,11 @@ $session = \Config\Services::session();
                 document.body.classList.toggle('dark-mode');
 
                 if (document.body.classList.contains('dark-mode')) {
-                    themeIcon.src = '<?php echo base_url('images/moon.png'); ?>';
-                    localStorage.setItem('theme', 'dark'); // Guardar la preferencia en modo oscuro
-                } else {
                     themeIcon.src = '<?php echo base_url('images/sun.png'); ?>';
-                    localStorage.setItem('theme', 'light'); // Guardar la preferencia en modo claro
+                    localStorage.setItem('theme', 'light'); // Guardar la preferencia en modo oscuro
+                } else {
+                    themeIcon.src = '<?php echo base_url('images/moon.png'); ?>';
+                    localStorage.setItem('theme', 'dark'); // Guardar la preferencia en modo claro
                 }
             });
         });
@@ -117,17 +117,17 @@ $session = \Config\Services::session();
 
         // Verificar el modo actual al cargar la página
         if (localStorage.getItem('theme') === 'dark') {
-            logo.src = '<?php echo base_url(relativePath: 'images/agua.png'); ?>'; // Logo claro para modo oscuro
+            logo.src = '<?php echo base_url(relativePath: 'images/agua_light.png'); ?>'; // Logo claro para modo oscuro
         } else {
-            logo.src = '<?php echo base_url(relativePath: 'images/agua_light.png'); ?>'; // Logo oscuro para modo claro
+            logo.src = '<?php echo base_url(relativePath: 'images/agua.png'); ?>'; // Logo oscuro para modo claro
         }
 
         // Cambiar la imagen del logo cuando el usuario alterna el tema
         document.getElementById('theme-toggle').addEventListener('click', () => {
             if (document.body.classList.contains('dark-mode')) {
-                logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo claro para modo oscuro
+                logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo claro para modo oscuro
             } else {
-                logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo oscuro para modo claro
+                logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo oscuro para modo claro
             }
         });
     });

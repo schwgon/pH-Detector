@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-800 flex justify-center items-center min-h-screen">
-    <div class="dark:text-black p-8 shadow-md max-w-md w-full mx-auto border-2 border-emerald-400">
+    <div class=" p-8 shadow-md max-w-md w-full mx-auto border-2 border-emerald-400">
         <h1 class="text-2xl font-sans mb-6 text-center">Log In</h1>
         <?php if (session()->getFlashdata('error_message')): ?>
             <div class="alert alert-error text-center mb-4 text-gray-300">

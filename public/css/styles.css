@@ -4,50 +4,59 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Para que el fondo se quede fijo al hacer scroll */
-    min-height: 100vh; /* Asegura que el fondo cubra al menos la altura total de la ventana */
+    background-attachment: fixed;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     color: black;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición para cambiar entre claro/oscuro */
 }
 
 /* Modo oscuro */
 body.dark-mode {
-    background-color: black; /* Fondo completamente negro en modo oscuro */
-    background-image: url('../images/fondo_dark.jpg');  /* Elimina la imagen de fondo en modo oscuro */
+    background-color: black;
+    background-image: url('../images/fondo_dark.jpg');
     color: white;
 }
 
 /* Tarjeta del formulario en modo claro */
 .form-container {
-    background-color: #f0f0f0; /* bg-gray-100 */
+    background-color: #f0f0f0;
     padding: 20px;
     border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave */
 }
 
 /* Tarjeta del formulario en modo oscuro */
 body.dark-mode .form-container {
-    background-color: #333; /* Fondo oscuro para la tarjeta */
+    background-color: #333;
     border: 2px solid white;
-    padding: 20px;
-    border-radius: 8px;
 }
 
 /* Estilos para los inputs y botones */
 input, button {
-    background-color: #e5e5e5; /* bg-gray-200 */
+    background-color: #e5e5e5;
     color: black;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Suave transición para inputs/botones */
 }
 
+/* Modo oscuro para inputs y botones */
 body.dark-mode input, 
 body.dark-mode button {
-    background-color: #555; /* Fondo oscuro para inputs y botones en modo oscuro */
+    background-color: #555;
     color: white;
+}
+
+/* Estilo de hover para botones */
+button:hover {
+    transform: scale(1.05); /* Crece ligeramente al pasar el mouse */
+    transition: transform 0.2s ease-in-out; /* Transición suave */
 }
 
 /* Estilos del header y footer */
 header, footer {
     background-color: transparent;
+    transition: background-color 0.3s ease; /* Suave transición */
 }
 
 body.dark-mode header, 
@@ -57,13 +66,14 @@ body.dark-mode footer {
 
 nav a {
     color: black;
+    transition: color 0.3s ease; /* Suave transición de color */
 }
 
 body.dark-mode nav a {
     color: lightgray;
 }
 
-/* Modo claro (por defecto) */
+/* Footer */
 footer {
     color: black;
     padding: 20px;
@@ -73,27 +83,27 @@ footer {
     text-align: center;
 }
 
-/* Modo oscuro para el footer */
 body.dark-mode footer {
     color: white;
 }
 
-/* Ajustar los iconos */
+/* Iconos del footer */
 footer a i {
-    color: black; /* Color de iconos en modo claro */
+    color: black;
+    transition: color 0.3s ease; /* Suave transición en iconos */
 }
 
-/* Iconos en modo oscuro */
 body.dark-mode footer a i {
     color: white;
 }
 
-/* Otros ajustes para texto y enlaces en modo oscuro */
+/* Transiciones en textos */
 body.dark-mode h3, 
 body.dark-mode p {
     color: white;
 }
 
-.h-12 w-auto{
+/* Efecto invertido en el logo en modo oscuro */
+.h-12.w-auto {
     filter: invert(100%);
 }
