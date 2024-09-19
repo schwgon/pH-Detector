@@ -1,56 +1,140 @@
+/* Modo claro (por defecto) */
 body {
-
-    background-image: url('../images/fondito1.jpg');
- 
+    background-image: url('../images/fondo_light.jpg');
     background-size: cover;
-    margin: 0; /* Eliminar el margen predeterminado */
-    padding: 0; /* Eliminar el padding predeterminado */
-    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición para cambiar entre claro/oscuro */
 }
 
-header {
-    position: relative; /* Cambiar la posición a relativa */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
+/* Modo oscuro */
+body.dark-mode {
+    background-color: black;
+    background-image: url('../images/fondo_dark.jpg');
     color: white;
-    text-decoration: none;
 }
 
-h1 {
-    margin: 0; /* Eliminar el margen predeterminado */
-    flex: 1; /* Que el h1 ocupe todo el espacio restante */
-    font-family:Georgia, 'Times New Roman', Times, serif; /* Cambiar la familia de fuente */
-    font-size: 36px; /* Ajustar el tamaño de la fuente */
-
-}
-
-.logo {
-    width: 80px; /* ajusta el ancho según lo necesites */
-    height: auto; /* para mantener la proporción */
-    margin-right: 20px; /* Añadir un margen a la derecha para separar el logo del título */
-}
-
-section {
-    padding: 20px; /* Agregar espacio alrededor del contenido de la sección */
-    margin-top: 20px; /* Agregar margen superior para separar las secciones */
-}
-
-footer {
-    background-color: #333; /* Color de fondo del footer */
-    color: white; /* Color del texto del footer */
+/* Tarjeta del formulario en modo claro */
+.form-container {
+    background-color: #f0f0f0;
     padding: 20px;
-    position: absolute; /* Cambiar la posición a absoluta */
-    bottom: 0; /* Alinear el footer en la parte inferior de la página */
-    width: 100%; /* Ancho completo */
-    text-align: center; /* Alinear el texto al centro */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave */
+    transform: scale(1.05);
+}
+
+/* Tarjeta del formulario en modo oscuro */
+body.dark-mode .form-container {
+    background-color: #333;
+    border: 2px solid white;
+}
+
+/* Estilos para los inputs y botones */
+input:hover, button:hover {
+    background-color: #e5e5e5;
+    color: black;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Suave transición para inputs/botones */
+}
+
+/* Modo oscuro para inputs y botones */
+body.dark-mode input, 
+body.dark-mode button {
+    background-color: #555;
+    color: white;
+}
+
+
+/* Estilo de hover para botones */
+button:hover {
+    transform: scale(1.05); /* Crece ligeramente al pasar el mouse */
+    transition: transform 0.2s ease-in-out; /* Transición suave */
+}
+
+/* Estilos del header y footer */
+header, footer {
+    background-color: transparent;
+    transition: background-color 0.3s ease; /* Suave transición */
+}
+
+body.dark-mode header, 
+body.dark-mode footer {
+    background-color: transparent;
+}
+
+nav a:hover {
+    color: black;
+    transform: scale(1.05);
+    transition: color 0.3s ease; /* Suave transición de color */
+
+}
+
+body.dark-mode nav a {
+    color: lightgray;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    color: black;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+body.dark-mode footer {
+    color: white;
+}
+
+/* Iconos del footer */
+footer a i {
+    color: black;
+    transition: color 0.3s ease; /* Suave transición en iconos */
+}
+
+body.dark-mode footer a i {
+    color: white;
+}
+
+/* Transiciones en textos */
+body.dark-mode h3, 
+body.dark-mode p {
+    color: white;
+}
+
+/* Efecto invertido en el logo en modo oscuro */
+.h-12.w-auto {
+    filter: invert(100%);
+}
+
+/* Estilo para todos los botones del header */
+.header-button {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color:transparent;
+    color: black;
+    padding: 0.5rem 1,5rem;
+    border-bottom-width: 1px;
+    border-color: #34d399; /* emerald-400 */
+}
+
+.header-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    border-bottom-width: 6px;
+    box-shadow: 0px 10px 15px rgba(52, 211, 153, 0.4); /* sombra emerald-400 */
+}
+
+.header-button:active {
+    filter: brightness(0.9);
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+    box-shadow: none;
 }

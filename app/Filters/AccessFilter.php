@@ -16,10 +16,10 @@ class AccessFilter implements FilterInterface
         $publicRoutes = ['login', 'register', 'home'];
 
         // URLs accesibles con sesión activa
-        $authenticatedRoutes = ['profile', 'logout', 'panel_admin', 'edit', 'delete'];
+        $authenticatedRoutes = ['profile', 'logout', 'device', 'add_device', 'panel_admin', 'edit', 'delete'];
 
         // URLs accesibles solo para administradores
-        $adminRoutes = ['panel_admin', 'edit', 'delete'];
+        $adminRoutes = ['device', 'add_device', 'panel_admin', 'edit', 'delete'];
 
         // Si la ruta actual está en la lista de públicas, no se necesita sesión
         if (in_array($currentRoute, $publicRoutes)) { // Si la ruta es pública, no se aplica ningún filtro
