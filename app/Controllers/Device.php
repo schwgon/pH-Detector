@@ -26,7 +26,6 @@ class Device extends BaseController
         $calle = $this->request->getPost('address');
         $id_usuario = $this->session->get('user_id');
 
-  
         $provinciaModel = new ProvinciaModel();
         $ciudadModel = new CiudadModel();
         $barrioModel = new BarrioModel();

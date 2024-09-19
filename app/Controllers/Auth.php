@@ -19,6 +19,7 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
         $result = $userModel->where('email', $email)->first();
 
+        
         if ($result) { // Si se encuentra un usuario con el correo electronico dado
             if (password_verify($password, $result->password)) { // Verifica si la contraseña ingresada coincide con la almacenada en la base de datos
                 $this->session->set("user_id", $result->id_usuario);

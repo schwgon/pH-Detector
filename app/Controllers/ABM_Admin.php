@@ -23,7 +23,7 @@ class ABM_Admin extends BaseController
         return redirect()->to(base_url('panel_admin'));
     }
 
-    public function update($id_usuario){
+    public function update($id_usuario) {
         $userModel = new UserModel();
         $datos = [
             'name' => $this->request->getPost('name'),
@@ -32,5 +32,12 @@ class ABM_Admin extends BaseController
         ];
         $userModel->update($id_usuario, $datos);
         return redirect()->to(base_url('panel_admin'));
+    }
+
+    public function edit($id_usuario) {
+        $userModel = new UserModel();
+        $datos['usuario'] = $userModel->find($id_usuario); // Utiliza find para obtener un solo registro
+        echo view('common/header', ['session' => $this->session]);
+        return view('edit', $datos);
     }
 }

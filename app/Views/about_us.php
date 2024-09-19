@@ -9,9 +9,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <!-- About Us Section -->
-    <section id="about-us" class="container mx-auto p-6">
+<body class="bg-white text-black h-full flex">
+    <main class="flex-grow flex items-center justify-center py-2 mt-11">
+    <section class="container mx-auto px-4">
+        <div class="dark:text-black p-8 shadow-md w-full mx-auto border-2 border-emerald-400">
+
         <!-- Header -->
         <header class="text-center mb-12">
             <h1 class="text-4xl font-bold mb-4">About Us</h1>
@@ -67,6 +69,8 @@
                 </div>
             </dl>
         </div>
+        </div>
     </section>
+</main>
 </body>
 </html>
