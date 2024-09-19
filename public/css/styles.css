@@ -25,6 +25,7 @@ body.dark-mode {
     padding: 20px;
     border-radius: 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave */
+    transform: scale(1.05);
 }
 
 /* Tarjeta del formulario en modo oscuro */
@@ -34,9 +35,10 @@ body.dark-mode .form-container {
 }
 
 /* Estilos para los inputs y botones */
-input, button {
+input:hover, button:hover {
     background-color: #e5e5e5;
     color: black;
+    transform: scale(1.05);
     transition: background-color 0.3s ease, color 0.3s ease; /* Suave transición para inputs/botones */
 }
 
@@ -46,6 +48,7 @@ body.dark-mode button {
     background-color: #555;
     color: white;
 }
+
 
 /* Estilo de hover para botones */
 button:hover {
@@ -64,13 +67,16 @@ body.dark-mode footer {
     background-color: transparent;
 }
 
-nav a {
+nav a:hover {
     color: black;
+    transform: scale(1.05);
     transition: color 0.3s ease; /* Suave transición de color */
+
 }
 
 body.dark-mode nav a {
     color: lightgray;
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -106,4 +112,29 @@ body.dark-mode p {
 /* Efecto invertido en el logo en modo oscuro */
 .h-12.w-auto {
     filter: invert(100%);
+}
+
+/* Estilo para todos los botones del header */
+.header-button {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color:transparent;
+    color: black;
+    padding: 0.5rem 1,5rem;
+    border-bottom-width: 1px;
+    border-color: #34d399; /* emerald-400 */
+}
+
+.header-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    border-bottom-width: 6px;
+    box-shadow: 0px 10px 15px rgba(52, 211, 153, 0.4); /* sombra emerald-400 */
+}
+
+.header-button:active {
+    filter: brightness(0.9);
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+    box-shadow: none;
 }
