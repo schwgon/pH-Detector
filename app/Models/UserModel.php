@@ -43,33 +43,23 @@ class UserModel extends Model{
     public function traerCodico($email)
     {
         return $this->where('email', $email)->select('codigo')->get()->getFirstRow();
-        // $query = $this->db->table('usuario')
-        // ->select('codigo')
-        // ->where('email', $email)
-        // ->get();
-        // return $query->getFirstRow(); // para obtener el primer registro como objeto.
     }
     
-    public function verificarCodigo($codigo,$email)
+    public function VerificarCodigo($codigo, $email)
     {
-        // return $this->where('codigo', $codigo)->where('email', $session->get('user_email'))->countAllResults() > 0; // Cuenta los resultados con el correo dado y devuelve verdadero si es mayor a 0
         $query = $this->db->table('usuario')
             ->select('codigo')
             ->where('email', $email)
             ->where('codigo', $codigo)
             ->get();
-        return $query->getResultArray();
+        return $query->getNumRows() > 0;
     }
     
-    public function ActualizarContra($data, $email) {
-        // $this->where('email', $email)->set($data)->update();
-        
-        // $this->where('email', $email)
-        //     ->set('password', $data['password']) // Actualiza solo el campo 'password'
-        //     ->update();
-
+    public function ActualizarContra($data) {
         // Intenta actualizar la contraseña
-        $result = $this->where('email', $email)
+        $result = $this
+            ->where('email', $data['email'])
+            ->where('codigo', $data['codigo'])
             ->set('password', $data['password']) // Actualiza solo el campo 'password'
             ->update();
         // Devuelve true si se actualizaron filas, false si no

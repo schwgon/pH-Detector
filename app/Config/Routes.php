@@ -18,18 +18,17 @@ $routes->get('perfil', "Auth::perfil");
 
 $routes->get('agregar_email', "Auth::agregar_email");
 $routes->post('ObtenerCodigo', "Auth::ObtenerCodigo");
-$routes->get('ingresarCodigo', "Auth::ingresarCodigo");
+$routes->get('ObtenerCodigo', "Auth::ObtenerCodigo");
+$routes->get('ingresarCodigoContra', "Auth::ingresarCodigoContra");
 $routes->post('verificarCodigo', "Auth::verificarCodigo");
-$routes->get('actualizarContra', "Auth::actualizarContra");
-$routes->post('editarContra', "Auth::editarContra");
+
+$routes->get('editarPerfil', 'Auth::editarPerfil');
+$routes->post('editarPerfil', 'Auth::editarPerfil');
 
 $routes->get('panel_admin', 'ABM_Admin::index_Admin', ['filter' => 'access']);
 $routes->get('delete/(:num)', 'ABM_Admin::delete/$1', ['filter' => 'access']);
 $routes->get('edit/(:num)', 'ABM_Admin::edit/$1', ['filter' => 'access']);
 $routes->post('update/(:num)', 'ABM_Admin::update/$1', ['filter' => 'access']);
-
-$routes->get('editarPerfil', 'Auth::editarPerfil');
-$routes->post('editarPerfil', 'Auth::editarPerfil');
 
 $routes->get('device', "Device::indexDevice");
 $routes->post('add_device', "Device::add_Device");
