@@ -10,8 +10,8 @@
 <body class="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
 
     <!-- Tarjeta del formulario -->
-    <div class="max-w-md w-auto mx-auto bg-opacity-65 bg-gradient-to-r from-emerald-400 to-emerald-600 shadow-2xl overflow-hidden p-8 space-y-8 mt-12">
-        <h2 class="text-center text-4xl font-extrabold text-white">Regístrate</h2>
+    <div class="max-w-md w-auto mx-auto bg-opacity-0 border-2 border-emerald-400 shadow-2xl overflow-hidden p-8 space-y-8 -mt-4">
+        <h2 class="text-center text-4xl font-extrasans text-white">Regístrate</h2>
         
         <?php if (session()->getFlashdata('error_message')): ?>
             <div class="alert alert-error text-center mb-4 text-red-600">
@@ -23,7 +23,7 @@
             <div class="relative">
                 <input
                     placeholder="Ingresa tu nombre"
-                    class="peer h-10 w-full border-b-2 border-transparent text-white bg-transparent placeholder-transparent focus:outline-none focus:border-white"
+                    class="peer h-10 w-full border-b-2 border-transparent text-white bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="name"
                     name="name"
@@ -37,7 +37,7 @@
             <div class="relative">
                 <input
                     placeholder="john@example.com"
-                    class="peer h-10 w-full border-b-2 border-transparent text-white bg-transparent placeholder-transparent focus:outline-none focus:border-white"
+                    class="peer h-10 w-full border-b-2 border-transparent text-white bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="email"
                     name="email"
@@ -51,7 +51,7 @@
             <div class="relative">
                 <input
                     placeholder="Crea una contraseña"
-                    class="peer h-10 w-full border-b-2 border-transparent text-white bg-transparent placeholder-transparent focus:outline-none focus:border-white"
+                    class="peer h-10 w-full border-b-2 border-transparent text-white bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="password"
                     name="password"

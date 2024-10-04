@@ -11,7 +11,7 @@ class UserModel extends Model{
 
     protected $returnType       = 'object';
 
-    protected $allowedFields = ['name', 'email', 'password', 'id_permiso'];
+    protected $allowedFields = ['name', 'email', 'password', 'id_permiso','codigo'];
 
     protected $validationRules   = [];
     protected $validationMessages= [];
