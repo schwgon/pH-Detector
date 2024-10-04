@@ -1,0 +1,17 @@
+/* General Styles for About Us */
+.about-card {
+    background-color: white; /* La tarjeta siempre blanca */
+    color: black; /* El texto siempre negro */
+    transition: border-color 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+/* Título */
+.about-card h3 {
+    color: #38b2ac; /* Verde esmeralda */
+}
+
+/* Texto */
+.about-card p {
+    color: black; /* Siempre negro */
+}

@@ -9,57 +9,21 @@ body {
     margin: 0;
     padding: 0;
     color: black;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición para cambiar entre claro/oscuro */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Modo oscuro */
 body.dark-mode {
-    background-color: black;
     background-image: url('../images/fondo_dark.jpg');
+    background-color: black;
     color: white;
 }
 
-/* Tarjeta del formulario en modo claro */
-.form-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave */
-    transform: scale(1.05);
-}
-
-/* Tarjeta del formulario en modo oscuro */
-body.dark-mode .form-container {
-    background-color: #333;
-    border: 2px solid white;
-}
-
-/* Estilos para los inputs y botones */
-input:hover, button:hover {
-    background-color: #e5e5e5;
-    color: black;
-    transform: scale(1.05);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Suave transición para inputs/botones */
-}
-
-/* Modo oscuro para inputs y botones */
-body.dark-mode input, 
-body.dark-mode button {
-    background-color: #555;
-    color: white;
-}
-
-
-/* Estilo de hover para botones */
-button:hover {
-    transform: scale(1.05); /* Crece ligeramente al pasar el mouse */
-    transition: transform 0.2s ease-in-out; /* Transición suave */
-}
 
 /* Estilos del header y footer */
 header, footer {
     background-color: transparent;
-    transition: background-color 0.3s ease; /* Suave transición */
+    transition: background-color 0.3s ease;
 }
 
 body.dark-mode header, 
@@ -67,16 +31,15 @@ body.dark-mode footer {
     background-color: transparent;
 }
 
+/* Navegación */
 nav a:hover {
     color: black;
     transform: scale(1.05);
-    transition: color 0.3s ease; /* Suave transición de color */
-
+    transition: color 0.3s ease;
 }
 
 body.dark-mode nav a {
     color: lightgray;
-    transform: scale(1.05);
 }
 
 /* Footer */
@@ -96,31 +59,25 @@ body.dark-mode footer {
 /* Iconos del footer */
 footer a i {
     color: black;
-    transition: color 0.3s ease; /* Suave transición en iconos */
+    transition: color 0.3s ease;
 }
 
 body.dark-mode footer a i {
     color: white;
 }
 
-/* Transiciones en textos */
-body.dark-mode h3, 
-body.dark-mode p {
-    color: white;
-}
-
-/* Efecto invertido en el logo en modo oscuro */
+/* Efecto invertido en el logo */
 .h-12.w-auto {
     filter: invert(100%);
 }
 
-/* Estilo para todos los botones del header */
+/* Botones del header */
 .header-button {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    background-color:transparent;
+    background-color: transparent;
     color: black;
-    padding: 0.5rem 1,5rem;
+    padding: 0.5rem 1.5rem;
     border-bottom-width: 1px;
     border-color: #34d399; /* emerald-400 */
 }
@@ -129,7 +86,7 @@ body.dark-mode p {
     filter: brightness(1.1);
     transform: translateY(-1px);
     border-bottom-width: 6px;
-    box-shadow: 0px 10px 15px rgba(52, 211, 153, 0.4); /* sombra emerald-400 */
+    box-shadow: 0px 10px 15px rgba(52, 211, 153, 0.4);
 }
 
 .header-button:active {

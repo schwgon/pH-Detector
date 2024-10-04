@@ -69,9 +69,9 @@ $session = \Config\Services::session();
         <?php endif; ?>
         <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p>
     <?php else: ?>
-        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-        <a href="<?= site_url("register"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
-        <a href="<?= site_url("login"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
+        <a href="<?= site_url("about_us"); ?>" class="header-button text-white hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+        <a href="<?= site_url("register"); ?>" class="header-button text-white hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
+        <a href="<?= site_url("login"); ?>" class="header-button text-white hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
     <?php endif; ?>
 </nav>
 
