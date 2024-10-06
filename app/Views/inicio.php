@@ -30,7 +30,7 @@
 
     <main class="flex-grow flex items-center justify-center py-8 mt-11">
         <section class="container mx-auto px-4">
-        <div class="bg-white bg-opacity-60 dark:bg-opacity-70 text-black p-8 rounded-lg shadow-lg border border-emerald-400 transition-all duration-300 w-full mx-auto">
+        <div class="bg-white bg-opacity-85 dark:bg-opacity-80 text-black p-8 rounded-lg shadow-lg border border-emerald-400 transition-all duration-300 w-full mx-auto">
     <h3 class="text-3xl font-sans mb-4 text-emerald-600 dark:text-emerald-600">Welcome to pH-Detector</h3>
     <p class="text-lg leading-relaxed font-sans text-black">
     Welcome to pH-Detector! We are Lucas Fernández and Gaspar Schwartz, and we are thrilled to present our innovative research in the field of pH detection. 
