@@ -11,15 +11,16 @@ $session = \Config\Services::session();
     <link rel="shortcut icon" href="<?php echo base_url('images/agua.png'); ?>" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
+    
 </head>
 <body class="bg-white dark-mode"> <!-- Color de fondo blanco -->
     <header class="flex justify-between items-center p-5">
     <div class="flex-shrink-0">
-    <a href="<?= site_url(""); ?>">
+        <a href="<?= site_url(""); ?>">
         <!-- Logo claro (para el fondo oscuro) -->
-        <img id="logo" class="h-12 w-auto" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
-    </a>
-</div>
+            <img id="logo" class="h-12 w-auto" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
+        </a>
+    </div>
         <nav class="flex space-x-4">
             <?php if ($session->has('user_name')): ?>
                 <a href="<?= base_url('logout'); ?>"
