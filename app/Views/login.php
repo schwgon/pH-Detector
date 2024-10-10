@@ -22,28 +22,28 @@
             <div class="relative">
                 <input
                     placeholder="Ingresa tu correo"
-                    class="peer h-10 w-full border-b-2 border-transparent text-gray-900 dark:text-white bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="email"
                     name="email"
                     type="email"
                 />
                 <label
-                    class="absolute left-0 -top-3.5 text-gray-900 dark:text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 dark:peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-900 dark:peer-focus:text-white peer-focus:text-sm"
+                    class="absolute left-0 -top-3.5  text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
                     for="email"
                 >Correo electrónico</label>
             </div>
             <div class="relative">
                 <input
                     placeholder="Ingresa tu contraseña"
-                    class="peer h-10 w-full border-b-2 border-transparent text-gray-900 dark:text-white bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full border-b-2 border-transparent  bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="password"
                     name="password"
                     type="password"
                 />
                 <label
-                    class="absolute left-0 -top-3.5 text-gray-900 dark:text-white text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 dark:peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-900 dark:peer-focus:text-white peer-focus:text-sm"
+                    class="absolute left-0 -top-3.5  text-sm transition-all peer-placeholder-shown:text-base  peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
                     for="password"
                 >Contraseña</label>
             </div>
