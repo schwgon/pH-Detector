@@ -16,8 +16,8 @@
         <div class="bg-transparent shadow-md rounded-lg p-6 max-w-md w-full border-2 border-emerald-400">
             <div class="flex items-center mb-6">
                 <div>
-                    <h2 class="text-2xl font-bold dark:text-white">
-                        <p class="text-2xl font-bold dark:text-white"><?= esc($user->name); ?></p>
+                    <h2 class="text-2xl font-bold">
+                        <p class="text-2xl font-bold"><?= esc($user->name); ?></p>
                     </h2>
                 </div>
             </div>

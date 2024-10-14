@@ -6,10 +6,11 @@
     <title>Registro de Usuario</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body class="bg-gray-100 dark:bg-gray-800 flex justify-center items-center min-h-screen">
+<body class="bg-transparent flex justify-center items-center min-h-screen">
     <!-- Tarjeta del formulario -->
-    <div class=" bg-gray-100 dark:bg-gray-800 max-w-md w-auto mx-auto bg-opacity-0 border-2 border-emerald-400 shadow-2xl overflow-hidden p-8 space-y-8 -mt-4">
+    <div class="bg-transparent max-w-md w-auto mx-auto bg-opacity-0 border-2 border-emerald-400 shadow-2xl overflow-hidden p-8 space-y-8 -mt-4">
         <h2 class="text-center text-4xl font-extrasans">Regístrate</h2>
 
         <?php if (session()->getFlashdata('error_message')): ?>
@@ -20,9 +21,10 @@
 
         <form method="post" action="<?= base_url("register1"); ?>" class="space-y-6">
             <div class="relative">
+                <i class="fas fa-user absolute left-0 top-1/2 transform -translate-y-1/2 ml-3 text-gray-500"></i>
                 <input
                     placeholder="Ingresa tu nombre"
-                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full pl-10 border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="name"
                     name="name"
@@ -30,36 +32,38 @@
                     pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\s]+"
                 />
                 <label
-                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown peer-placeholder-shown:top-2 peer-focus:-top-3.5  peer-focus:text-sm"
+                    class="absolute left-10 -top-3 text-xs text-emerald-400 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-emerald-400"
                     for="name"
                 >Usuario</label>
             </div>
             <div class="relative">
+                <i class="fas fa-envelope absolute left-0 top-1/2 transform -translate-y-1/2 ml-3 text-gray-500"></i>
                 <input
                     placeholder="john@example.com"
-                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full pl-10 border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="email"
                     name="email"
                     type="email"
                 />
                 <label
-                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown peer-placeholder-shown:top-2 peer-focus:-top-3.5  peer-focus:text-sm"
+                    class="absolute left-10 -top-3 text-xs text-emerald-400 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-emerald-400"
                     for="email"
                 >Correo electrónico</label>
             </div>
             <div class="relative">
+                <i class="fas fa-lock absolute left-0 top-1/2 transform -translate-y-1/2 ml-3 text-gray-500"></i>
                 <input
                     placeholder="Crea una contraseña"
-                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full pl-10 border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="password"
                     name="password"
                     type="password"
-                    required minlength="8"
+                    minlength="8"
                 />
                 <label
-                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    class="absolute left-10 -top-3 text-xs text-emerald-400 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-emerald-400"
                     for="password"
                 >Contraseña</label>
             </div>
@@ -76,11 +80,10 @@
             </button>
         </form>
 
-        <p class="text-center ">
+        <p class="text-center">
             ¿Ya tienes una cuenta?
             <a class="text-emerald-400 hover:text-emerald-500" href="<?= site_url("login"); ?>">Iniciar sesión</a>
         </p>
     </div>
-
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body class="bg-gray-100 dark:bg-gray-800 flex justify-center items-center min-h-screen">
     <!-- Tarjeta del formulario -->
@@ -20,30 +21,32 @@
 
         <form method="post" action="<?= base_url("loginForm"); ?>" class="space-y-6">
             <div class="relative">
+                <i class="fas fa-envelope absolute left-0 top-1/2 transform -translate-y-1/2 ml-3 text-gray-500"></i>
                 <input
                     placeholder="Ingresa tu correo"
-                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full pl-10 border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="email"
                     name="email"
                     type="email"
                 />
                 <label
-                    class="absolute left-0 -top-3.5  text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    class="absolute left-10 -top-3 text-xs text-emerald-400 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-emerald-400"
                     for="email"
                 >Correo electrónico</label>
             </div>
             <div class="relative">
+                <i class="fas fa-lock absolute left-0 top-1/2 transform -translate-y-1/2 ml-3 text-gray-500"></i>
                 <input
                     placeholder="Ingresa tu contraseña"
-                    class="peer h-10 w-full border-b-2 border-transparent  bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    class="peer h-10 w-full pl-10 border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     required=""
                     id="password"
                     name="password"
                     type="password"
                 />
                 <label
-                    class="absolute left-0 -top-3.5  text-sm transition-all peer-placeholder-shown:text-base  peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    class="absolute left-10 -top-3 text-xs text-emerald-400 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-emerald-400"
                     for="password"
                 >Contraseña</label>
             </div>
