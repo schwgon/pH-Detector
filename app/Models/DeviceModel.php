@@ -40,11 +40,19 @@ class DeviceModel extends Model{
         return $this->where('ip', $ip_address)->countAllResults() > 0;
     }
 
+    public function verificarUsuario($id_usuario){
+        return $this->where('id_usuario', $id_usuario)->countAllResults() > 0;
+    }
+
     public function actualizarIP($dispositivo_id, $datos){
         return $this->where('id_dispositivo', $dispositivo_id)->set($datos)->update();
     } 
 
     public function agregarID($dispositivo){
         $this->insert($dispositivo);
+    } 
+
+    public function agregarUsuario($dato, $dispositivo_id){
+        $this->insert($dato)->where('id_dispositivo', $dispositivo_id);
     } 
 }

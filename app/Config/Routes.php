@@ -40,4 +40,5 @@ $routes->get('/wifi', 'NetworkController::index');
 $routes->post('sendCredentials', 'NetworkController::sendCredentials');
 
 $routes->post('ConexionController/recibir_datos', 'ConexionController::recibir_datos');
+$routes->get('enviar_datos_nodemcu', 'ConexionController::enviarDatos');
 

@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use \App\Models\UserModel;
 use \App\Models\EmailModel;
+use \App\Models\CodigoModel;
+use App\Controllers\BaseController;
+
 
 class Auth extends BaseController
 {
@@ -17,7 +20,7 @@ class Auth extends BaseController
         $userModel = new UserModel();
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $result = $userModel->where('email', $email)->first();
+        $result = $userModel->asObject()->where('email', $email)->first();
 
         
         if ($result) { // Si se encuentra un usuario con el correo electronico dado
@@ -66,7 +69,7 @@ class Auth extends BaseController
             'name' => $name,
             'email' => $email,
             'password' => $password,
-            'codigo' => $codigo
+            //'codigo' => $codigo
         ];
         $r = $userModel->add($data);
         if ($r) { // Si el registro es exitoso
@@ -119,36 +122,42 @@ class Auth extends BaseController
     public function agregar_email() {
         echo view('common/header');
         echo view('common/footer');
-        return view('RecuperarContraseña/agregar_email');
+        return view('RecuperarContra/agregar_email');
     }
 
     public function ObtenerCodigo() {
         $userModel = new UserModel();
         $emailModel = new EmailModel();
+        $codigoModel = new CodigoModel();
         $email = $this->request->getPost('email');
-        $codigoObj = $userModel->traerCodico($email);
-        $codigo = isset($codigoObj->codigo) ? $codigoObj->codigo : null;
-        $data = ['email' => $email];
+        $codigo = random_int(10000000, 99999999);
+        $id_usuario = $userModel->TraerIdUsuario($email);
+        $data = ['codigo' => $codigo, 'id_usuario' => $id_usuario];
+        $codigoModel->GuardarDatos($data);
+
+        $dato = ['email' => $email];
         if ($emailModel->sendEmail($codigo, $email)) {
             echo view('common/header');
             echo view('common/footer');
-            return view('RecuperarContraseña/ingresarCodigoContra', $data);
+            return view('RecuperarContra/ingresarCodigoContra', $dato);
         } else {
-            return redirect()->to('RecuperarContraseña/agregar_email')->with('error_message', 'Error al enviar el codigo a su correo');
+            return redirect()->to('agregar_email')->with('error_message', 'Error al enviar el codigo a su correo');
         }
     }
 
     public function verificarCodigo() {
         $userModel = new UserModel();
+        $codigoModel = new CodigoModel();
         $codigo = $this->request->getPost('codigo');
         $email = $this->request->getPost('email');
         $contraseña = $this->request->getPost('contraseña');
+        $id_usuario = $userModel->TraerIdUsuario($email);
         
-        if ($userModel->VerificarCodigo($codigo, $email)) {
+        if ($codigoModel->VerificarCodigo($codigo, $id_usuario)) {
             $password = password_hash($contraseña, PASSWORD_BCRYPT);
             $data = ['password' => $password, 'email' => $email, 'codigo' => $codigo];
+            $codigoModel->EliminarCodigo($id_usuario, $codigo);
             if ($userModel->ActualizarContra($data)) {
-                // colocar la modificacion del codigo una vez utilizado
                 return redirect()->to(base_url('login'))->with('error_message', 'Se ha modificado su contraseña correctamente');
             } else {
                 return redirect()->to(base_url('ingresarCodigoContra'))->with('error_message', 'Error al cambiar la contraseña. Intentelo nuevamente');
@@ -158,13 +167,13 @@ class Auth extends BaseController
             $data = ['email' => $email];
             echo view('common/header');
             echo view('common/footer');
-            return view('RecuperarContraseña/ingresarCodigoContra', $data);
+            return view('RecuperarContra/ingresarCodigoContra', $data);
         }
     }
     
     public function ingresarCodigoContra() {
         echo view('common/header');
         echo view('common/footer');
-        return view('RecuperarContraseña/ingresarCodigoContra');
+        return view('RecuperarContra/ingresarCodigoContra');
     }
 }
