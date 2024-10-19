@@ -10,7 +10,7 @@
 </head>
 <body class="bg-transparent flex justify-center items-center min-h-screen">
     <!-- Tarjeta del formulario -->
-    <div class="bg-transparent max-w-md w-auto mx-auto bg-opacity-0 border-2 border-emerald-400 shadow-2xl overflow-hidden p-8 space-y-8 -mt-4">
+    <div class="bg-transparent max-w-md w-auto mx-auto bg-opacity-0 border-2 border-emerald-400 shadow-2xl overflow-hidden p-8 space-y-8 mt-10">
         <h2 class="text-center text-4xl font-extrasans">Regístrate</h2>
 
         <?php if (session()->getFlashdata('error_message')): ?>

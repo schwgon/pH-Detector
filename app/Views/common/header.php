@@ -22,14 +22,14 @@ $session = \Config\Services::session();
         <nav class="flex space-x-4">
             <?php if ($session->has('user_name')): ?>
                 <a href="<?= base_url('logout'); ?>"
-                    class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" 
+                    class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" 
                     onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
                 <a href="<?= site_url("perfil"); ?>"
-                    class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
+                    class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
                 <a href="<?= site_url("about_us"); ?>"
-                    class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+                    class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
                 <div class="relative inline-block text-left">
-                    <button type="button" class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium"
+                    <button type="button" class=" hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium"
                         id="menu-button" aria-expanded="true" aria-haspopup="true">Device</button>
                     <div id="dropdown-menu"
                         class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -40,7 +40,7 @@ $session = \Config\Services::session();
                             <?php $dispositivos = $session->get('dispositivos') ?? [];
                             foreach ($dispositivos as $dispo): ?>
                                 <a href="<?= site_url('mostrar_datos/' . $dispo['id_dispositivo']); ?>"
-                                    class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1">
+                                    class="block px-4 py-2 text-smext-gray-700" role="menuitem" tabindex="-1">
                                     <?= htmlspecialchars($dispo['nombre']); ?>
                                 </a>
                             <?php endforeach; ?>
@@ -49,9 +49,9 @@ $session = \Config\Services::session();
                 </div>
                 <?php if ($session->get('is_admin') == true): ?>
                     <a href="<?= site_url("panel_admin"); ?>"
-                        class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                        class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Admin</a>
                 <?php endif; ?>
-                <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p> <!-- Texto de bienvenida -->
+                <p class=" ml-4">Welcome, <?= $session->get('user_name'); ?></p> <!-- Texto de bienvenida -->
             <?php else: ?>
                 <nav class="flex space-x-4">
                     <a href="<?= site_url("about_us"); ?>" class="header-button text-white hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>

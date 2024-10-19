@@ -25,4 +25,8 @@ $routes->post('editarPerfil', 'Auth::editarPerfil');
 $routes->post('add_device', 'Device::add_device');
 $routes->get('restore_password','Auth::restore_password');
 
+$routes->get('/edit_device/(:num)', 'ABM_Admin::edit_device/$1'); // Ruta para editar un dispositivo
+$routes->get('delete_device/(:num)', 'ABM_Admin::delete_device/$1'); // Ruta para eliminar un dispositivo
+$routes->post('update_device/(:num)', 'ABM_Admin::update_device/$1');
+
 $routes->get('device', "Device::indexDevice");
