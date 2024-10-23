@@ -38,11 +38,6 @@
                         <input type="number" name="id_calle" class="form-control" id="id_calle" value="<?= $dispositivo['id_calle']; ?>" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="id_medicion_bomba">Medición de Bomba</label>
-                        <input type="number" name="id_medicion_bomba" class="form-control" id="id_medicion_bomba" value="<?= $dispositivo['id_medicion_bomba']; ?>" required>
-                    </div>
-
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                     <a href="<?= site_url('panel_admin'); ?>" class="btn btn-secondary">Cancelar</a>
                 </form>

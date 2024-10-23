@@ -17,6 +17,7 @@ class Auth extends BaseController
     
     public function do_login() // Metodo para procesar el inicio de sesion
     {
+        $data['session'] = \Config\Services::session();
         $userModel = new UserModel();
 
         $email = $this->request->getPost('email');
@@ -66,6 +67,7 @@ class Auth extends BaseController
 
     public function do_register() // Metodo para procesar el registro de un nuevo usuario
     {
+        $data['session'] = \Config\Services::session();
         $userModel = new UserModel();
 
         $name = $this->request->getPost('name');
