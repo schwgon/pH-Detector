@@ -6,6 +6,7 @@ use \App\Models\ProvinciaModel;
 use \App\Models\CiudadModel;
 use \App\Models\BarrioModel;
 use \App\Models\CalleModel;
+use \App\Models\ContenedorModel;
 
 class Device extends BaseController
 {
@@ -28,6 +29,7 @@ class Device extends BaseController
         $barrio = $this->request->getPost('municipality');
         $ciudad = $this->request->getPost('city');
         $calle = $this->request->getPost('address');
+        $metros_cubicos = $this->request->getPost('liters');
         $id_usuario = $this->session->get('user_id');
 
         $provinciaModel = new ProvinciaModel();
@@ -35,6 +37,7 @@ class Device extends BaseController
         $barrioModel = new BarrioModel();
         $calleModel = new CalleModel();
         $deviceModel = new DeviceModel();
+        $contenedorModel = new ContenedorModel();
 
 
          // Verificar y obtener el ID de la provincia
@@ -48,6 +51,8 @@ class Device extends BaseController
  
          // Verificar y obtener el ID de la calle
          $id_calle = $calleModel->add($calle);
+
+         $id_contenedor = $contenedorModel->add($metros_cubicos);
  
          // Agregar el dispositivo
          $dispositivoData = [
@@ -55,7 +60,8 @@ class Device extends BaseController
              'Id_dispositivo' => $Id_device,
              'id_calle' => $id_calle,
              'id_barrio' => $id_barrio,
-             'id_usuario' => $id_usuario
+             'id_usuario' => $id_usuario,
+             'id_contenedor'=> $id_contenedor
          ];
          
          $deviceModel->add($dispositivoData);
