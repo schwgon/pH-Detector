@@ -18,6 +18,12 @@
         <form method="post" action="<?= base_url("add_device"); ?>" class="space-y-4">
             <div class="flex flex-wrap -mx-3">
                 <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
+                    <label for="id" class="block mb-2">Numero identificador de dispositivo</label>
+                    <input name="id" required type="text" onkeypress="return /[0-9]/.test(event.key)" maxlength="10"
+                    class="form-input w-full bg-gray-200 dark:bg-gray-900 text-black dark:text-white font-light pl-2"
+                    id="id" placeholder="478593">
+                </div>
+                <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
                     <label for="name" class="block mb-2">Name</label>
                     <input name="name" required type="text" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\s]+"
                     class="form-input w-full bg-gray-200 dark:bg-gray-900 text-black dark:text-white font-light pl-2"

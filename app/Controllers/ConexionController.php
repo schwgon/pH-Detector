@@ -91,4 +91,10 @@ class ConexionController extends Controller{
             return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
         }
     }
+
+    public function obtenerRangoPH() {
+        $ph_minimo = 6.5; // Valores simulados
+        $ph_maximo = 7.5;
+        return $this->response->setStatusCode(200)->setBody("$ph_minimo $ph_maximo");
+    }
 }
