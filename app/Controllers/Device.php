@@ -7,6 +7,8 @@ use \App\Models\CiudadModel;
 use \App\Models\BarrioModel;
 use \App\Models\CalleModel;
 use \App\Models\ContenedorModel;
+use \App\Models\MedicionModel;
+
 
 class Device extends BaseController
 {
@@ -67,5 +69,28 @@ class Device extends BaseController
          $deviceModel->add($dispositivoData);
  
          return redirect()->to(base_url('/'))->with('success_message', 'Dispositivo agregado exitosamente.');
+    }
+
+    public function mostrarDatos($id_dispositivo)
+    {
+        $medicionModel = new MedicionModel();
+        $datos['datos'] = $medicionModel->mostrarDatos($id_dispositivo);
+
+        echo view('common/header');
+        return view('datos', $datos);
+    }
+
+    public function guardar_id()
+    {
+        $id_dispositivo = $this->request->getPost('id_dispositivo');
+
+        // Guardar el ID en la base de datos
+        $deviceModel = new DeviceModel();
+        $data = [
+            'id_dispositivo' => $id_dispositivo,
+        ];
+        $deviceModel->save($data);
+
+        return redirect()->to('login')->with('error_message', 'ID guardado exitosamente');
     }
 }

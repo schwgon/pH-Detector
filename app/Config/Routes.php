@@ -30,3 +30,6 @@ $routes->get('delete_device/(:num)', 'ABM_Admin::delete_device/$1'); // Ruta par
 $routes->post('update_device/(:num)', 'ABM_Admin::update_device/$1');
 
 $routes->get('device', "Device::indexDevice");
+
+
+$routes->get('mostrar_datos/(:num)', 'Device::mostrarDatos');
