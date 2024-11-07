@@ -7,8 +7,6 @@ use \App\Models\CiudadModel;
 use \App\Models\BarrioModel;
 use \App\Models\CalleModel;
 use \App\Models\ContenedorModel;
-use \App\Models\MedicionModel;
-
 
 class Device extends BaseController
 {

@@ -99,6 +99,11 @@
                 </label>
             </div>
 
+            <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
+                    <label for="id_dispositivo" class="block mb-2">Numero identificador de dispositivo</label>
+                    <input name="id_dispositivo" required type="text" onkeypress="return /[0-9]/.test(event.key)" maxlength="10" class="form-input w-full bg-gray-200 dark:bg-gray-900 text-black dark:text-white font-light pl-2" id="id_dispositivo" placeholder="478593">
+                </div>
+
             <!-- Botón de Enviar -->
             <button type="submit" class="w-full py-2 px-4 bg-emerald-600 hover:bg-emerald-500 rounded-md shadow-lg font-semibold transition duration-200">
                 Submit
