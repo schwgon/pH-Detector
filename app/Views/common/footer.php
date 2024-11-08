@@ -10,7 +10,7 @@
 <footer class="flex flex-col items-center justify-center py-4 bg-transparent text-black">
     <div class="flex flex-wrap justify-between w-full px-11 mb-2">
         <div class="flex items-center justify-center space-x-4">
-            <h2 class="text-xl font-sans">Contact</h2>
+            <h2 class="text-xl font-sans">Contacto</h2>
             <div class="group relative">
                 <a href="https://www.instagram.com" class="flex items-center justify-center p-2 rounded-md bg-transparent text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:bg-gradient-to-r hover:from-transparent hover:to-transparent drop-shadow-xl">
                     <i class="fab fa-instagram w-6 h-6"></i>
@@ -26,19 +26,19 @@
             <div class="group relative">
                 <a href="https://mail.google.com/" class="flex items-center justify-center p-2 rounded-md bg-transparent text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:bg-gradient-to-r hover:from-transparent hover:to-transparent drop-shadow-xl">
                     <i class="fas fa-envelope w-6 h-6"></i>
-                    <span class="pointer-events-none absolute opacity-0 group-hover:opacity-100 group-hover:text-emerald-400 group-hover:text-sm group-hover:-translate-y-10 duration-700">Email</span>
+                    <span class="pointer-events-none absolute opacity-0 group-hover:opacity-100 group-hover:text-emerald-400 group-hover:text-sm group-hover:-translate-y-10 duration-700">Correo</span>
                 </a>
             </div>
             <div class="group relative">
                 <a href="tel:+1234567890" class="flex items-center justify-center p-2 rounded-md bg-transparent text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:bg-gradient-to-r hover:from-transparent hover:to-transparent drop-shadow-xl">
                     <i class="fas fa-phone w-6 h-6"></i>
-                    <span class="pointer-events-none absolute opacity-0 group-hover:opacity-100 group-hover:text-emerald-400 group-hover:text-sm group-hover:-translate-y-10 duration-700">Phone</span>
+                    <span class="pointer-events-none absolute opacity-0 group-hover:opacity-100 group-hover:text-emerald-400 group-hover:text-sm group-hover:-translate-y-10 duration-700">Teléfono</span>
                 </a>
             </div>
         </div>
         <div class="text-sm">
-            <p>Subscribe to our newsletter!</p>
-            <a href="<?php echo base_url('register') ?>" class="hover:underline">Sign Up</a>
+            <p>Subscribete a nustro sito Web!</p>
+            <a href="<?php echo base_url('register') ?>" class="hover:underline">Registrate</a>
         </div>
     </div>
     <hr class="border-emerald-400 w-full my-2">

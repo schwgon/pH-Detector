@@ -12,7 +12,7 @@
         <!-- Tabla para mostrar registros -->
         <div class="bg-white rounded-lg shadow overflow-hidden">
             <div class="px-6 py-4 bg-gray-800 text-white">
-                <h2 class="text-2xl font-semibold">Record List</h2>
+                <h2 class="text-2xl font-semibold">Lista de pH</h2>
             </div>
 
             <div class="p-6 bg-gray-900">

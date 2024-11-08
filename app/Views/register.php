@@ -49,7 +49,7 @@
                 <label
                     class="absolute left-10 -top-3 text-xs text-emerald-400 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-emerald-400"
                     for="email"
-                >Correo electrónico</label>
+                >Correo Electrónico</label>
             </div>
             <div class="relative">
                 <i class="fas fa-lock absolute left-0 top-1/2 transform -translate-y-1/2 ml-3 text-gray-500"></i>

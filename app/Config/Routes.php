@@ -13,7 +13,8 @@ $routes->post('register1', "Auth::do_register"); // Define la ruta para procesar
 $routes->get('logout', 'Auth::logout'); // Define la ruta para cerrar sesión.
 $routes->get('admin', "Auth::do_login"); // Define la ruta para el acceso de administrador.
 $routes->get('perfil', "Auth::perfil");
-$routes->get('about_us', 'Home::about_us');
+$routes->get('preguntas', 'Home::preguntas');
+$routes->get('privacidad', 'Home::privacidad');
 
 
 $routes->get('panel_admin', 'ABM_Admin::index_Admin');
@@ -30,6 +31,5 @@ $routes->get('delete_device/(:num)', 'ABM_Admin::delete_device/$1'); // Ruta par
 $routes->post('update_device/(:num)', 'ABM_Admin::update_device/$1');
 
 $routes->get('device', "Device::indexDevice");
-
 
 $routes->get('mostrar_datos/(:num)', 'Device::mostrarDatos');
