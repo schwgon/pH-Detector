@@ -30,7 +30,7 @@
 </head>
 
 <body class="bg-transparent text-black dark:text-gray-200 flex flex-col min-h-screen">
-    
+
 <?php if (session()->getFlashdata('success_message')): ?>
         <div id="successMessage" class="alert alert-error text-center mb-4 text-emerald-400">
             <?= session()->getFlashdata('success_message') ?>
@@ -55,7 +55,7 @@
         <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Cuadro de Bienvenida -->
             <div class="bg-transparent bg-opacity-80 p-8 rounded-lg shadow-xl border border-emerald-400 transition-all duration-300 max-w-xl mx-auto">
-                <h2 class="text-4xl font-bold text-emerald-600 dark:text-emerald-400 text-center mb-6">!Bienvenido a pH-Detector¡</h2>
+                <h2 class="text-4xl font-bold text-emerald-600 dark:text-emerald-400 text-center mb-6">¡Bienvenido a pH-Detector!</h2>
                 <p class="text-lg leading-relaxed">
                 Este sistema avanzado no solo permite una detección precisa del pH, sino que incorpora una interfaz web interactiva para el monitoreo de datos en tiempo real, brindando una experiencia de usuario fluida y efectiva.
                 </p>
@@ -68,7 +68,7 @@
             </div>
             <!-- Cuadro de About Us -->
             <div class="bg-transparent bg-opacity-80 p-8 rounded-lg shadow-xl border border-emerald-400 transition-all duration-300 max-w-xl mx-auto">
-                <h2 class="text-4xl font-bold text-emerald-600 dark:text-emerald-400 text-center mb-6">About Us</h2>
+                <h2 class="text-4xl font-bold text-emerald-600 dark:text-emerald-400 text-center mb-6">Sobre Nosotros </h2>
                 <p class="text-lg leading-relaxed ">
                 Somos un equipo dedicado a la tecnología y la innovación, enfocados en desarrollar soluciones que promuevan la sostenibilidad y la eficiencia en el manejo de recursos. Nuestra pasión nos ha llevado a diseñar este sistema de detección y control de pH, pensado para regular la calidad del agua mediante un sistema de bombas automáticas, ideal para aplicaciones en diversos entornos industriales y agrícolas.
                 </p>

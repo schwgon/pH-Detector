@@ -37,7 +37,7 @@
             <h3 class="font-semibold ">Uso de la Información</h3>
             <p class=" mb-4">La información que recopilamos se utiliza para mejorar la experiencia del usuario, personalizar el contenido y mejorar la funcionalidad de la plataforma.</p>
             <h3 class="font-semibold ">Seguridad</h3>
-            <p class="">Nos comprometemos a proteger tu información personal. Sin embargo, no podemos garantizar una seguridad absoluta y recomendamos que protejas tu información al usar el internet.</p>
+            <p class="">Nos comprometemos a proteger tu información personal. Como hashear su contraseña cuando la registra en nuestro sito web.</p>
         </section>
 
         <!-- Botón de Volver -->
