@@ -14,24 +14,24 @@
                 <h2>Formulario de Edición</h2>
             </div>
             <div class="bg-gray-100 card-body">
-                <form action="<?= site_url('update/' . $usuario->id_usuario); ?>" method="post">
-                    <input type="hidden" name="id_usuario" value="<?= $usuario->id_usuario; ?>">
+                <form action="<?= site_url('update/' . $usuario['id_usuario']); ?>" method="post">
+                    <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario']; ?>">
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" class="form-control" id="name" value="<?= $usuario->name; ?>" required>
+                        <input type="text" name="name" class="form-control" id="name" value="<?= $usuario['name']; ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" value="<?= $usuario->email; ?>" required>
+                        <input type="email" name="email" class="form-control" id="email" value="<?= $usuario['email']; ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="permiso">Permisos</label>
                         <select name="permiso" class="form-control" id="permiso" required>
-                            <option value="<?= $usuario->id_permiso == 'Admin' ? 'selected' : '1'; ?>" >Admin</option>
-                            <option value="<?= $usuario->id_permiso == 'User' ? 'selected' : '0'; ?>">User</option>
+                            <option value="<?= $usuario['id_permiso'] == 'Admin' ? 'selected' : '1'; ?>" >Admin</option>
+                            <option value="<?= $usuario['id_permiso'] == 'User' ? 'selected' : '0'; ?>">User</option>
                         </select>
                     </div>
 
