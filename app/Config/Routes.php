@@ -36,8 +36,12 @@ $routes->post('add_device', "Device::add_Device");
 $routes->get('mostrar_datos/(:num)', "Device::mostrarDatos/$1");
 $routes->get('guardar_id', "Device::guardar_id");
 
-$routes->get('/wifi', 'NetworkController::index');
-$routes->post('sendCredentials', 'NetworkController::sendCredentials');
+// $routes->get('/wifi', 'NetworkController::index');
+// $routes->post('sendCredentials', 'NetworkController::sendCredentials');
 
 $routes->post('ConexionController/recibir_datos', 'ConexionController::recibir_datos');
+$routes->get('enviar_datos_nodemcu', 'ConexionController::enviarDatos');
+
+// Asegúrate que esta línea esté al final del archivo
+$routes->setAutoRoute(true);
 

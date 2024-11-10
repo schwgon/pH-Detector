@@ -54,12 +54,12 @@
             </button>
         </form>
 
-        <span class="text-center mt-4">
+        <span class="text-center mt-2">
             Don't have an account?
-            <a href="<?= site_url("register"); ?>" class="text-emerald-400 hover:text-emerald-500 ml-2">Register</a>
+            <a href="<?= site_url("register"); ?>" class="text-emerald-400 hover:text-emerald-500 ml-1">Register</a>
         </span>
-        <div class="text-center mt-2">
-            <a href="<?= site_url("agregar_email"); ?>" class="hover:text-gray-200 ml-2">Forgot your password?</a>
+        <div class="text-center -mt-7">
+            <a href="<?= site_url("agregar_email"); ?>" class="hover:text-gray-200 ml-1">Forgot your password?</a>
         </div>
     </div>
 
