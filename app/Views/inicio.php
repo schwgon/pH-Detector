@@ -53,6 +53,4 @@
         </section>
     </main>
 </body>
-
-
 </html>

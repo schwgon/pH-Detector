@@ -14,11 +14,12 @@ $session = \Config\Services::session();
 </head>
 <body class="bg-white dark-mode"> <!-- Color de fondo blanco -->
     <header class="flex justify-between items-center p-5">
-        <div class="flex-shrink-0">
-            <a href="<?= site_url(""); ?>">
-                <img id="logo" class="h-12 w-auto" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo"> <!-- Logo claro (para el fondo oscuro) -->
-            </a>
-        </div>
+    <div class="flex-shrink-0">
+    <a href="<?= site_url(""); ?>">
+        <!-- Logo claro (para el fondo oscuro) -->
+        <img id="logo" class="h-12 w-auto" src="<?php echo base_url('images/agua.png'); ?>" alt="Logo">
+    </a>
+</div>
         <nav class="flex space-x-4">
             <?php if ($session->has('user_name')): ?>
                 <a href="<?= base_url('logout'); ?>"
@@ -55,31 +56,32 @@ $session = \Config\Services::session();
                 <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p> <!-- Texto de bienvenida -->
             <?php else: ?>
                 <nav class="flex space-x-4">
-            <?php if ($session->has('user_name')): ?>
-                <a href="<?= base_url('logout'); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
-                <a href="<?= site_url("perfil"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
-                <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-                <div class="relative inline-block text-left">
-                    <button type="button" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">Device</button>
-                    <!-- Menú desplegable aquí -->
-                </div>
-                <?php if ($session->get('is_admin') == true): ?>
-                    <a href="<?= site_url("panel_admin"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
-                <?php endif; ?>
-                <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p>
-            <?php else: ?>
-                <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-                <a href="<?= site_url("register"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
-                <a href="<?= site_url("login"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
+    <?php if ($session->has('user_name')): ?>
+        <a href="<?= base_url('logout'); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
+        <a href="<?= site_url("perfil"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
+        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+        <div class="relative inline-block text-left">
+            <button type="button" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">Device</button>
+            <!-- Menú desplegable aquí -->
+        </div>
+        <?php if ($session->get('is_admin') == true): ?>
+            <a href="<?= site_url("panel_admin"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+        <?php endif; ?>
+        <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p>
+    <?php else: ?>
+        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+        <a href="<?= site_url("register"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
+        <a href="<?= site_url("login"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
+    <?php endif; ?>
+</nav>
+
             <?php endif; ?>
-        </nav>
-            <?php endif; // este esta de mas?>
             <!-- Botón de modo oscuro/claro -->
             <button id="theme-toggle"
                 class="text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">
                 <img id="theme-icon" class="h-6 w-6" src="<?php echo base_url('images/sun.png'); ?>" alt="Tema">
             </button>
-        </nav> <!--Este tambien esta de mas -->
+        </nav>
     </header>
     <script>
         document.addEventListener('click', function (event) {
@@ -120,26 +122,26 @@ $session = \Config\Services::session();
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const logo = document.getElementById('logo');
+    document.addEventListener('DOMContentLoaded', () => {
+        const logo = document.getElementById('logo');
 
-            // Verificar el modo actual al cargar la página
-            if (localStorage.getItem('theme') === 'dark') {
-                logo.src = '<?php echo base_url(relativePath: 'images/agua_light.png'); ?>'; // Logo claro para modo oscuro
+        // Verificar el modo actual al cargar la página
+        if (localStorage.getItem('theme') === 'dark') {
+            logo.src = '<?php echo base_url(relativePath: 'images/agua_light.png'); ?>'; // Logo claro para modo oscuro
+        } else {
+            logo.src = '<?php echo base_url(relativePath: 'images/agua.png'); ?>'; // Logo oscuro para modo claro
+        }
+
+        // Cambiar la imagen del logo cuando el usuario alterna el tema
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.body.classList.contains('dark-mode')) {
+                logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo claro para modo oscuro
             } else {
-                logo.src = '<?php echo base_url(relativePath: 'images/agua.png'); ?>'; // Logo oscuro para modo claro
+                logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo oscuro para modo claro
             }
-
-            // Cambiar la imagen del logo cuando el usuario alterna el tema
-            document.getElementById('theme-toggle').addEventListener('click', () => {
-                if (document.body.classList.contains('dark-mode')) {
-                    logo.src = '<?php echo base_url('images/agua.png'); ?>'; // Logo claro para modo oscuro
-                } else {
-                    logo.src = '<?php echo base_url('images/agua_light.png'); ?>'; // Logo oscuro para modo claro
-                }
-            });
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
