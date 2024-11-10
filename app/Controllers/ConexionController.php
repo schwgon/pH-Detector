@@ -4,6 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\MedicionModel;
 use App\Models\DeviceModel;
+use App\Models\TiempoModel;
 
 class ConexionController extends Controller{
 
@@ -42,45 +43,40 @@ class ConexionController extends Controller{
 
         $deviceModel = new DeviceModel();
         $medicionModel = new MedicionModel();
+        $tiempoModel = new TiempoModel();
 
-        // $id_usuario = $this->session->get("user_id");
+        $tiempo = [
+            'dia' => date('d'),
+            'mes' => date('m'),
+            'ano' => date('Y'),
+            'hora' => date('H:i')
+        ];
+        $id_tiempo = $tiempoModel->add($tiempo);
+        
+        $data = [
+            'id_dispositivo' => $dispositivo_id,
+            'ph_value' => $ph_value,
+            'id_tiempo' => $id_tiempo
+        ];
+
+        $datos = ['ip' => $ip_address];
 
         // Verifica si el dispositivo ya esta registrado en la base de datos
         if (!$deviceModel->verificarID($dispositivo_id)) {
             $dispositivo = ['id_dispositivo' => $dispositivo_id];
             $deviceModel->agregarID($dispositivo);
             if (!$deviceModel->verificarIP($ip_address)) {
-                $datos = ['ip' => $ip_address];
                 $deviceModel->actualizarIP($dispositivo_id, $datos); // Actualiza la ip del dispositivo
-                if (!$deviceModel->verificarUsuario($id_usuario)) {
-                    $dato = ['id_usuario' => $id_usuario];
-                    $deviceModel->agregarUsuario($dispositivo_id, $dato); // Actualiza la ip del dispositivo
-                } else {
-                    // hacer consulta para agregar valores de pH constantemente;
-                    $data = [
-                        'id_dispositivo' => $dispositivo_id,
-                        'ph_value' => $ph_value,
-                        'fecha_hora' => date('Y-m-d H:i:s')
-                    ];
-                    $medicionModel->add($data);
-                    return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
-                }
+                $medicionModel->add($data);
+                return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
             } else {
-                // hacer consulta para agregar valores de pH constantemente;
-                $data = [
-                    'id_dispositivo' => $dispositivo_id,
-                    'ph_value' => $ph_value,
-                    'fecha_hora' => date('Y-m-d H:i:s')
-                ];
                 $medicionModel->add($data);
                 return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
             }
         }else {
             if (!$deviceModel->verificarIP($ip_address)) {
-                $datos = ['ip' => $ip_address];
                 $deviceModel->actualizarIP($dispositivo_id, $datos); // Actualiza la ip del dispositivo
             } else {
-                // hacer consulta para agregar valores de pH constantemente;
                 $data = [
                     'id_dispositivo' => $dispositivo_id,
                     'ph_value' => $ph_value,
@@ -92,9 +88,9 @@ class ConexionController extends Controller{
         }
     }
 
-    public function obtenerRangoPH() {
-        $ph_minimo = 6.5; // Valores simulados
-        $ph_maximo = 7.5;
-        return $this->response->setStatusCode(200)->setBody("$ph_minimo $ph_maximo");
-    }
+    // public function obtenerRangoPH() {
+    //     $ph_minimo = 6.5; // Valores simulados
+    //     $ph_maximo = 7.5;
+    //     return $this->response->setStatusCode(200)->setBody("$ph_minimo $ph_maximo");
+    // }
 }

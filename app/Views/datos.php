@@ -42,7 +42,7 @@
                             ?>
                             <tr class="bg-gray-800 hover:bg-gray-700">
                                 <td class="border-t border-gray-700 px-4 py-2 text-white"><?= htmlspecialchars($ph_value); ?></td>
-                                <td class="border-t border-gray-700 px-4 py-2 text-white"><?= htmlspecialchars($dat['fecha_hora']); ?></td>
+                                <td class="border-t border-gray-700 px-4 py-2 text-white"><?= htmlspecialchars($dat['dia']." - ".$dat['mes']." - ".$dat['ano']); ?></td>
                                 <td class="border-t border-gray-700 px-4 py-2 text-white <?= $estado_class; ?>"><?= htmlspecialchars($estado); ?></td> <!-- Nueva celda -->
                             </tr>
                         <?php endforeach; ?>
