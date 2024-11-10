@@ -79,23 +79,6 @@ class Auth extends BaseController
         }
     }
 
-    public function perfil() {
-        $userModel = new UserModel();
-        $userId = $this->session->get('user_id');
-        $userData = $userModel->find($userId);
-        if ($userData) {
-            if ($userData->id_permiso == 1) {
-                $userData->id_permiso = 'Administrador';
-            } else {
-                $userData->id_permiso = 'Usuario';
-            }
-            $data['user'] = $userData;
-            echo view('common/header');
-            echo view('common/footer');
-            return view('perfil', $data);
-        }
-    }
-
     public function agregar_email() {
         echo view('common/header');
         echo view('common/footer');

@@ -25,8 +25,6 @@ $session = \Config\Services::session();
                 <a href="<?= base_url('logout'); ?>"
                     class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" 6
                     onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
-                <a href="<?= site_url("perfil"); ?>"
-                    class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
                 <a href="<?= site_url("about_us"); ?>"
                     class="text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
                 <div class="relative inline-block text-left">
@@ -56,24 +54,23 @@ $session = \Config\Services::session();
                 <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p> <!-- Texto de bienvenida -->
             <?php else: ?>
                 <nav class="flex space-x-4">
-    <?php if ($session->has('user_name')): ?>
-        <a href="<?= base_url('logout'); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
-        <a href="<?= site_url("perfil"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
-        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-        <div class="relative inline-block text-left">
-            <button type="button" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">Device</button>
-            <!-- Menú desplegable aquí -->
-        </div>
-        <?php if ($session->get('is_admin') == true): ?>
-            <a href="<?= site_url("panel_admin"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
-        <?php endif; ?>
-        <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p>
-    <?php else: ?>
-        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
-        <a href="<?= site_url("register"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
-        <a href="<?= site_url("login"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
-    <?php endif; ?>
-</nav>
+                    <?php if ($session->has('user_name')): ?>
+                        <a href="<?= base_url('logout'); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Log Out</a>
+                        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+                        <div class="relative inline-block text-left">
+                            <button type="button" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">Device</button>
+                            <!-- Menú desplegable aquí -->
+                        </div>
+                        <?php if ($session->get('is_admin') == true): ?>
+                            <a href="<?= site_url("panel_admin"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                        <?php endif; ?>
+                        <p class="text-black ml-4">Welcome, <?= $session->get('user_name'); ?></p>
+                    <?php else: ?>
+                        <a href="<?= site_url("about_us"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">About Us</a>
+                        <a href="<?= site_url("register"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Sign Up</a>
+                        <a href="<?= site_url("login"); ?>" class="header-button text-black hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Log In</a>
+                    <?php endif; ?>
+                </nav>
 
             <?php endif; ?>
             <!-- Botón de modo oscuro/claro -->
