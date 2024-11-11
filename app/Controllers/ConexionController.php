@@ -7,29 +7,7 @@ use App\Models\DeviceModel;
 use App\Models\TiempoModel;
 
 class ConexionController extends Controller{
-
-    public function enviarDatos() {
-        $url = 'http://192.168.1.1/recibir'; // URL de la NodeMCU
-        $datos = array('mensaje' => 'Hola NodeMCU!'); // Datos a enviar
-    
-        // Usar CURL para enviar datos a la NodeMCU
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $datos);
-    
-        $response = curl_exec($ch);
-        curl_close($ch);
-    
-        echo "Respuesta de NodeMCU: " . $response; // Mostrar la respuesta
-        var_dump($response);
-        
-        echo view('common/header');
-        echo view('common/footer');
-        return view('inicio');
-    }
-    
-
+ 
     public function recibir_datos()
     {
         $dispositivo_id = $this->request->getPost('dispositivo_id');
