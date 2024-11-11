@@ -10,7 +10,7 @@ class TiempoModel extends Model{
     protected $allowedFields = ['dia', 'mes', 'ano', 'hora'];
 
     public function add($tiempo){
-        $this->save($tiempo);
+        $this->insert($tiempo);
         return $this->insertID();
     }
 }

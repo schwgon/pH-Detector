@@ -37,7 +37,7 @@ class ABM_Admin extends BaseController
     public function edit($id_usuario) {
         $userModel = new UserModel();
         $datos['usuario'] = $userModel->find($id_usuario); // Utiliza find para obtener un solo registro
-        echo view('common/header', ['session' => $this->session]);
+        echo view('common/header');
         return view('edit', $datos);
     }
 }

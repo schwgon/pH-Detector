@@ -51,46 +51,39 @@ class ConexionController extends Controller{
             'ano' => date('Y'),
             'hora' => date('H:i')
         ];
+
+         // Insertar tiempo y obtener ID
         $id_tiempo = $tiempoModel->add($tiempo);
-        
+
+        // Preparar datos de medición
         $data = [
             'id_dispositivo' => $dispositivo_id,
             'ph_value' => $ph_value,
             'id_tiempo' => $id_tiempo
         ];
 
-        $datos = ['ip' => $ip_address];
-
-        // Verifica si el dispositivo ya esta registrado en la base de datos
+        // Verificar si el dispositivo existe
         if (!$deviceModel->verificarID($dispositivo_id)) {
             $dispositivo = ['id_dispositivo' => $dispositivo_id];
             $deviceModel->agregarID($dispositivo);
-            if (!$deviceModel->verificarIP($ip_address)) {
-                $deviceModel->actualizarIP($dispositivo_id, $datos); // Actualiza la ip del dispositivo
-                $medicionModel->add($data);
-                return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
-            } else {
-                $medicionModel->add($data);
-                return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
-            }
-        }else {
-            if (!$deviceModel->verificarIP($ip_address)) {
-                $deviceModel->actualizarIP($dispositivo_id, $datos); // Actualiza la ip del dispositivo
-            } else {
-                $data = [
-                    'id_dispositivo' => $dispositivo_id,
-                    'ph_value' => $ph_value,
-                    'fecha_hora' => date('Y-m-d H:i:s')
-                ];
-                $medicionModel->add($data);
-            }
-            return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
         }
-    }
+
+        // Actualizar IP si es necesario
+        if (!$deviceModel->verificarIP($ip_address)) {
+            $deviceModel->actualizarIP($dispositivo_id, ['ip' => $ip_address]);
+        }
+
+        // Guardar la medición
+        if ($medicionModel->add($data)) {
+            return $this->response->setStatusCode(200)->setBody('Datos guardados correctamente');
+        } else {
+            return $this->response->setStatusCode(500)->setBody('Error al guardar la medición');
+        }
 
     // public function obtenerRangoPH() {
     //     $ph_minimo = 6.5; // Valores simulados
     //     $ph_maximo = 7.5;
     //     return $this->response->setStatusCode(200)->setBody("$ph_minimo $ph_maximo");
     // }
+    }
 }
