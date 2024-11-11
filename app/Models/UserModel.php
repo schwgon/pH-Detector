@@ -47,8 +47,4 @@ class UserModel extends Model{
             ->update();
         return $result !== false && $this->db->affectedRows() > 0; // Devuelve true si se actualizaron filas, false si no
     }
-
-    // public function deleteUsuario($id_usuario) {
-    //     return $this->delete($id_usuario);
-    // }
 }

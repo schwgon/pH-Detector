@@ -8,61 +8,121 @@
     <script src="<?= base_url('./js/address.js'); ?>"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/styles.css'); ?>">
-
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-800 flex justify-center items-center min-h-screen">
-    <div class="dark:text-black p-8 shadow-sm max-w-5xl w-full mx-auto border-2 border-emerald-400">
-        <h1 class="text-2xl font-sans mb-6 text-center">Register Device</h1>
+    <!-- Contenedor del formulario -->
+    <div class="max-w-4xl w-full mx-auto bg-transparent border-2 border-emerald-400 shadow-2xl p-8 space-y-8">
+        <h1 class="text-2xl font-extrasans text-center">Registrar Dispositivo</h1>
 
-        <?php if (session()->getFlashdata('error_message')): ?>
-            <div class="alert alert-error text-center mb-4 text-red-600">
-                <?= session()->getFlashdata('error_message') ?>
+        <form method="post" action="<?= base_url("add_device"); ?>" class="space-y-6">
+            <!-- Campo Nombre del Dispositivo -->
+            <div class="relative">
+                <input
+                    name="name"
+                    id="name"
+                    type="text"
+                    pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\s]+"
+                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    required
+                    placeholder="Nombre de Dispositivo"
+                />
+                <label
+                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    for="name"
+                >
+                    Nombre de Dispositivo
+                </label>
             </div>
-        <?php endif; ?>
 
-        <form method="post" action="<?= base_url("add_device"); ?>" class="space-y-4">
-            <div class="flex flex-wrap -mx-3">
-                <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
-                    <label for="id_dispositivo" class="block mb-2">Numero identificador de dispositivo</label>
-                    <input name="id_dispositivo" required type="text" onkeypress="return /[0-9]/.test(event.key)" maxlength="10" class="form-input w-full bg-gray-200 dark:bg-gray-900 text-black dark:text-white font-light pl-2" id="id_dispositivo" placeholder="478593">
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
-                    <label for="name" class="block mb-2">Nombre del dispositivo</label>
-                    <input name="name" required type="text" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\s]+" class="form-input w-full bg-gray-200 dark:bg-gray-900 text-black dark:text-white font-light pl-2" id="name" placeholder="Dispositivo 1">
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-4 md:mb-0">
-                    <label for="litro" class="block mb-2">Litros de liquido a medir</label>
-                    <input name="litro" required type="text" onkeypress="return /[0-9]/.test(event.key)" maxlength="10" class="form-input w-full bg-gray-200 dark:bg-gray-900 text-black dark:text-white font-light pl-2" id="litro" placeholder="xx">
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3">
-                <div class="w-full md:w-1/3 px-3">
-                    <label for="provincia" class="block mb-2">Provincia</label>
-                    <select name="provincia" class="form-input w-full bg-gray-100 text-black pl-2" id="province" required>
-                        <option value="Elije una provincia">Elije una provincia</option>
+            <!-- Selección de Provincia, Municipio y Ciudad -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Campo Provincia -->
+                <div>
+                    <label for="province" class="block mb-2">Provincia</label>
+                    <select id="province" name="province" class="w-full text-black rounded-lg border border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                        <option value="">Elije una Provincia</option>
                     </select>
                 </div>
-                <div class="w-full md:w-1/3 px-3">
-                    <label for="municipality" class="block  mb-2">Municipality</label>
-                    <select name="municipality" class="form-input w-full bg-gray-100  pl-2" id="municipality" required>
-                        <option value="Elije un municipio">Elije un municipio</option>
+
+                <!-- Campo Municipio -->
+                <div>
+                    <label for="municipality" class="block mb-2">Municipalidad</label>
+                    <select id="municipality" name="municipality" class="w-full text-black rounded-lg border border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                        <option value="">Elije una Municipalidad</option>
                     </select>
                 </div>
-                <div class="w-full md:w-1/3 px-3">
-                    <label for="city" class="block  mb-2">City</label>
-                    <select name="city" class="form-input w-full bg-gray-100  pl-2" id="city" required>
-                        <option value="Elije una ciudad">Elije una ciudad</option>
+
+                <!-- Campo Ciudad -->
+                <div>
+                    <label for="city" class="block mb-2">Ciudad</label>
+                    <select id="city" name="city" class="w-full text-black rounded-lg border border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400" required>
+                        <option value="">Elige una ciudad</option>
                     </select>
                 </div>
             </div>
-            <div class="flex flex-wrap -mx-3">
-                <div class="w-full px-3">
-                    <label for="address" class="block  mb-2">Address</label>
-                    <input name="address" required type="text" class="form-input w-full bg-gray-100 rounded-sm pl-2" id="address" placeholder="Address">
-                </div>
+
+            <!-- Campo Dirección -->
+            <div class="relative">
+                <input
+                    name="address"
+                    id="address"
+                    type="text"
+                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    required
+                    placeholder="Ubicación"
+                />
+                <label
+                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    for="address"
+                >
+                    Ubicación
+                </label>
             </div>
-            <button type="submit" class="bg-emerald-400 hover:bg-emerald-500 text-white font-sans py-2 w-full px-4 mb-4">Submit <i class="fas fa-chevron-right"></i></button>
+
+            <!-- Campo Litros -->
+            <div class="relative">
+                <input
+                    name="litros"
+                    id="liters"
+                    type="number"
+                    step="0.01"
+                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    required
+                    placeholder="Litros que medirá el dispositivo"
+                />
+                <label
+                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    for="liters"
+                >
+                    Litros que medirá el dispositivo
+                </label>
+            </div>
+
+            <!-- Campo Número identificador de dispositivo -->
+            <div class="relative">
+                <input
+                    name="id_dispositivo"
+                    id="id_dispositivo"
+                    type="text"
+                    maxlength="10"
+                    onkeypress="return /[0-9]/.test(event.key)"
+                    class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
+                    required
+                    placeholder="Número identificador de dispositivo"
+                />
+                <label
+                    class="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm"
+                    for="id_dispositivo"
+                >
+                    Número identificador de dispositivo
+                </label>
+            </div>
+
+            <!-- Botón de Enviar -->
+            <button type="submit" class="w-full py-2 px-4 bg-emerald-600 hover:bg-emerald-500 rounded-md shadow-lg font-semibold transition duration-200">
+                Enviar
+            </button>
         </form>
     </div>
 </body>

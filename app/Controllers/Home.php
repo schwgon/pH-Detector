@@ -15,9 +15,17 @@ class Home extends BaseController
         return view('inicio');
     }
 
-    public function index1(){
-        echo view('common/header');
+    public function preguntas() {
+        echo view('common/header'); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
         echo view('common/footer');
-        return view('about_us');
+        return view('preguntas'); // Carga y muestra la vista 'inicio'.
+        
     }
+    public function privacidad() {
+        echo view('common/header'); // Carga y muestra la vista 'common/header' pasando los datos de la sesion a la misma para su utilizacion.
+        echo view('common/footer');
+        return view('privacidad'); // Carga y muestra la vista 'inicio'.
+        
+    }
+
 }

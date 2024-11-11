@@ -3,10 +3,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DeviceModel extends Model{
+class DeviceModel extends Model {
 
-    
-    protected $table  = 'dispositivo';
+    protected $table = 'dispositivo';
     protected $primaryKey = 'id_dispositivo';
     protected $returnType       = 'array';
     protected $allowedFields = ['id_dispositivo', 'id_usuario', 'nombre', 'ip', 'id_barrio', 'id_calle', 'id_medicion_bomba', 'id_litros'];
@@ -63,4 +62,16 @@ class DeviceModel extends Model{
     public function agregarUsuario($dato, $dispositivo_id){
         $this->insert($dato)->where('id_dispositivo', $dispositivo_id);
     } 
+
+    public function getAllDevices(){
+        return $this->findAll();
+    }
+
+    public function deleteDevice($id_dispositivo){
+        return $this->delete($id_dispositivo);
+    }
+
+    public function getDevicesByUser($id_usuario){
+        return $this->where('id_usuario', $id_usuario)->findAll();
+    }
 }

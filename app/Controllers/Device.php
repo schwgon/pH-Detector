@@ -42,6 +42,7 @@ class Device extends BaseController
         $barrio = $this->request->getPost('municipality');
         $ciudad = $this->request->getPost('city');
         $calle = $this->request->getPost('address');
+        $metros_cubicos = $this->request->getPost('liters');
         $id_usuario = $this->session->get('user_id');
 
         $id_provincia = $this->provinciaModel->add($provincia);
