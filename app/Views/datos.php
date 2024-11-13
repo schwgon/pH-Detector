@@ -32,16 +32,13 @@
                                 if ($ph_value < 6.0) {
                                     $estado = 'Bajo';
                                     $estado_class = 'bg-red-500';
-                                } elseif ($ph_value >= 7.0) {
-                                    $estado = 'Normal';
-                                    $estado_class = 'bg-green-500';
+                                } elseif ($ph_value > 8.0) {
+                                    $estado = 'Alto';
+                                    $estado_class = 'bg-yellow-500';
                                 } elseif ($ph_value <= 8.0) {
                                     $estado = 'Normal';
                                     $estado_class = 'bg-green-500';
-                                } else {
-                                    $estado = 'Alto';
-                                    $estado_class = 'bg-yellow-500';
-                                }
+                                } 
                             ?>
                             <tr class="bg-gray-800 hover:bg-gray-700">
                                 <td class="border-t border-gray-700 px-4 py-2 text-white"><?= htmlspecialchars($ph_value); ?></td>

@@ -31,18 +31,16 @@ class Device extends BaseController
 
     public function indexDevice(){
         echo view('common/header');
-        echo view('common/footer');
         return view('device');
     }
     public function add_Device(){
         $nombre = $this->request->getPost('name');
         $id_dispositivo = $this->request->getPost('id_dispositivo');
-        $litros = $this->request->getPost('litro');
-        $provincia = $this->request->getPost('provincia');
+        $litros = $this->request->getPost('litros');
+        $provincia = $this->request->getPost('province');
         $barrio = $this->request->getPost('municipality');
         $ciudad = $this->request->getPost('city');
         $calle = $this->request->getPost('address');
-        $metros_cubicos = $this->request->getPost('liters');
         $id_usuario = $this->session->get('user_id');
 
         $id_provincia = $this->provinciaModel->add($provincia);

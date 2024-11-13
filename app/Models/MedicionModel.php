@@ -19,6 +19,6 @@ class MedicionModel extends Model{
     }
 
     public function add($data){
-        $this->insert($data);
+        $this->save($data);
     }
 }

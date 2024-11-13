@@ -11,7 +11,7 @@ class DeviceModel extends Model {
     protected $allowedFields = ['id_dispositivo', 'id_usuario', 'nombre', 'ip', 'id_barrio', 'id_calle', 'id_medicion_bomba', 'id_litros'];
 
     public function add($dispositivoData){
-        $this->insert($dispositivoData);
+        $this->save($dispositivoData);
     }
     
     public function actualizar($id_dispositivo, $dispositivoData){

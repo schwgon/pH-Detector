@@ -84,7 +84,7 @@
             <div class="relative">
                 <input
                     name="litros"
-                    id="liters"
+                    id="litros"
                     type="number"
                     step="0.01"
                     class="peer h-10 w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
