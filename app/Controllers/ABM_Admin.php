@@ -10,9 +10,9 @@ class ABM_Admin extends BaseController
         $userModel = new UserModel();
         $deviceModel = new DeviceModel();
         $resultado['usuarios'] = $userModel->Usuarios();
-        $resultado2['dispositivos'] = $deviceModel->getAllDevices();
+        $resultado['dispositivos'] = $deviceModel->getAllDevices();
         echo view('common/header');
-        return view('admin', $resultado, $resultado2);
+        return view('admin', $resultado);
     }
 
     public function add_user(){
