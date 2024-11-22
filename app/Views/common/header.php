@@ -24,8 +24,6 @@ $session = \Config\Services::session();
                 <a href="<?= base_url('logout'); ?>"
                     class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium" 
                     onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?');">Cerrar Sesión</a>
-                <a href="<?= site_url("perfil"); ?>"
-                    class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Perfil</a>
                     <a href="<?= site_url("preguntas"); ?>"
                     class="header-button hover:text-emerald-400 px-3 py-2 rounded-sm text-sm font-medium">Preguntas</a>
                     <a href="<?= site_url("privacidad"); ?>"
