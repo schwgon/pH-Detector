@@ -12,8 +12,8 @@
     <div class="w-full max-w-md shadow-md rounded-lg p-8 space-y-6 mx-auto">
         <h1 class="text-2xl font-semibold text-center ">Editar Usuario</h1>
 
-        <form action="<?= site_url('update/' . $usuario->id_usuario); ?>" method="post" class="space-y-4">
-            <input type="hidden" name="id_usuario" value="<?= $usuario->id_usuario; ?>">
+        <form action="<?= site_url('update/' . $usuario['id_usuario']); ?>" method="post" class="space-y-4">
+            <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario']; ?>">
 
             <!-- Campo Nombre -->
             <div class="relative">
@@ -21,7 +21,7 @@
                     type="text" 
                     name="name" 
                     id="name" 
-                    value="<?= $usuario->name; ?>" 
+                    value="<?= $usuario['name']; ?>" 
                     required 
                     class="peer w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     placeholder="Nombre"
@@ -40,7 +40,7 @@
                     type="email" 
                     name="email" 
                     id="email" 
-                    value="<?= $usuario->email; ?>" 
+                    value="<?= $usuario['email']; ?>" 
                     required 
                     class="peer w-full border-b-2 border-transparent bg-transparent placeholder-transparent focus:outline-none focus:border-emerald-400"
                     placeholder="Correo"
@@ -62,8 +62,8 @@
                     required 
                     class="w-full border-b-2 bg-transparent border-emerald-400 focus:outline-none focus:border-emerald-400"
                 >
-                    <option value="Admin" <?= $usuario->id_permiso == 'Admin' ? 'selected' : ''; ?>>Administrador</option>
-                    <option value="User" <?= $usuario->id_permiso == 'User' ? 'selected' : ''; ?>>Usuario</option>
+                    <option value="Admin" <?= $usuario['id_permiso'] == 'Admin' ? 'selected' : ''; ?>>Administrador</option>
+                    <option value="User" <?= $usuario['id_permiso'] == 'User' ? 'selected' : ''; ?>>Usuario</option>
                 </select>
             </div>
 
